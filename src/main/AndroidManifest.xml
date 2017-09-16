@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jskgmail.attendance">
+<uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.jskgmail.attendance.permission.SET_ALARM" />
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true"
+        android:smallScreens="true" android:xlargeScreens="true" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcheratt"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:roundIcon="@mipmap/ic_launcheratt"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".LoginActivity"
+            android:label="My Attendance"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".CaldroidSampleActivity" />
+        <activity android:name=".AndroidSQLiteTutorialActivity" />
+
+
+
+        <!-- Register the Alarm Receiver -->
+        <receiver android:name=".AlarmReceiver" />
+
+        <activity android:name=".Main99Activity" />
+        <activity android:name=".MainnotidialActivity" />
+        <activity android:name=".MainrearrActivity" />
+        <activity android:name=".MainsettingActivity" />
+        <activity android:name=".MainhistoryActivity" />
+
+    </application>
+
+</manifest>

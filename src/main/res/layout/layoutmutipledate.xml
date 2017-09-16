@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:paddingTop="25dp">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView22"
+        android:background="@android:color/background_light"
+        android:elevation="5dp"
+        app:srcCompat="@drawable/ic_add_box_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/background_light"
+        android:elevation="5dp"
+        app:srcCompat="@drawable/ic_add_box_black_24dp"
+        android:layout_alignBottom="@+id/textView40"
+        android:layout_toEndOf="@+id/textView26" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imageButton4"
+
+        android:background="@android:color/background_light"
+        android:elevation="5dp"
+        app:srcCompat="@drawable/ic_indeterminate_check_box_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="49dp"
+        android:background="@android:color/background_light"
+        android:elevation="5dp"
+        app:srcCompat="@drawable/ic_indeterminate_check_box_black_24dp"
+        android:layout_alignBottom="@+id/textView40"
+        android:layout_toEndOf="@+id/textView39" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imageButton3"
+        android:elevation="4dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButton2"
+        android:layout_alignTop="@+id/imageButton4"
+        android:layout_toEndOf="@+id/imageButton4"
+        android:elevation="4dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButton3"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/textView22"
+        android:layout_marginStart="18dp"
+        android:text="Present"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView39"
+        android:layout_below="@+id/imageButton3"
+        android:layout_marginTop="17dp"
+        android:paddingRight="62dp"
+        android:text="Absent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp" />
+
+    <RadioButton
+        android:id="@+id/radioButton8"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView40"
+        android:layout_below="@+id/imageButton2"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@+id/imageButton2"
+        android:layoutDirection="rtl"
+        android:paddingRight="60dp"
+        android:text="Holiday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/headd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/radioButton8"
+        android:layout_below="@+id/radioButton8"
+        android:layout_marginTop="20dp"
+        android:text="Your Note"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/headd"
+        android:layout_below="@+id/headd"
+        android:layout_marginTop="13dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:visibility="gone" />
+</RelativeLayout>

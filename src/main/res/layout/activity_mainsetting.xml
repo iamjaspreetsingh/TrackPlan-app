@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    tools:context="com.jskgmail.attendance.MainsettingActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="587dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/background_light"
+        android:gravity="right"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp">
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/background_light"
+            android:gravity="left"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:text="Reset data in all subjects"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="21sp"
+            tools:layout_editor_absoluteX="177dp"
+            tools:layout_editor_absoluteY="34dp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button5"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/background_light"
+            android:gravity="left"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:text="Delete all subjects "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="21sp" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="14dp"
+            android:layout_toEndOf="@+id/textView32"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Push Notifications"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="21sp" />
+
+        <Switch
+            android:id="@+id/authen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/view"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Authentication"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="21sp" />
+
+
+        <Button
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView28"
+            android:layout_marginTop="14dp"
+            android:background="@android:color/background_light"
+            android:gravity="left"
+            android:paddingLeft="8dp"
+            android:paddingTop="9dp"
+            android:text="Set Password"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/authen"
+            android:paddingLeft="8dp"
+            android:text="Authentification during startup"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/switch1"
+            android:layout_marginTop="7dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Notifications are sent only if you forget to mark attendance"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/currsemspinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView33"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/textView7"
+            android:dropDownWidth="160dp"
+            android:paddingBottom="0dp"
+            android:paddingEnd="5dp"
+            android:paddingRight="10dp"
+            android:paddingTop="8dp" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button6"
+            android:layout_marginTop="7dp"
+            android:background="@android:color/background_light"
+            android:paddingBottom="1dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="5dp"
+            android:text="Current Semester/class "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/currsemspinner"
+            android:paddingBottom="3dp"
+            android:paddingLeft="8dp"
+            android:text="To add and set semester / class"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="15sp" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView35"
+            android:layout_marginTop="9dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="9dp"
+            android:text="Multiple Presents / Absents"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/switch2"
+            android:paddingBottom="3dp"
+            android:paddingLeft="8dp"
+            android:text="Add multiple present /absent for a day"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView32"
+            android:layout_marginTop="11dp"
+            android:background="@android:color/background_light"
+            android:gravity="left"
+            android:paddingBottom="9dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="9dp"
+            android:text="Set Notification Time"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="21sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@id/switch2"
+            android:layout_alignParentStart="true"
+            android:background="@android:color/darker_gray" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView7"
+            android:background="@android:color/darker_gray" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@id/switch1"
+            android:layout_alignParentStart="true"
+            android:background="@android:color/darker_gray" />
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

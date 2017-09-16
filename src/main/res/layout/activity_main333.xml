@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/background_light">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/calendar1"
+            android:layout_width="match_parent"
+            android:layout_height="375dp"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"></LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingLeft="58dp"
+            android:text="Present :  "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp"
+            android:visibility="visible"
+            android:layout_below="@+id/calendar1"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/abs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/pre"
+            android:layout_alignBottom="@+id/pre"
+            android:layout_alignParentEnd="true"
+            android:paddingRight="58dp"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_horizontal"
+            android:paddingLeft="58dp"
+            android:text="Percentage :"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp"
+            android:layout_alignBottom="@+id/textView36"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView4"
+            android:layout_alignTop="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/per"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 %"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            android:layout_alignBaseline="@+id/textView4"
+            android:layout_alignBottom="@+id/textView4"
+            android:layout_toEndOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Absent :  "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp"
+            android:layout_above="@+id/textView36"
+            android:layout_toStartOf="@+id/abs" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="6dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp"
+            tools:text="You are on the track !!" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="Click on date to add present and absent\n\nLong click on date to add Notes"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true" />
+        </RelativeLayout>
+
+
+
+
+</ScrollView>

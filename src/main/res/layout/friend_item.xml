@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="73dp"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="11dp"
+        android:maxHeight="16dp"
+        android:maxWidth="16dp"
+        android:paddingRight="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:srcCompat="@mipmap/inc" />
+
+    <TextView
+        android:id="@+id/friendName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="70dp"
+        android:text="Friend name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="21sp" />
+
+    <TextView
+        android:id="@+id/statusMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Present : "
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="18sp"
+        android:layout_below="@+id/avatar"
+        android:layout_alignStart="@+id/friendName" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="false"
+        android:layout_marginStart="40dp"
+        android:text="100%"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/avatar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="11dp"
+        android:text="+ 0 %"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/statusMsg"
+        android:text="5"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/statusMsg" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/common_full_open_on_phone" />
+
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.jskgmail.attendance.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="479dp"
+        android:background="@android:color/background_light"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="12dp">
+
+        <ListView
+
+            android:id="@+id/listView6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/checkedTextView" />
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Add the subjects clicking on (+) button"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="18sp" />
+
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="11dp"
+            android:checkMark="@drawable/ic_arrow_upward_black_24dp"
+            android:checked="true"
+            android:paddingBottom="0dp"
+            android:paddingLeft="4dp"
+            android:paddingTop="0dp"
+            android:text="Name "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="17sp" />
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/checkedTextView"
+            android:layout_alignBottom="@+id/checkedTextView"
+            android:layout_marginStart="14dp"
+            android:layout_toEndOf="@+id/checkedTextView"
+            android:checkMark="@drawable/ic_arrow_upward_black_24dp"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:text="Present "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="17sp" />
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/checkedTextView2"
+            android:layout_alignBottom="@+id/checkedTextView2"
+            android:layout_marginEnd="11dp"
+            android:layout_toStartOf="@+id/checkedTextView4"
+            android:checkMark="@drawable/ic_arrow_upward_black_24dp"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:text="Absent "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="17sp" />
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/listView6"
+            android:layout_alignParentEnd="true"
+            android:checkMark="@drawable/ic_arrow_upward_black_24dp"
+            android:paddingBottom="0dp"
+            android:paddingRight="3dp"
+            android:paddingTop="0dp"
+            android:text="Percent "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="17sp" />
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
