@@ -2,6 +2,7 @@ package com.jskgmail.attendance;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
@@ -21,8 +22,14 @@ int tot;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainhistory);
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        actionBar.setDisplayShowHomeEnabled(true);
 
         ListViewAdapterhistory lviewAdapter;
 
@@ -59,17 +66,19 @@ String alldate="";
         Date dmy=new Date();
         String day =sdf.format(dmy);
         Log.i("gfdgffggfdgdf",day);
-        for (Contact cn : contacts)
-        { if ((cn.getPo().equals(MainActivity.semno))){
-            String[]kk=     cn.get_dateprea().split("\\.");
-for(int h=0;h<kk.length;h++)
-
-        if(!(alldate.contains(kk[h])))
-  {
-if(Integer.parseInt(kk[h])<0)
-    continue;
-      alldate=alldate+(kk[h]+".");}}}
-                Log.i("ksksksksttttttttttttttttttttttttttkssksk",alldate);
+        for (Contact cn : contacts) {
+            if ((cn.getPo().equals(MainActivity.semno))) {
+                String[] kk = cn.get_dateprea().split("\\.");
+                for (int h = 0; h < kk.length; h++)
+                    if (!(kk[h].equals(""))) {
+                        if (!(alldate.contains(kk[h]))) {
+                            if (Integer.parseInt(kk[h]) < 0)
+                                continue;
+                            alldate = alldate + (kk[h] + ".");
+                        }
+                    }
+            }
+        }                Log.i("ksksksksttttttttttttttttttttttttttkssksk",alldate);
 
 
 String[] dates=alldate.split("\\.");
@@ -82,10 +91,23 @@ for(int ii=0;ii<s;ii++)
             for (Contact cn : contacts) {
                 if ((cn.getPo().equals(MainActivity.semno))) {
                     String dneg = "-" + dates[i];
-                    if ((cn.get_dateprea().contains(dates[i])) && (!(cn.get_dateprea().contains(dneg)))) {
+                    int prrr=0,abbb=0;
+                    String []daprab=cn.get_dateprea().split("\\.");
+for(int ij=0;ij<daprab.length;ij++)
+{ if ((daprab[ij].equals(dates[i].replace("\\.",""))) && (!(daprab[ij].equals(dneg.replace("\\.","")))))
+    prrr++;
+    if ((daprab[ij].equals(dates[i].replace("\\.",""))) && ((daprab[ij].equals(dneg.replace("\\.","")))))
+        abbb++;
+
+}  Log.i("zzkssksk", String.valueOf(prrr));
+                    Log.i("zzkssksk", String.valueOf(abbb));
+
+                    if (prrr>abbb) {
                         Log.i("kssksk", cn.get_dateprea());
                         datesac[i] = datesac[i].concat(" , " + cn.getName());
                     }
+                    else datesac[i].replace(dates[i],"");
+                    Log.i("kssll",datesac[i]);  Log.i("ksslggl",dates[i]);
                 }
             }
             Log.i("ksskdfdfdfdfdfdfdfdfdfdsk",datesac[i]);

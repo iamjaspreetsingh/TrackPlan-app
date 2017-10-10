@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="My Attendance"> <intent-filter>
+            android:label="TrackPlan"> <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
@@ -27,7 +27,13 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".CaldroidSampleActivity" />
+        <activity android:name=".CaldroidSampleActivity"
+            android:parentActivityName="com.jskgmail.attendance.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jskgmail.attendance.MainActivity"/>
+
+            </activity>
         <activity android:name=".AndroidSQLiteTutorialActivity" />
 
 
@@ -35,11 +41,31 @@
         <!-- Register the Alarm Receiver -->
         <receiver android:name=".AlarmReceiver" />
 
-        <activity android:name=".Main99Activity" />
+        <activity android:name=".Main99Activity"  android:parentActivityName="com.jskgmail.attendance.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jskgmail.attendance.MainActivity"/>
+
+        </activity>
         <activity android:name=".MainnotidialActivity" />
-        <activity android:name=".MainrearrActivity" />
-        <activity android:name=".MainsettingActivity" />
-        <activity android:name=".MainhistoryActivity" />
+        <activity android:name=".MainrearrActivity"  android:parentActivityName="com.jskgmail.attendance.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jskgmail.attendance.MainActivity"/>
+
+        </activity>
+        <activity android:name=".MainsettingActivity"  android:parentActivityName="com.jskgmail.attendance.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jskgmail.attendance.MainActivity"/>
+
+        </activity>
+        <activity android:name=".MainhistoryActivity"  android:parentActivityName="com.jskgmail.attendance.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jskgmail.attendance.MainActivity"/>
+
+        </activity>
 
     </application>
 

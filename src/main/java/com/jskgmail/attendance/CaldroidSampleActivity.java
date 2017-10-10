@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -147,6 +148,7 @@ public class CaldroidSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main333);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         checkdata1();
+
         final SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
 
         // Setup caldroid fragment
@@ -185,6 +187,15 @@ public class CaldroidSampleActivity extends AppCompatActivity {
 //            args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
 
             caldroidFragment.setArguments(args);
+
+
+
+            ActionBar actionBar=getSupportActionBar();
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+            actionBar.setDisplayShowHomeEnabled(true);
+
         }
         checkthefirsttime();
         checkdatescolor();
@@ -297,11 +308,6 @@ Log.i("dadadadadadadad",dmyyy);
         caldroidFragment.setCaldroidListener(listener);
 
     }
-
-
-
-
-
 
 
 
@@ -1427,7 +1433,8 @@ resume();
 
 
     void findper()
-    {int crittt=Integer.parseInt(crit);
+    {Log.e("dddddddddd",(crit));
+        int crittt=Integer.parseInt(crit);
         TextView cr=(TextView)findViewById(R.id.textView8);
         int p=Integer.parseInt(pre);
         int a=Integer.parseInt(abs);
@@ -1481,6 +1488,7 @@ resume();
         TextView perc=(TextView)findViewById(R.id.per);
         pr.setText((pre));
         ab.setText((abs));
+      per=(float)Math.round(per*100)/100;
         perc.setText((per + "%"));
 
     }

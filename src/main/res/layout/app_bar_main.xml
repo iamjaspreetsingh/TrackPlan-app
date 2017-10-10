@@ -14,7 +14,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:weightSum="1">
 
@@ -33,6 +33,7 @@
         android:layout_height="59dp"
         android:layout_gravity="top|left"
         android:clickable="true"
+        app:backgroundTint="?attr/colorPrimary"
         app:fabSize="mini"
         app:layout_anchor="@+id/relativeLayout2"
         app:layout_anchorGravity="bottom|right"

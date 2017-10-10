@@ -1,6 +1,7 @@
 package com.jskgmail.attendance;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,8 +61,8 @@ public class ListViewAdapter extends BaseAdapter  {
         TextView txtper;
         TextView txtperincde;
 TextView text;
-        ImageView img;
-        ImageView imageView;
+        TextView img;
+        ImageView imageView;ImageView imageView33;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -79,8 +80,9 @@ TextView text;
             holder.txtviewdesc=(TextView)convertView.findViewById(R.id.textView14);
             holder.txtper=(TextView)convertView.findViewById(R.id.textView12);
             holder.txtperincde=(TextView)convertView.findViewById(R.id.textView13) ;
-            holder.img=(ImageView)convertView.findViewById(R.id.avatar);
+            holder.img=(TextView)convertView.findViewById(R.id.avatar);
             holder.imageView=(ImageView)convertView.findViewById(R.id.imageView2);
+            holder.imageView33=(ImageView)convertView.findViewById(R.id.imageView3);
 holder.text=(TextView)convertView.findViewById(R.id.statusMsg);
 
 
@@ -100,15 +102,28 @@ holder.text=(TextView)convertView.findViewById(R.id.statusMsg);
         }
         holder.txtviewtitle.setText(title.get(position));
         holder.txtviewdesc.setText(description.get(position));
-        holder.txtper.setText(per.get(position));
+        Log.e("dffddfdfdf",description.get(position));
+        Log.e( "dgbgfdgfgfdgf",per.get(position).replace("%","")   );
+        holder.txtper.setText("") ;
         holder.txtperincde.setText(perincdec.get(position));
         Log.e("sdddsdsdsdsdsdsds", ch.get(position));
 
-      if(  !(ch.get(position).equals(""))) {
+    if(  !(ch.get(position).equals(""))) {
           if ((Integer.parseInt(ch.get(position)) == 0))
-              holder.img.setImageResource(R.mipmap.inc);
+          {
+               holder.img.setText(per.get(position));
+              holder.img.setTextColor(Color.rgb(0,128,0));
+              holder.imageView33.setImageResource(R.drawable.ic_done_black_24dp);
+              if(holder.txtperincde.getText().toString().contains("Add the Attendance"))holder.txtperincde.setTextColor(Color.BLACK);
+else   holder.txtperincde.setTextColor(Color.rgb(0,128,0));
+          }
           else
-              holder.img.setImageResource(R.mipmap.decccc);
+          {
+              holder.img.setText(per.get(position));
+              holder.img.setTextColor(Color.RED);
+              holder.imageView33.setImageResource(R.drawable.ic_cancel_black_24dp);
+              holder.txtperincde.setTextColor(Color.RED);
+          }
       }
         if(  (ch.get(position).equals(""))) holder.text.setText(" Nothing to show ");
         convertView.setTag(holder);

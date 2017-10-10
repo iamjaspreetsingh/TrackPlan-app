@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,6 +38,12 @@ static  int hour=0,min=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        actionBar.setDisplayShowHomeEnabled(true);
         setContentView(R.layout.activity_mainsetting);
         final Button reset=(Button)findViewById(R.id.button5);
 
@@ -122,21 +129,21 @@ if(myvalue2==0)
         else  if(myvalue==1)
             notif.setChecked(false);
         if(myvalue==1)
-        {  notisetttime.setEnabled(false);
+        {  notisetttime.setEnabled(false); if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
-        notisetttime.setTextSize(21);}
+        notisetttime.setTextSize(21);}}
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(notif.isChecked()==false)
                 { setdisable("123455");
-                    notisetttime.setEnabled(false);
+                    notisetttime.setEnabled(false); if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
-                    notisetttime.setTextSize(21);
+                    notisetttime.setTextSize(21);}
 
                 }
-                else {setenable("123455");  notisetttime.setEnabled(true);   notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
-                    notisetttime.setTextSize(21);
+                else {setenable("123455");  notisetttime.setEnabled(true);  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
+                    notisetttime.setTextSize(21);}
                 }
             }
         });
@@ -151,8 +158,8 @@ if(myvalue2==0)
             @Override
             public void onClick(View v) {
                 if(auth.isChecked()==true)
-                { setenableauth("123999"); passw.setEnabled(true);   passw.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
-                    passw.setTextSize(21);
+                { setenableauth("123999"); passw.setEnabled(true);  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  passw.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
+                    passw.setTextSize(21);}
                     SharedPreferences pref=getSharedPreferences("password",0);
                     final String passwo=pref.getString("password","");
                     if(passwo.equals(""))
@@ -163,9 +170,9 @@ if(myvalue2==0)
 
 
                     setdisableauth("123999");
-                    passw.setEnabled(false);
+                    passw.setEnabled(false); if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     passw.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
-                    passw.setTextSize(21);
+                    passw.setTextSize(21);}
                 }
             }
         });
@@ -510,7 +517,12 @@ String ppp=passch.getText().toString();
 }
 
     private void go22() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
 
+            Button setnoti=(Button)findViewById(R.id.button10);
+            Toast.makeText(getApplicationContext(),"Your mobile doesnot support this feature",Toast.LENGTH_SHORT).show();
+            setnoti.setVisibility(View.GONE);
+        }
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.layouttimepicker, null);
 
@@ -532,19 +544,19 @@ String ppp=passch.getText().toString();
         });
 
 
-        alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                hour=timep.getHour();
-                min=timep.getMinute();
-                Log.i(String.valueOf(hour),"fggggggggggggggggggggggggggggggggg");
-
-            }
-        });
-        AlertDialog dialog = alert.create();
-        dialog.show();
+                @RequiresApi(api = Build.VERSION_CODES.M)
+                @Override
+                public void onClick(DialogInterface dialog, int which) { if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    hour = timep.getHour();
+                    min = timep.getMinute();
+                    Log.i(String.valueOf(hour), "fggggggggggggggggggggggggggggggggg");
+                }
+                }
+            });
+            AlertDialog dialog = alert.create();
+            dialog.show();
 
 
 

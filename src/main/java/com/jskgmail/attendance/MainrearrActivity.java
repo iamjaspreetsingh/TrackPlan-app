@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +36,12 @@ static String naaaa="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        actionBar.setDisplayShowHomeEnabled(true);
         setContentView(R.layout.activity_mainrearr);setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 rearranging();
         check();

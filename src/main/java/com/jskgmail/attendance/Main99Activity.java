@@ -2,6 +2,7 @@ package com.jskgmail.attendance;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
@@ -24,6 +25,11 @@ public class Main99Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main99);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        actionBar.setDisplayShowHomeEnabled(true);
         stringArrayList= new ArrayList<String>();
 
 

@@ -27,12 +27,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -61,8 +60,8 @@ private AdView madview;
     };
     private ArrayList<String> stringArrayList, stringArrayList1, stringArrayList2, stringArrayList3, stringArrayList4;
     String subj, crit, delsub, frname, delsub1,resub="";
-    Spinner criteria;
-    static String subbb,recrit="",delsub2;
+    SeekBar criteria;
+    static String subbb,recrit="75",delsub2;
     int check = 0;
     static int critt = 25;
    static float percenall=0;
@@ -507,7 +506,7 @@ Log.i(renamename,"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 
 
                 stringArrayList1.add( cn.getName());
-                stringArrayList.add( cn.getPresent());
+                stringArrayList.add( cn.getPresent()+"      Total:  "+(Integer.parseInt(cn.getPresent())+(Integer.parseInt(cn.getAbssent()))));
                 int ab = Integer.parseInt(cn.getAbssent());
                 int pr = Integer.parseInt(cn.getPresent());
                 float per;
@@ -524,12 +523,74 @@ Log.i(renamename,"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
                     incdec = 0;
                 else
                     incdec = -Integer.parseInt(cn.getPhoneNumber()) + percen;
-                if (incdec > 0)
-                    stringArrayList3.add( "+ " + String.valueOf(incdec) + " %");
-                else if (incdec < 0)
-                    stringArrayList3.add( "- " + String.valueOf(-incdec) + " %");
-                else
-                    stringArrayList3.add( " 0 %");
+
+
+
+                int crittt=Integer.parseInt(cn.getPhoneNumber());
+                int tot=pr+ab;
+                int pp=pr,tott=tot;
+                int next=0,nextt=0;
+                per =((float)pr/tot)*100;
+                float percc=per;
+                if((pr==0)&&(ab==0))
+                {
+                    stringArrayList3.add("Add the Attendance");
+                }
+
+                else if(Integer.parseInt(cn.getPhoneNumber())>per) {
+                    while(percc<crittt)
+                    {
+                        pp++;
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        next++;
+                    }
+                    stringArrayList3.add("Need to attend next "+next+" classes !");
+                }
+                else if(crittt<per)  {
+
+
+
+                    while(percc>crittt)
+                    {
+
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        nextt++;
+                    }
+
+                    nextt--;
+                    if(nextt==1)
+                        stringArrayList3.add ("May leave next 1 class !!.");
+                    else   if(nextt!=0)
+                        stringArrayList3.add("May leave next "+nextt+" classes !!");
+                    else  stringArrayList3.add("On the Track !!");
+                }
+                else  stringArrayList3.add("On the Track !!");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 if (incdec >= 0)
@@ -585,6 +646,8 @@ String resub()
 
     final EditText etUsername = (EditText) alertLayout.findViewById(R.id.et_username);
 
+
+
     AlertDialog.Builder alert = new AlertDialog.Builder(this);
     alert.setTitle("Modify Subject");
     alert.setIcon(R.drawable.ic_edit_black_24dp);
@@ -613,91 +676,33 @@ rename(etUsername.getText().toString());
     AlertDialog dialog = alert.create();
     dialog.show();
 
-
-    criteria = (Spinner) alertLayout.findViewById(R.id.spinner);
-
-    List<String> category1 = new ArrayList<String>();
-    category1.add("100 % ");
-    category1.add("99 % ");
-    category1.add("98 % ");
-    category1.add("97 % ");
-    category1.add("96 % ");
-    category1.add("95 % ");
-    category1.add("94 % ");
-    category1.add("93 % ");
-    category1.add("92 % ");
-    category1.add("91 % ");
-    category1.add("90 % ");
-    category1.add("89 % ");
-    category1.add("88 % ");
-    category1.add("87 % ");
-    category1.add("86 % ");
-    category1.add("85 % ");
-    category1.add("84 % ");
-    category1.add("83 % ");
-    category1.add("82 % ");
-    category1.add("81 % ");
-    category1.add("80 % ");
-    category1.add("79 % ");
-    category1.add("78 % ");
-    category1.add("77 % ");
-    category1.add("76 % ");
-    category1.add("75 % ");
-    category1.add("74 % ");
-    category1.add("73 % ");
-    category1.add("72 % ");
-    category1.add("71 % ");
-    category1.add("70 % ");
-    category1.add("69 % ");
-    category1.add("68 % ");
-    category1.add("67 % ");
-    category1.add("66 % ");
-    category1.add("65 % ");
-    category1.add("64 % ");
-    category1.add("63 % ");
-    category1.add("62 % ");
-    category1.add("61 % ");
-    category1.add("60 % ");
-    category1.add("59 % ");
-    category1.add("58 % ");
-    category1.add("57 % ");
-    category1.add("56 % ");
-    category1.add("55 % ");
-    category1.add("54 % ");
-    category1.add("53 % ");
-    category1.add("52 % ");
-    category1.add("51 % ");
-    category1.add("50 % ");
-    category1.add("49 % ");
-    category1.add("48 % ");
-    category1.add("47 % ");
-    category1.add("46 % ");
-    category1.add("45 % ");
-    category1.add("44 % ");
-    category1.add("43 % ");
-    category1.add("42 % ");
-    category1.add("41 % ");
-    category1.add("40 % ");
-
-
-    ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, category1);
-    dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-    criteria.setAdapter(dataAdapter1);
-    criteria.setSelection(critt);
-    criteria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+final TextView critsh=(TextView)alertLayout.findViewById(R.id.textView38);
+    SeekBar criteria = (SeekBar) alertLayout.findViewById(R.id.seekBar);
+    criteria.setProgress(Integer.parseInt(recrit));critsh.setText(recrit+"%");
+    criteria.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
         @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            crit = parent.getItemAtPosition(position).toString().replaceAll(" % ", "");
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+progress=progress-progress%5;
+           critsh.setText(progress+"%");
+            crit = String.valueOf(progress);
             recrit=crit;
             critt = 100 - Integer.parseInt(crit);
+
         }
 
         @Override
-        public void onNothingSelected(AdapterView<?> parent) {
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
 
         }
     });
+
+
+
 
 return "svsfdfds";
 }
@@ -738,90 +743,32 @@ return "svsfdfds";
         dialog.show();
 
 
-        criteria = (Spinner) alertLayout.findViewById(R.id.spinner);
+        criteria = (SeekBar) alertLayout.findViewById(R.id.seekBar);
 
-        List<String> category1 = new ArrayList<String>();
-        category1.add("100 % ");
-        category1.add("99 % ");
-        category1.add("98 % ");
-        category1.add("97 % ");
-        category1.add("96 % ");
-        category1.add("95 % ");
-        category1.add("94 % ");
-        category1.add("93 % ");
-        category1.add("92 % ");
-        category1.add("91 % ");
-        category1.add("90 % ");
-        category1.add("89 % ");
-        category1.add("88 % ");
-        category1.add("87 % ");
-        category1.add("86 % ");
-        category1.add("85 % ");
-        category1.add("84 % ");
-        category1.add("83 % ");
-        category1.add("82 % ");
-        category1.add("81 % ");
-        category1.add("80 % ");
-        category1.add("79 % ");
-        category1.add("78 % ");
-        category1.add("77 % ");
-        category1.add("76 % ");
-        category1.add("75 % ");
-        category1.add("74 % ");
-        category1.add("73 % ");
-        category1.add("72 % ");
-        category1.add("71 % ");
-        category1.add("70 % ");
-        category1.add("69 % ");
-        category1.add("68 % ");
-        category1.add("67 % ");
-        category1.add("66 % ");
-        category1.add("65 % ");
-        category1.add("64 % ");
-        category1.add("63 % ");
-        category1.add("62 % ");
-        category1.add("61 % ");
-        category1.add("60 % ");
-        category1.add("59 % ");
-        category1.add("58 % ");
-        category1.add("57 % ");
-        category1.add("56 % ");
-        category1.add("55 % ");
-        category1.add("54 % ");
-        category1.add("53 % ");
-        category1.add("52 % ");
-        category1.add("51 % ");
-        category1.add("50 % ");
-        category1.add("49 % ");
-        category1.add("48 % ");
-        category1.add("47 % ");
-        category1.add("46 % ");
-        category1.add("45 % ");
-        category1.add("44 % ");
-        category1.add("43 % ");
-        category1.add("42 % ");
-        category1.add("41 % ");
-        category1.add("40 % ");
-
-
-        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, category1);
-        dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        criteria.setAdapter(dataAdapter1);
-        criteria.setSelection(critt);
-        criteria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        criteria.setProgress(Integer.parseInt(recrit));
+        final TextView critsh=(TextView)alertLayout.findViewById(R.id.textView38);critsh.setText(recrit+"%");
+        criteria.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                crit = parent.getItemAtPosition(position).toString().replaceAll(" % ", "");
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+progress=progress-progress%5;
+                critsh.setText(progress+"%");
+                crit = String.valueOf(progress);
+                Log.e("kyaaaaaaaaaaa",crit);
+                recrit=crit;
                 critt = 100 - Integer.parseInt(crit);
+
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });
-
 
     }
 
@@ -834,7 +781,13 @@ return "svsfdfds";
 
         Log.i("semcurrrrrrrrrrrrrrrrrrrrr",insemnoo);
         DatabaseHandler db = new DatabaseHandler(this);
-        db.addContact(new Contact(subj, crit, "0", "0", "","",insemnoo,"",""));
+        db.addContact(new Contact(subj, recrit, "0", "0", "","",insemnoo,"",""));
+
+        SharedPreferences.Editor editor = getSharedPreferences("sorting", 0).edit();
+        editor.putString("sorting", "0");
+        editor.commit();
+
+
 
 
         SharedPreferences pref1=getSharedPreferences("rearrange",0);
@@ -860,7 +813,8 @@ if(!(insemnoo1.equals("0.0"))) {
 
         stringArrayList2 = new ArrayList<String>();
 
-
+        stringArrayList3 = new ArrayList<String>();
+        stringArrayList4 = new ArrayList<String>();
         listView = (ListView) findViewById(R.id.listView6);
 
 
@@ -1172,7 +1126,7 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
             if ((cn.getPo().equals(MainActivity.semno))){
                 totalsub = cn.getID() + 1;
             }}}
-        String na="",prq="",perq="",perinqc="",sig="";
+        String na="",prq="",perq="",perinqc="",sig="";String totq="";
         int i=0;
         for (Contact cn : contacts) {
 
@@ -1180,9 +1134,10 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
 
                 na=na+cn.getName()+".";prq=prq+cn.getPresent()+".";
 
-
                 int ab = Integer.parseInt(cn.getAbssent());
                 int pr = Integer.parseInt(cn.getPresent());
+
+                totq=totq+String.valueOf(pr+ab)+".";
                 float per;
                 if ((ab == 0) && (pr == 0))
                     per = 0;
@@ -1198,12 +1153,50 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
                     incdec = 0;
                 else
                     incdec = -Integer.parseInt(cn.getPhoneNumber()) + percen;
-                if (incdec > 0)
-                    perinqc=perinqc+( "+ " + String.valueOf(incdec) + " %.");
-                else if (incdec < 0)
-                    perinqc=perinqc+( "- " + String.valueOf(-incdec) + " %.");
-                else
-                    perinqc=perinqc+( " 0 %.");
+                int crittt=Integer.parseInt(cn.getPhoneNumber());
+                int tot=pr+ab;
+                int pp=pr,tott=tot;
+                int next=0,nextt=0;
+                per =((float)pr/tot)*100;
+                float percc=per;
+                if((pr==0)&&(ab==0))
+                {
+                    perinqc=perinqc+("Add the Attendance");
+                }
+
+                else if(Integer.parseInt(cn.getPhoneNumber())>per) {
+                    while(percc<crittt)
+                    {
+                        pp++;
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        next++;
+                    }
+                    perinqc=perinqc+("Need to attend next "+next+" classes !.");
+                }
+                else if(crittt<per)  {
+
+
+
+                    while(percc>crittt)
+                    {
+
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        nextt++;
+                    }
+
+                    nextt--;
+                   if(nextt==1)
+                       perinqc=perinqc+("May leave next 1 class !!.");
+                  else  if(nextt!=0)
+                        perinqc=perinqc+("May leave next "+nextt+" classes !!.");
+                    else    perinqc=perinqc+("On the Track !!.");
+                }
+                else    perinqc=perinqc+("On the Track !!.");
+
+
+
 
 
                 if (incdec >= 0)
@@ -1221,37 +1214,37 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
 
 
         String[] naa=na.split("\\."),prr=prq.split("\\."),perqinccc=perinqc.split("\\."),perqqqq=perq.split("\\."),sigqq=sig.split("\\.");
+      String[] totot=totq.split("\\.");
         for(int ii=0;ii<naa.length-1;ii++) {
 
 
             for (int j = 0; j < naa.length - ii - 1; j++) {
 
+ {
+    if (Integer.parseInt(prr[j]) > Integer.parseInt(prr[j + 1])) {
+        String temp = prr[j];
+        prr[j] = prr[j + 1];
+        prr[j + 1] = temp;
 
-                if(Integer.parseInt(prr[j])>Integer.parseInt(prr[j+1]))
-                {
-                    String temp=prr[j];
-                    prr[j]=prr[j+1];
-                    prr[j+1]=temp;
+        String temp1 = naa[j];
+        naa[j] = naa[j + 1];
+        naa[j + 1] = temp1;
 
-                    String temp1=naa[j];
-                    naa[j]=naa[j+1];
-                    naa[j+1]=temp1;
+        String temp2 = perqinccc[j];
+        perqinccc[j] = perqinccc[j + 1];
+        perqinccc[j + 1] = temp2;
 
-                    String temp2=perqinccc[j];
-                    perqinccc[j]=perqinccc[j+1];
-                    perqinccc[j+1]=temp2;
+        String temp3 = perqqqq[j];
+        perqqqq[j] = perqqqq[j + 1];
+        perqqqq[j + 1] = temp3;
 
-                    String temp3=perqqqq[j];
-                    perqqqq[j]=perqqqq[j+1];
-                    perqqqq[j+1]=temp3;
-
-                    String temp4=sigqq[j];
-                    sigqq[j]=sigqq[j+1];
-                    sigqq[j+1]=temp4;
+        String temp4 = sigqq[j];
+        sigqq[j] = sigqq[j + 1];
+        sigqq[j + 1] = temp4;
 
 
-                }
-
+    }
+}
 
 
 
@@ -1273,7 +1266,7 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
         if(order==1) {
             for (int jjj = 0; jjj < perqinccc.length; jjj++) {
                 stringArrayList1.add(naa[jjj]);
-                stringArrayList.add(prr[jjj]);
+                stringArrayList.add(prr[jjj]+"      Total:  "+totot[jjj]);
                 stringArrayList2.add(perqqqq[jjj]);
                 stringArrayList3.add(perqinccc[jjj]);
                 stringArrayList4.add(sigqq[jjj]);
@@ -1282,7 +1275,7 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
         else {
             for (int jjj = perqinccc.length-1; jjj >= 0; jjj--) {
                 stringArrayList1.add(naa[jjj]);
-                stringArrayList.add(prr[jjj]);
+                stringArrayList.add(prr[jjj]+"      Total:  "+totot[jjj]);
                 stringArrayList2.add(perqqqq[jjj]);
                 stringArrayList3.add(perqinccc[jjj]);
                 stringArrayList4.add(sigqq[jjj]);
@@ -1322,7 +1315,7 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
 
             if ((cn.getPo().equals(semno))){
 
-                na=na+cn.getName()+".";prq=prq+cn.getPresent()+".";
+                na=na+cn.getName()+".";prq=prq+cn.getPresent()+"      Total:  "+(Integer.parseInt(cn.getPresent())+(Integer.parseInt(cn.getAbssent()))) +".";
 
 
                 int ab = Integer.parseInt(cn.getAbssent());
@@ -1342,12 +1335,51 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
                     incdec = 0;
                 else
                     incdec = -Integer.parseInt(cn.getPhoneNumber()) + percen;
-                if (incdec > 0)
-                    perinqc=perinqc+( "+ " + String.valueOf(incdec) + " %.");
-                else if (incdec < 0)
-                    perinqc=perinqc+( "- " + String.valueOf(-incdec) + " %.");
-                else
-                    perinqc=perinqc+( " 0 %.");
+                int crittt=Integer.parseInt(cn.getPhoneNumber());
+                int tot=pr+ab;
+                int pp=pr,tott=tot;
+                int next=0,nextt=0;
+                per =((float)pr/tot)*100;
+                float percc=per;
+                if((pr==0)&&(ab==0))
+                {
+                    perinqc=perinqc+("Add the Attendance");
+                }
+
+                else if(Integer.parseInt(cn.getPhoneNumber())>per) {
+                    while(percc<crittt)
+                    {
+                        pp++;
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        next++;
+                    }
+                    perinqc=perinqc+("Need to attend next "+next+" classes !.");
+                }
+                else if(crittt<per)  {
+
+
+
+                    while(percc>crittt)
+                    {
+
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        nextt++;
+                    }
+
+                    nextt--;
+                    if(nextt==1)
+                        perinqc=perinqc+("May leave next 1 class !!.");
+                    else  if(nextt!=0)
+                        perinqc=perinqc+("May leave next "+nextt+" classes !!.");
+                    else    perinqc=perinqc+("On the Track !!.");
+                }
+                else    perinqc=perinqc+("On the Track !!.");
+
+
+
+
 
 
                 if (incdec >= 0)
@@ -1466,7 +1498,7 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
 
             if ((cn.getPo().equals(semno))){
 
-                na=na+cn.getName()+".";prq=prq+cn.getPresent()+".";
+                na=na+cn.getName()+".";prq=prq+cn.getPresent()+"      Total:  "+(Integer.parseInt(cn.getPresent())+(Integer.parseInt(cn.getAbssent()))) +".";
 
 
                 int ab = Integer.parseInt(cn.getAbssent());
@@ -1486,12 +1518,48 @@ checkdatafornamee(0); SharedPreferences.Editor editor = getSharedPreferences("so
                     incdec = 0;
                 else
                     incdec = -Integer.parseInt(cn.getPhoneNumber()) + percen;
-                if (incdec > 0)
-                    perinqc=perinqc+( "+ " + String.valueOf(incdec) + " %.");
-                else if (incdec < 0)
-                    perinqc=perinqc+( "- " + String.valueOf(-incdec) + " %.");
-                else
-                    perinqc=perinqc+( " 0 %.");
+                int crittt=Integer.parseInt(cn.getPhoneNumber());
+                int tot=pr+ab;
+                int pp=pr,tott=tot;
+                int next=0,nextt=0;
+                per =((float)pr/tot)*100;
+                float percc=per;
+                if((pr==0)&&(ab==0))
+                {
+                    perinqc=perinqc+("Add the Attendance");
+                }
+
+                else if(Integer.parseInt(cn.getPhoneNumber())>per) {
+                    while(percc<crittt)
+                    {
+                        pp++;
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        next++;
+                    }
+                    perinqc=perinqc+("Need to attend next "+next+" classes !.");
+                }
+                else if(crittt<per)  {
+
+
+
+                    while(percc>crittt)
+                    {
+
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        nextt++;
+                    }
+
+                    nextt--;
+                    if(nextt!=0)
+                        if(nextt==1)
+                            perinqc=perinqc+("May leave next 1 class !!.");
+                        else   perinqc=perinqc+("May leave next "+nextt+" classes !!.");
+                    else    perinqc=perinqc+("On the Track !!.");
+                }
+                else    perinqc=perinqc+("On the Track !!.");
+
 
 
                 if (incdec >= 0)
@@ -1613,7 +1681,7 @@ String na="",prq="",perq="",perinqc="",sig="",abbb="";
 
             if ((cn.getPo().equals(semno))){
 
-na=na+cn.getName()+".";prq=prq+cn.getPresent()+".";
+na=na+cn.getName()+".";prq=prq+cn.getPresent()+"      Total:  "+(Integer.parseInt(cn.getPresent())+(Integer.parseInt(cn.getAbssent()))) +".";
 
 
                 int ab = Integer.parseInt(cn.getAbssent());
@@ -1633,12 +1701,49 @@ abbb=abbb+String.valueOf(ab)+".";
                     incdec = 0;
                 else
                     incdec = -Integer.parseInt(cn.getPhoneNumber()) + percen;
-                if (incdec > 0)
-                    perinqc=perinqc+( "+ " + String.valueOf(incdec) + " %.");
-                else if (incdec < 0)
-                    perinqc=perinqc+( "- " + String.valueOf(-incdec) + " %.");
-                else
-                    perinqc=perinqc+( " 0 %.");
+                int crittt=Integer.parseInt(cn.getPhoneNumber());
+                int tot=pr+ab;
+                int pp=pr,tott=tot;
+                int next=0,nextt=0;
+                per =((float)pr/tot)*100;
+                float percc=per;
+                if((pr==0)&&(ab==0))
+                {
+                    perinqc=perinqc+("Add the Attendance");
+                }
+
+                else if(Integer.parseInt(cn.getPhoneNumber())>per) {
+                    while(percc<crittt)
+                    {
+                        pp++;
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        next++;
+                    }
+                    perinqc=perinqc+("Need to attend next "+next+" classes !.");
+                }
+                else if(crittt<per)  {
+
+
+
+                    while(percc>crittt)
+                    {
+
+                        tott++;
+                        percc =((float)pp/tott)*100;
+                        nextt++;
+                    }
+
+                    nextt--;
+                    if(nextt==1)
+                        perinqc=perinqc+("May leave next 1 class !!.");
+                    else    if(nextt!=0)
+                        perinqc=perinqc+("May leave next "+nextt+" classes !!.");
+                    else    perinqc=perinqc+("On the Track !!.");
+                }
+                else    perinqc=perinqc+("On the Track !!.");
+
+
 
 
                 if (incdec >= 0)
@@ -1788,7 +1893,8 @@ void checkdataforrearrange()
 
 
                     stringArrayList1.add(cn.getName());
-                    stringArrayList.add(cn.getPresent());
+                    stringArrayList.add( cn.getPresent()+"      Total:  "+(Integer.parseInt(cn.getPresent())+(Integer.parseInt(cn.getAbssent()))));
+
                     int ab = Integer.parseInt(cn.getAbssent());
                     int pr = Integer.parseInt(cn.getPresent());
                     float per;
@@ -1805,12 +1911,48 @@ void checkdataforrearrange()
                         incdec = 0;
                     else
                         incdec = -Integer.parseInt(cn.getPhoneNumber()) + percen;
-                    if (incdec > 0)
-                        stringArrayList3.add("+ " + String.valueOf(incdec) + " %");
-                    else if (incdec < 0)
-                        stringArrayList3.add("- " + String.valueOf(-incdec) + " %");
-                    else
-                        stringArrayList3.add(" 0 %");
+                    int crittt=Integer.parseInt(cn.getPhoneNumber());
+                    int tot=pr+ab;
+                    int pp=pr,tott=tot;
+                    int next=0,nextt=0;
+                    per =((float)pr/tot)*100;
+                    float percc=per;
+                    if((pr==0)&&(ab==0))
+                    {
+                       stringArrayList3.add("Add the Attendance");
+                    }
+
+                    else if(Integer.parseInt(cn.getPhoneNumber())>per) {
+                        while(percc<crittt)
+                        {
+                            pp++;
+                            tott++;
+                            percc =((float)pp/tott)*100;
+                            next++;
+                        }
+                        stringArrayList3.add("Need to attend next "+next+" classes !.");
+                    }
+                    else if(crittt<per)  {
+
+
+
+                        while(percc>crittt)
+                        {
+
+                            tott++;
+                            percc =((float)pp/tott)*100;
+                            nextt++;
+                        }
+
+                        nextt--;
+                        if(nextt==1)
+                           stringArrayList3.add("May leave next 1 class !!.");
+                        else    if(nextt!=0)
+                            stringArrayList3.add("May leave next "+nextt+" classes !!.");
+                        else   stringArrayList3.add("On the Track !!.");
+                    }
+                    else    stringArrayList3.add("On the Track !!.");
+
 
 
                     if (incdec >= 0)
