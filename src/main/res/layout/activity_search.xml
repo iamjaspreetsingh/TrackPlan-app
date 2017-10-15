@@ -5,5 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jskgmail.attendance.SearchActivity">
+<RelativeLayout
+    android:layout_width="395dp"
+    android:layout_height="587dp"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp">
 
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="52dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:paddingTop="3dp" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="Enter the Username of your friend to start comparison :"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="16sp" />
+</RelativeLayout>
 </android.support.constraint.ConstraintLayout>
