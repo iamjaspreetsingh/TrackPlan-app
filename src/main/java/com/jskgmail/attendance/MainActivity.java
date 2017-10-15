@@ -47,7 +47,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-static  String semno="";
+    static  String semno="";
     private ListView listView;
     ListViewAdapter lviewAdapter;
     ArrayList<String> monthh = new ArrayList<String>();
@@ -84,13 +84,9 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         final TextView t=(TextView)findViewById(R.id.empty);
         t.setVisibility(View.INVISIBLE);
 
-
-madview=(AdView)findViewById(R.id.adView);
-        AdRequest adrequest=new AdRequest.Builder().build();
-
-        madview.loadAd(adrequest);
-
-
+     madview=(AdView)findViewById(R.id.adView);
+     AdRequest adrequest=new AdRequest.Builder().build();
+     madview.loadAd(adrequest);
 
         SimpleDateFormat sdf =new SimpleDateFormat("EEEE");
         Date d=new Date();
@@ -112,31 +108,8 @@ madview=(AdView)findViewById(R.id.adView);
         else
             ddd="6";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         DatabaseHandler db = new DatabaseHandler(getApplicationContext());
         List<Contact> contacts = db.getAllContacts();
-
-
-
-
-
-
-
-
 
         int ch=0;
         for (Contact cn : contacts) {if ((cn.getPo().equals(MainActivity.semno))){
