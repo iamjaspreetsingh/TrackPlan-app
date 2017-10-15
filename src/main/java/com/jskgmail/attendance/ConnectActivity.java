@@ -1,5 +1,6 @@
 package com.jskgmail.attendance;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -62,11 +63,8 @@ myRef.child("subjects").child(cn.getName()).setValue(per);
                     }}
 
 
-
-
-
-
-
+                Intent i=new Intent(ConnectActivity.this,SearchActivity.class);
+                startActivity(i);
 
 
                     }

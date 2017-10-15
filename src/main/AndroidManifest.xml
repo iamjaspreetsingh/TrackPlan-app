@@ -34,7 +34,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CaldroidSampleActivity"
             android:parentActivityName=".MainActivity">
@@ -76,7 +76,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jskgmail.attendance.MainActivity" />
         </activity>
-        <activity android:name=".ConnectActivity"></activity>
+        <activity android:name=".ConnectActivity" />
+        <activity android:name=".SearchActivity"></activity>
     </application>
 
 </manifest>
