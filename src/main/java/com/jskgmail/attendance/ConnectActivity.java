@@ -7,11 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
 
 public class ConnectActivity extends AppCompatActivity {
   static   String mynaam="",usernamee="fd";
@@ -23,37 +22,54 @@ public class ConnectActivity extends AppCompatActivity {
         final EditText name=(EditText)findViewById(R.id.editText3);
         final EditText username=(EditText)findViewById(R.id.editText4);
         Button button=(Button)findViewById(R.id.button7) ;
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("Name");
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
                 mynaam=name.getText().toString();
                 usernamee=username.getText().toString();
-
+                DatabaseReference myRef = database.getReference(usernamee);
 Log.d("djfdjfdfjdfn",usernamee);
                 myRef.setValue(usernamee);
 
 
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // This method is called once with the initial value and again
-                        // whenever data at this location is updated.
-                        String value = dataSnapshot.getValue(String.class);
-                        Log.d("gogogo", "Value is: " + value);
+
+
+                myRef.child("name").setValue(mynaam);
+                myRef.child("percent").setValue(MainActivity.percentagesending);
+
+
+                DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+                List<Contact> contacts = db.getAllContacts();
+
+
+
+                for (Contact cn : contacts) {
+
+                    if ((cn.getPo().equals(MainActivity.semno))) {
+
+                        int ab = Integer.parseInt(cn.getAbssent());
+                        int pr = Integer.parseInt(cn.getPresent());
+                        float per;
+                        if ((ab == 0) && (pr == 0))
+                            per = 0;
+                        else
+                            per = (float) (pr * 100 / (pr + ab));
+myRef.child("subjects").child(cn.getName()).setValue(per);
+                    }}
+
+
+
+
+
+
+
+
+
                     }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        // Failed to read value
-                        Log.w("gogogo", "Failed to read value.", error.toException());
-                    }
-                });
-
-
-
-            }
         });
 
 

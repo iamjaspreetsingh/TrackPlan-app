@@ -47,7 +47,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    static  String semno="";
+    static  String semno="",percentagesending="";
     private ListView listView;
     ListViewAdapter lviewAdapter;
     ArrayList<String> monthh = new ArrayList<String>();
@@ -2047,10 +2047,17 @@ checkdataforper();
 
         } else if (id==R.id.connect)
         {
+            percenall=0;
+            totalsub=0;
+            checkdataforper();
+            float perall=(percenall/(float)totalsub);
+            Log.i("prcentageisfgfgf",String.valueOf(perall));
 
+            percentagesending=String.valueOf(perall);
 
             Intent i=new Intent(MainActivity.this,ConnectActivity.class);
             startActivity(i);
+
 
 
 
