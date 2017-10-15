@@ -80,6 +80,7 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         SimpleDateFormat sdf1 =new SimpleDateFormat("ddMMyyyy");
         Date dmy=new Date();
         String day1 =sdf1.format(dmy);
+        Log.e("ddd",ConnectActivity.mynaam);
 
         final TextView t=(TextView)findViewById(R.id.empty);
         t.setVisibility(View.INVISIBLE);
@@ -2044,7 +2045,22 @@ checkdataforper();
             gotosetper(perall);
 
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id==R.id.connect)
+        {
+
+
+            Intent i=new Intent(MainActivity.this,ConnectActivity.class);
+            startActivity(i);
+
+
+
+        }
+
+
+
+
+
+        else if (id == R.id.nav_slideshow) {
 
             Intent i=new Intent(MainActivity.this,MainhistoryActivity.class);
             startActivity(i);

@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_help_black_24dp"
             android:title="Overall % " />
         <item
+            android:id="@+id/connect"
+            android:icon="@drawable/ic_compare_arrows_black_24dp"
+            android:title="Connect and Compare" />
+        <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_history_black_24dp"
             android:title="History" />

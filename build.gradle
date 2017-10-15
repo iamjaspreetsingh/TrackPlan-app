@@ -36,8 +36,11 @@ dependencies {
     compile 'com.roomorama:caldroid:3.0.1'
     compile 'com.google.android.gms:play-services-ads:11.0.4'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
+    compile 'com.google.firebase:firebase-database:10.0.1'
     testCompile 'junit:junit:4.12'
 }
+
+
 
 
 

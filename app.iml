@@ -111,6 +111,7 @@
     <orderEntry type="library" exported="" name="support-core-ui-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-11.0.4" level="project" />
     <orderEntry type="library" exported="" name="caldroid-3.0.1" level="project" />
+    <orderEntry type="library" exported="" name="firebase-database-connection-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-safetynet-11.0.4" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-11.0.4" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="jsr305-2.0.1" level="project" />
@@ -127,6 +128,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="firebase-messaging-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="hirondelle-date4j-1.5.1" level="project" />
+    <orderEntry type="library" exported="" name="firebase-database-10.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="javawriter-2.1.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-25.3.1" level="project" />
