@@ -551,7 +551,7 @@ String ppp=passch.getText().toString();
                 public void onClick(DialogInterface dialog, int which) { if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     hour = timep.getHour();
                     min = timep.getMinute();
-                    Log.i(String.valueOf(hour), "fggggggggggggggggggggggggggggggggg");
+                    Log.i(String.valueOf(hour), "fgggggggggggggggggggggggggg");
                 }
                 }
             });
