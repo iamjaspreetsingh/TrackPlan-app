@@ -43,8 +43,9 @@
         android:id="@+id/listsearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/searchView"
-        android:layout_alignStart="@+id/searchView"
-        android:layout_below="@+id/searchView" />
+        android:layout_below="@+id/searchView"
+        android:layout_alignRight="@+id/searchView"
+        android:layout_alignEnd="@+id/searchView"
+        android:layout_marginTop="45dp" />
 </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

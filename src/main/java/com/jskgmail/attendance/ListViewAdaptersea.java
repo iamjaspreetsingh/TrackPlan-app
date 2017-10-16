@@ -81,23 +81,10 @@ String textt="";
             holder.txtviewtitle.setVisibility(View.VISIBLE);
 
 
-            if(!(textt.equals("")))
-            { if((title.get(position).toLowerCase().contains(textt))||(description.get(position).toLowerCase().contains(textt))) {
-                holder.txtviewdesc.setVisibility(View.VISIBLE);
-                holder.txtviewtitle.setVisibility(View.VISIBLE);
 
                 holder.txtviewtitle.setText(title.get(position));
                 holder.txtviewdesc.setText(description.get(position));
-            }
-            else {
-                holder.txtviewdesc.setVisibility(View.GONE);
-            holder.txtviewtitle.setVisibility(View.GONE);
-            }
-            }
-            else {
-                holder.txtviewtitle.setText(title.get(position));
-                holder.txtviewdesc.setText(description.get(position));
-            }
+
 
 
 

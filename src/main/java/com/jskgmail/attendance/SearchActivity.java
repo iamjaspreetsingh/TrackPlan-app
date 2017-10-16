@@ -89,9 +89,34 @@ list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
     @Override
     public boolean onQueryTextChange(String newText) {
         String text=newText;
+        Log.v("sosos",text);
+int i=adapter.getCount();
+        ArrayList<String> arrayList2=new ArrayList<>();
+        ArrayList<String> arrayList22=new ArrayList<>();
+        if(text.equals(""))
+        {
+            for (int j = 0; j < i; j++) {
+              arrayList2=new ArrayList<>(null);
+               arrayList22=new ArrayList<>(null);
+                    arrayList2.add(arrayList.get(j));
+                    arrayList22.add(arrayList1.get(j));
+                    adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
+                    list.setAdapter(adapter);}
+        }else{ arrayList2.clear();
+            arrayList22.clear();
+            arrayList2=new ArrayList<>(null);
+            arrayList22=new ArrayList<>(null);
+           for (int j = 0; j < i; j++) {
+               if ((String.valueOf(arrayList.get(j)).contains(text)) || ((String.valueOf(arrayList1.get(j)).contains(text)))) {
+                   arrayList2.add(arrayList.get(j));
+                   arrayList22.add(arrayList1.get(j));
+                   adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
+                   list.setAdapter(adapter);
 
-        adapter=new ListViewAdaptersea(text,this,arrayList,arrayList1);
-      list.setAdapter(adapter);
+               }}
+           }
+
+
         return false;
     }
 }
