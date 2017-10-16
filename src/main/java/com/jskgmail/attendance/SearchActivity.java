@@ -21,6 +21,7 @@ ListView list;
     ListViewAdaptersea adapter;
     SearchView search;
     String[] names;
+     int i;
     ArrayList<String> arrayList=new ArrayList<>();
     ArrayList<String> arrayList1=new ArrayList<>();
     @Override
@@ -67,7 +68,11 @@ arrayList1.add(" : " + dataSnapshot1.child("name").getValue());
 
 
         adapter=new ListViewAdaptersea(this,arrayList,arrayList1);
+
         list.setAdapter(adapter);
+
+
+
         search= (SearchView) findViewById(R.id.searchView);
         search.setOnQueryTextListener(this);
 
@@ -85,37 +90,43 @@ list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
     public boolean onQueryTextSubmit(String query) {
         return true;
     }
-
+    int kk=0;
     @Override
     public boolean onQueryTextChange(String newText) {
         String text=newText;
         Log.v("sosos",text);
-int i=adapter.getCount();
+
+
+       final  int ii=adapter.getCount();
+        if(kk==0)
+            i=ii;
+        Log.e("sososs",String.valueOf(i));
         ArrayList<String> arrayList2=new ArrayList<>();
         ArrayList<String> arrayList22=new ArrayList<>();
         if(text.equals(""))
         {
             for (int j = 0; j < i; j++) {
-              arrayList2=new ArrayList<>(null);
-               arrayList22=new ArrayList<>(null);
+              arrayList2=new ArrayList<>();
+               arrayList22=new ArrayList<>();
                     arrayList2.add(arrayList.get(j));
-                    arrayList22.add(arrayList1.get(j));
+                    arrayList22.add(arrayList1.get(j));}
                     adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
-                    list.setAdapter(adapter);}
-        }else{ arrayList2.clear();
-            arrayList22.clear();
-            arrayList2=new ArrayList<>(null);
-            arrayList22=new ArrayList<>(null);
-           for (int j = 0; j < i; j++) {
+                    list.setAdapter(adapter);
+        }else{
+            arrayList2=new ArrayList<>();
+            arrayList22=new ArrayList<>();
+            int j=0;
+          while (!(arrayList.get(j).equals(null))){
                if ((String.valueOf(arrayList.get(j)).contains(text)) || ((String.valueOf(arrayList1.get(j)).contains(text)))) {
                    arrayList2.add(arrayList.get(j));
-                   arrayList22.add(arrayList1.get(j));
-                   adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
-                   list.setAdapter(adapter);
+                   arrayList22.add(arrayList1.get(j));}
 
-               }}
+
+               j++;}
+            adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
+            list.setAdapter(adapter);
            }
-
+kk=1;
 
         return false;
     }
