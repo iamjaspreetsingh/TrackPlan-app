@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -29,16 +32,50 @@ public class ConnectActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-
+final String TAG="what";
                 mynaam=name.getText().toString();
                 usernamee=username.getText().toString();
-                DatabaseReference myRef = database.getReference(usernamee);
-Log.d("djfdjfdfjdfn",usernamee);
+                DatabaseReference myRef = database.getReference("users");
                 myRef.setValue(usernamee);
 
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        String value = dataSnapshot.child("username").getValue(String.class);
+                        Log.d(TAG, "Value is: " + value);
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                        Log.w(TAG, "Failed to read value.", error.toException());
+                    }
+                });
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Log.d("djfdjfdfjdfn",usernamee);
+
+
+
+                myRef.child("username").setValue(usernamee);
                 myRef.child("name").setValue(mynaam);
                 myRef.child("percent").setValue(MainActivity.percentagesending);
 

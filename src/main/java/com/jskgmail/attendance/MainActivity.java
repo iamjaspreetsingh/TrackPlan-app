@@ -448,7 +448,7 @@ Log.i(renamename,"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
                 else
                     per = (float) (pr * 100 / (pr + ab));
 
-
+                per=(float)Math.round(per*100)/100;
                 percenall = percenall + per;
 
 
