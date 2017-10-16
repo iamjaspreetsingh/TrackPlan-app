@@ -18,10 +18,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:queryHint="Search here"
         android:layout_marginTop="52dp"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
-        android:paddingTop="3dp" />
+        android:paddingTop="3dp"
+        android:id="@+id/searchView" />
 
     <TextView
         android:id="@+id/textView42"
@@ -36,5 +38,13 @@
         android:text="Enter the Username of your friend to start comparison :"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/listsearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/searchView"
+        android:layout_alignStart="@+id/searchView"
+        android:layout_below="@+id/searchView" />
 </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
