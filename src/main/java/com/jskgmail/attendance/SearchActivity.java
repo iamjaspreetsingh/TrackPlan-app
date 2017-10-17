@@ -39,40 +39,6 @@ ListView list;
         t.setText("My overall % : "+percent+" %");
         TextView tt=(TextView)findViewById(R.id.textView42);
 tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.usernamee+")");
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("user");
-
-        myRef.addValueEventListener(new ValueEventListener() {
-
-
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-
-
-                        Log.d("soso", "" + dataSnapshot1.getKey());
-                    Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
-                    arrayList.add("" + dataSnapshot1.getKey());
-arrayList1.add(" : " + dataSnapshot1.child("name").getValue());
-
-
-                }
-
-
-            } @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-                                        }
-                                    });
-
-
-        adapter=new ListViewAdaptersea(this,arrayList,arrayList1);
-
-        list.setAdapter(adapter);
-
 
         search= (SearchView) findViewById(R.id.searchView);
         search.setOnQueryTextListener(this);
@@ -88,10 +54,10 @@ arrayList1.add(" : " + dataSnapshot1.child("name").getValue());
     }
     int kk=0;
     @Override
-    public boolean onQueryTextChange(String newText) {
+    public boolean onQueryTextChange(final String newText) {
         String text=newText;
         Log.v("sosos",text);
-text=text.toLowerCase();
+
 
 
 
@@ -104,7 +70,7 @@ text=text.toLowerCase();
         final DatabaseReference myRef = database.getReference("user");
 
 
-        final String finalText = text;
+
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -113,7 +79,7 @@ text=text.toLowerCase();
                 // whenever data at this location is updated.
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
-                    if ((( dataSnapshot1.getKey()).toLowerCase().contains(finalText)) || ((String.valueOf(dataSnapshot1.child("name").getValue()).toLowerCase().contains(finalText))))
+                    if ((( dataSnapshot1.getKey()).toLowerCase().contains(newText)) || ((String.valueOf(dataSnapshot1.child("name").getValue()).toLowerCase().contains(newText))))
                     {
 
                         Log.d("soso",  dataSnapshot1.getKey());
@@ -122,7 +88,18 @@ text=text.toLowerCase();
                         arrayList22.add(" : " + dataSnapshot1.child("name").getValue());
 
                     }
+
                 }
+                adapter=new ListViewAdaptersea(SearchActivity.this,arrayList2,arrayList22);
+                list.setAdapter(adapter);
+
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Log.d("sowhat",arrayList2.get(position));
+
+                    }
+                });
 
 
             } @Override
@@ -132,16 +109,6 @@ text=text.toLowerCase();
         });
 
 
-        adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
-        list.setAdapter(adapter);
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("sosososososozzzz",arrayList2.get(position));
-                goo(arrayList2.get(position));
-            }
-        });
 
 
 
@@ -155,7 +122,8 @@ text=text.toLowerCase();
 
 
 
-        return true;
+
+        return false;
     }
 
 
