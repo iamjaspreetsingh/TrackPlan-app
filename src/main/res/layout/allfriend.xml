@@ -57,19 +57,16 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView71"
+        android:id="@+id/textView81"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView50"
-        android:layout_alignTop="@+id/textView50"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_toEndOf="@+id/textView50"
-        android:layout_toRightOf="@+id/textView50"
         android:paddingBottom="2dp"
         android:text="77 %"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_below="@+id/textView68"
+        android:layout_toRightOf="@+id/textView50"
+        android:layout_toEndOf="@+id/textView50" />
 
     <TextView
         android:id="@+id/textView53"
@@ -78,8 +75,8 @@
         android:layout_below="@+id/textView69"
         android:layout_marginLeft="39dp"
         android:layout_marginStart="39dp"
-        android:layout_toEndOf="@+id/textView71"
-        android:layout_toRightOf="@+id/textView71"
+        android:layout_toEndOf="@+id/textView81"
+        android:layout_toRightOf="@+id/textView81"
         android:paddingBottom="2dp"
         android:text="(+25 %)"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"

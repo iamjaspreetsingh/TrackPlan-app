@@ -47,7 +47,7 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView71"
+        android:id="@+id/textView81"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView50"
@@ -68,8 +68,8 @@
         android:layout_below="@+id/textView69"
         android:layout_marginLeft="39dp"
         android:layout_marginStart="39dp"
-        android:layout_toEndOf="@+id/textView71"
-        android:layout_toRightOf="@+id/textView71"
+        android:layout_toEndOf="@+id/textView81"
+        android:layout_toRightOf="@+id/textView81"
         android:paddingBottom="5dp"
         android:text="(+25 %)"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"

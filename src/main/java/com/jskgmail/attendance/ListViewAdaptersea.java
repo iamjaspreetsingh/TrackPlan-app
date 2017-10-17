@@ -64,6 +64,7 @@ public class ListViewAdaptersea extends BaseAdapter {
         TextView txtviewtitle;
         TextView txtviewdesc;
 ImageButton addas;
+        TextView percc;
         TextView fr;
 
     }
@@ -83,7 +84,7 @@ ImageButton addas;
             holder.txtviewdesc=(TextView)convertView.findViewById(R.id.textView69);
             holder.addas=(ImageButton)convertView.findViewById(R.id.imageButton5) ;
             holder.fr=(TextView)convertView.findViewById(R.id.textView54) ;
-
+holder.percc=(TextView)convertView.findViewById(R.id.textView81);
 
 
 
@@ -207,7 +208,7 @@ void go()
 
 }
 void gogo(final String username)
-{
+{String per;
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference myRef = database.getReference("user");
 
@@ -228,7 +229,7 @@ if(username.equals(dataSnapshot1.getKey()))
                         arrayList.add("" + dataSnapshot1.getKey());
                         arrayList1.add(" : " + dataSnapshot1.child("name").getValue());
                     }
-
+//per =dataSnapshot1.child("percent").getValue();
                 }
             }
             ListViewAdapteraddfri adapterr=new ListViewAdapteraddfri((SearchActivity) mcontext,arrayList,arrayList1);
