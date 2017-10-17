@@ -13,17 +13,19 @@
 
 
     <SearchView
+        android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:queryHint="Search here"
         android:layout_marginTop="52dp"
+        android:keepScreenOn="true"
+        android:orientation="horizontal"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         android:paddingTop="3dp"
-        android:id="@+id/searchView" />
+        android:queryHint="Search here" />
 
     <TextView
         android:id="@+id/textView42"
@@ -42,9 +44,33 @@
     <ListView
         android:id="@+id/listsearch"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="140dp"
         android:layout_alignLeft="@+id/searchView"
         android:layout_alignStart="@+id/searchView"
         android:layout_below="@+id/searchView" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/searchView"
+        android:layout_alignStart="@+id/searchView"
+        android:layout_below="@+id/listsearch"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="Your Friends List :"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/friendlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignEnd="@+id/searchView"
+        android:layout_alignRight="@+id/searchView"
+        android:layout_below="@+id/textView52"
+        android:layout_marginTop="8dp" />
+
 </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

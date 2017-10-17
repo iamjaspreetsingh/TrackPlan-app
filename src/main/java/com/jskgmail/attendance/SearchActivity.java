@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 ListView list;
@@ -70,18 +71,18 @@ arrayList1.add(" : " + dataSnapshot1.child("name").getValue());
         adapter=new ListViewAdaptersea(this,arrayList,arrayList1);
 
         list.setAdapter(adapter);
-
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("sosososososozzzz",arrayList.get(position));
+            }
+        });
 
 
         search= (SearchView) findViewById(R.id.searchView);
         search.setOnQueryTextListener(this);
 
-list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.d("yoyoy",arrayList.get(position));
-    }
-});
+
 
     }
 
@@ -95,39 +96,155 @@ list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
     public boolean onQueryTextChange(String newText) {
         String text=newText;
         Log.v("sosos",text);
+text=text.toLowerCase();
 
 
-       final  int ii=adapter.getCount();
-        if(kk==0)
-            i=ii;
-        Log.e("sososs",String.valueOf(i));
-        ArrayList<String> arrayList2=new ArrayList<>();
-        ArrayList<String> arrayList22=new ArrayList<>();
-        if(text.equals(""))
-        {
-            for (int j = 0; j < i; j++) {
-              arrayList2=new ArrayList<>();
-               arrayList22=new ArrayList<>();
-                    arrayList2.add(arrayList.get(j));
-                    arrayList22.add(arrayList1.get(j));}
-                    adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
-                    list.setAdapter(adapter);
-        }else{
-            arrayList2=new ArrayList<>();
-            arrayList22=new ArrayList<>();
-            int j=0;
-          while (!(arrayList.get(j).equals(null))){
-               if ((String.valueOf(arrayList.get(j)).contains(text)) || ((String.valueOf(arrayList1.get(j)).contains(text)))) {
-                   arrayList2.add(arrayList.get(j));
-                   arrayList22.add(arrayList1.get(j));}
 
 
-               j++;}
-            adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
-            list.setAdapter(adapter);
-           }
-kk=1;
+        final ArrayList<String> arrayList2=new ArrayList<>();
+        final ArrayList<String> arrayList22=new ArrayList<>();
 
-        return false;
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("user");
+
+
+        final String finalText = text;
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                    if ((( dataSnapshot1.getKey()).toLowerCase().contains(finalText)) || ((String.valueOf(dataSnapshot1.child("name").getValue()).toLowerCase().contains(finalText))))
+                    {
+
+                        Log.d("soso",  dataSnapshot1.getKey());
+                        Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
+                        arrayList2.add("" + dataSnapshot1.getKey());
+                        arrayList22.add(" : " + dataSnapshot1.child("name").getValue());
+
+                    }
+                }
+
+
+            } @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        adapter=new ListViewAdaptersea(this,arrayList2,arrayList22);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("sosososososozzzz",arrayList2.get(position));
+                goo(arrayList2.get(position));
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+
+   void goo(final String s)
+    {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("user");
+
+
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                 if( dataSnapshot1.getKey().equals(s)) {
+                     Log.d("soso", dataSnapshot1.getKey());
+                     Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
+                     Log.d("sosooperc", "" + dataSnapshot1.child("percent").getValue());
+                     Log.d("sosooosub", "" + dataSnapshot1.child("subjects").getValue());
+                 }
+                }
+
+
+            } @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+        List<Contact> contacts = db.getAllContacts();
+
+String[] sub = new String[50];
+int i=0,j=1;
+        for (Contact cn : contacts) {
+
+            if ((cn.getPo().equals(MainActivity.semno))) {
+
+                int ab = Integer.parseInt(cn.getAbssent());
+                int pr = Integer.parseInt(cn.getPresent());
+                float per;
+                if ((ab == 0) && (pr == 0))
+                    per = 0;
+                else
+                    per = (float) (pr * 100 / (pr + ab));
+             sub[i]=  (cn.getName());
+                sub[j]= String.valueOf(per);
+            i+=2;j+=2;
+
+            }
+
+        }
+
+String usernamee=ConnectActivity.usernamee;
+    String naam=    ConnectActivity.mynaam;
+      String percent=  MainActivity.percentagesending;
+
+
+
+
+
+
+
+
+
     }
 }
