@@ -33,7 +33,12 @@ public class Friends {
         }
 
         // constructor
+        public Friends( String name){
 
+
+            this._name = name;
+
+        }
 
         // getting ID
         public int getID(){

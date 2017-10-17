@@ -103,8 +103,21 @@ ImageButton addas;
             }
 
 
+
+
+
+
+
+
             final int[] i = {0};
-holder.addas.setOnClickListener(new View.OnClickListener() {
+
+            for (Friends cn : contacts) {
+
+                if(cn.getName().equals(title.get(position)))
+                {   i[0]=1;holder.addas.setImageResource(R.drawable.ic_done_black_24dp);}
+            }
+
+            holder.addas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 if(i[0] %2==0){
@@ -114,14 +127,8 @@ holder.addas.setImageResource(R.drawable.ic_done_black_24dp);
         arrayList.add(title.get(position));
         arrayList1.add(description.get(position));
     DatabaseFriend db = new DatabaseFriend(mcontext);
-    List<Friends> contacts = db.getAllContacts();
+    db.addContact(new Friends(title.get(position)));
 
-
-    for (Friends cn : contacts) {
-
-        cn.setName(title.get(position));
-
-    }
 
 
 
@@ -143,8 +150,9 @@ holder.addas.setImageResource(R.drawable.ic_done_black_24dp);
 
         for (Friends cn : contacts) {
 if(cn.getName().equals(title.get(position)))
-    db.deleteContact(cn);
-db.updateContact(cn);
+{   db.deleteContact(cn);
+db.updateContact(cn);}
+            notifyDataSetChanged();
         }
 
 

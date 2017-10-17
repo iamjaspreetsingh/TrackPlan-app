@@ -53,6 +53,7 @@ final String TAG="what";
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // This method is called once with the initial value and again
                         // whenever data at this location is updated.
+                        int ch=0;
                         for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                         {
 
@@ -64,9 +65,11 @@ gosetalert();
 
                                 break;
                             }
-                            else {
-                                p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
-                                go();
+                            else {ch++;
+                                Log.d("noofchild", String.valueOf(dataSnapshot.getChildrenCount()));
+                                if(ch==dataSnapshot.getChildrenCount())
+                                {  p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
+                                go();}
 
                             }
 
