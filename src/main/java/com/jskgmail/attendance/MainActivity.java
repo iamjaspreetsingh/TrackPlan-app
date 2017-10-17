@@ -2041,6 +2041,7 @@ alert.setTitle("Overall %");
             totalsub=0;
 checkdataforper();
             float perall=(percenall/(float)totalsub);
+            perall=(float)Math.round(perall*100)/100;
             Log.i("prcentageisfgfgf",String.valueOf(perall));
             gotosetper(perall);
 
@@ -2052,7 +2053,7 @@ checkdataforper();
             checkdataforper();
             float perall=(percenall/(float)totalsub);
             Log.i("prcentageisfgfgf",String.valueOf(perall));
-
+            perall=(float)Math.round(perall*100)/100;
             percentagesending=String.valueOf(perall);
 
             Intent i=new Intent(MainActivity.this,ConnectActivity.class);

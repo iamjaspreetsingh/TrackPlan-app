@@ -5,72 +5,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jskgmail.attendance.SearchActivity">
-<RelativeLayout
-    android:layout_width="395dp"
-    android:layout_height="587dp"
-    tools:layout_editor_absoluteY="8dp"
-    tools:layout_editor_absoluteX="8dp">
+
+    <RelativeLayout
+        android:layout_width="344dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="52dp"
-        android:keepScreenOn="true"
-        android:orientation="horizontal"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:paddingTop="3dp"
-        android:queryHint="Search here" />
+        <TextView
+            android:id="@+id/textView42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="Logged in as :\nJaspreet Singh \n(jaspreet)"
+            android:textSize="16sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:id="@+id/textView42"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:text="Enter the Username of your friend to start comparison :"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView42"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="11dp"
+            android:layout_marginStart="11dp"
+            android:text="Start Searching your friends"
+            android:textSize="15sp" />
 
-    <ListView
-        android:id="@+id/listsearch"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_alignLeft="@+id/searchView"
-        android:layout_alignStart="@+id/searchView"
-        android:layout_below="@+id/searchView" />
+        <ListView
+            android:id="@+id/listsearch"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView42"
+            android:layout_marginTop="50dp" />
 
-    <TextView
-        android:id="@+id/textView52"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/searchView"
-        android:layout_alignStart="@+id/searchView"
-        android:layout_below="@+id/listsearch"
-        android:layout_marginTop="25dp"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:text="Your Friends List :"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView52"
+            android:layout_alignStart="@+id/textView52"
+            android:layout_alignTop="@+id/textView42"
+            android:layout_marginTop="9dp"
+            android:text="My Overall %  : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="17sp" />
 
-    <ListView
-        android:id="@+id/friendlist"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignEnd="@+id/searchView"
-        android:layout_alignRight="@+id/searchView"
-        android:layout_below="@+id/textView52"
-        android:layout_marginTop="8dp" />
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView42"
+            android:layout_marginTop="9dp"
+android:iconifiedByDefault="false"
 
-</RelativeLayout>
+            android:queryHint="Search username" />
+
+        <TextView
+            android:id="@+id/textView56"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView52"
+            android:layout_alignStart="@+id/textView52"
+            android:layout_below="@+id/listsearch"
+            android:layout_marginTop="8dp"
+            android:text="My Friends :"
+            android:textSize="15sp" />
+
+        <ListView
+            android:id="@+id/friendlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/textView56"
+            android:layout_toRightOf="@+id/scrollView2"
+            android:layout_toEndOf="@+id/scrollView2" />
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

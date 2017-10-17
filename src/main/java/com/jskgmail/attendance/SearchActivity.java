@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,10 +34,11 @@ ListView list;
         list=(ListView)findViewById(R.id.listsearch);
 
 
-
-
-
-
+        String percent=  MainActivity.percentagesending;
+        TextView t=(TextView)findViewById(R.id.textView55);
+        t.setText("My overall % : "+percent+" %");
+        TextView tt=(TextView)findViewById(R.id.textView42);
+tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.usernamee+")");
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("user");
 
@@ -206,10 +208,6 @@ text=text.toLowerCase();
 
 
 
-
-String usernamee=ConnectActivity.usernamee;
-    String naam=    ConnectActivity.mynaam;
-      String percent=  MainActivity.percentagesending;
 
 
 
