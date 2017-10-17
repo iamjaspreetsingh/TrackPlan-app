@@ -15,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 ListView list;
@@ -71,12 +70,6 @@ arrayList1.add(" : " + dataSnapshot1.child("name").getValue());
         adapter=new ListViewAdaptersea(this,arrayList,arrayList1);
 
         list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("sosososososozzzz",arrayList.get(position));
-            }
-        });
 
 
         search= (SearchView) findViewById(R.id.searchView);
@@ -188,7 +181,7 @@ text=text.toLowerCase();
                      Log.d("soso", dataSnapshot1.getKey());
                      Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
                      Log.d("sosooperc", "" + dataSnapshot1.child("percent").getValue());
-                     Log.d("sosooosub", "" + dataSnapshot1.child("subjects").getValue());
+
                  }
                 }
 
@@ -210,29 +203,9 @@ text=text.toLowerCase();
 
 
 
-        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
-        List<Contact> contacts = db.getAllContacts();
 
-String[] sub = new String[50];
-int i=0,j=1;
-        for (Contact cn : contacts) {
 
-            if ((cn.getPo().equals(MainActivity.semno))) {
 
-                int ab = Integer.parseInt(cn.getAbssent());
-                int pr = Integer.parseInt(cn.getPresent());
-                float per;
-                if ((ab == 0) && (pr == 0))
-                    per = 0;
-                else
-                    per = (float) (pr * 100 / (pr + ab));
-             sub[i]=  (cn.getName());
-                sub[j]= String.valueOf(per);
-            i+=2;j+=2;
-
-            }
-
-        }
 
 String usernamee=ConnectActivity.usernamee;
     String naam=    ConnectActivity.mynaam;

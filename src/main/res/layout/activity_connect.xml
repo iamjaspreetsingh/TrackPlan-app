@@ -111,11 +111,11 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textView44"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_alignTop="@+id/button7"
             android:layout_alignRight="@+id/textView44"
-            android:layout_below="@+id/button7"
-            android:layout_marginEnd="6dp"
-            android:layout_marginRight="6dp" />
+            android:layout_alignEnd="@+id/textView44" />
 
     </RelativeLayout>
 

@@ -18,8 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.List;
-
 public class ConnectActivity extends AppCompatActivity {
   static   String mynaam="",usernamee="fd";
 
@@ -144,29 +142,6 @@ Log.e("plzz", String.valueOf(check[0]));
         myRef1.child("username").setValue(usernamee);
         myRef1.child("name").setValue(mynaam);
         myRef1.child("percent").setValue(MainActivity.percentagesending);
-
-
-        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
-        List<Contact> contacts = db.getAllContacts();
-
-
-
-        for (Contact cn : contacts) {
-
-            if ((cn.getPo().equals(MainActivity.semno))) {
-
-                int ab = Integer.parseInt(cn.getAbssent());
-                int pr = Integer.parseInt(cn.getPresent());
-                float per;
-                if ((ab == 0) && (pr == 0))
-                    per = 0;
-                else
-                    per = (float) (pr * 100 / (pr + ab));
-                myRef1.child("subjects").child(cn.getName()).setValue(per);
-            }}
-
-
-
 
 
 
