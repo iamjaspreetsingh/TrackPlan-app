@@ -85,9 +85,10 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
 
                         Log.d("soso",  dataSnapshot1.getKey());
                         Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
-                        arrayList2.add("" + dataSnapshot1.getKey());
-                        arrayList22.add(" : " + dataSnapshot1.child("name").getValue());
-
+                        if(!(dataSnapshot1.getKey().equals(ConnectActivity.usernamee))) {
+                            arrayList2.add("" + dataSnapshot1.getKey());
+                            arrayList22.add(" : " + dataSnapshot1.child("name").getValue());
+                        }
                     }
 
                 }
