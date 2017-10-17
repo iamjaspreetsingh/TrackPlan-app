@@ -1,7 +1,7 @@
 package com.jskgmail.attendance;
 
 /**
- * Created by JASPREET SINGH on 16-10-2017.
+ * Created by JASPREET SINGH on 18-10-2017.
  */
 
 import android.app.Activity;
@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,13 +17,13 @@ import java.util.ArrayList;
  * Created by JASPREET SINGH on 06-08-2017.
  */
 
-public class ListViewAdaptersea extends BaseAdapter {
+public class ListViewAdapteraddfri extends BaseAdapter  {
     Activity mcontext;
     ArrayList<String> title;
     ArrayList<String> description;
 
 
-    public ListViewAdaptersea(SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
+    public ListViewAdapteraddfri (Activity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
         mcontext=context;
         title=arrayList;
         description=arrayList1;
@@ -53,7 +52,7 @@ public class ListViewAdaptersea extends BaseAdapter {
     public class ViewHolder{
         TextView txtviewtitle;
         TextView txtviewdesc;
-ImageButton addas;
+
 
     }
     @Override
@@ -64,13 +63,13 @@ ImageButton addas;
         LayoutInflater inflater=mcontext.getLayoutInflater();
         if(convertView==null)
         {
-            convertView=inflater.inflate(R.layout.allfriend,null);
+            convertView=inflater.inflate(R.layout.adddfriend,null);
             holder=new ViewHolder();
             holder.txtviewtitle=(TextView)convertView.findViewById(R.id.textView68);
 
 
             holder.txtviewdesc=(TextView)convertView.findViewById(R.id.textView69);
-            holder.addas=(ImageButton)convertView.findViewById(R.id.imageButton5) ;
+
     /*        holder.txtviewdesc.setVisibility(View.VISIBLE);
             holder.txtviewtitle.setVisibility(View.VISIBLE);
 
@@ -96,30 +95,15 @@ ImageButton addas;
 
 
 
-            final ArrayList<String> arrayList=new ArrayList<>();
-            final ArrayList<String> arrayList1=new ArrayList<>();
-
-                holder.txtviewtitle.setText(title.get(position));
-                holder.txtviewdesc.setText(description.get(position));
-holder.addas.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
 
 
 
-        arrayList.add(title.get(position));
-        arrayList1.add(description.get(position));
+            holder.txtviewtitle.setText(title.get(position));
+            holder.txtviewdesc.setText(description.get(position));
 
 
 
 
-
-    }
-});
-
-
-            ListViewAdapteraddfri adapterr=new ListViewAdapteraddfri(mcontext,arrayList,arrayList1);
-            SearchActivity.friendlist.setAdapter(adapterr);
 
 
 

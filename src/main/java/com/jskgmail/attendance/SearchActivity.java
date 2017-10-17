@@ -18,8 +18,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-ListView list;
+static ListView list,friendlist;
     ListViewAdaptersea adapter;
+    ListViewAdapteraddfri fradapter;
     SearchView search;
     String[] names;
      int i;
@@ -32,7 +33,7 @@ ListView list;
         names=new String[]{"ab","dbd","ffddf","gfgf"
         };
         list=(ListView)findViewById(R.id.listsearch);
-
+         friendlist=(ListView)findViewById(R.id.friendlist);
 
         String percent=  MainActivity.percentagesending;
         TextView t=(TextView)findViewById(R.id.textView55);
@@ -91,15 +92,15 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
 
                 }
                 adapter=new ListViewAdaptersea(SearchActivity.this,arrayList2,arrayList22);
-                list.setAdapter(adapter);
 
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d("sowhat",arrayList2.get(position));
+                        Log.d("sowhat",String.valueOf(arrayList2.get(position)));
 
                     }
                 });
+                list.setAdapter(adapter);
 
 
             } @Override
@@ -186,4 +187,16 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
 
 
     }
+
+
+  static void addfriend(String friendusername, String friendname)
+    {
+
+    }
+
+
+
+
+
+
 }
