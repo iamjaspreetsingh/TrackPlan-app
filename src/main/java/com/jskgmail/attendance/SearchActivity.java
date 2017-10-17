@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 static ListView list,friendlist;
     ListViewAdaptersea adapter;
-    ListViewAdapteraddfri fradapter;
+static     ListViewAdapteraddfri fradapter;
     SearchView search;
     String[] names;
      int i;

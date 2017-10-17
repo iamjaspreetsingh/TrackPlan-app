@@ -5,6 +5,7 @@ package com.jskgmail.attendance;
  */
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ public class ListViewAdaptersea extends BaseAdapter {
     Activity mcontext;
     ArrayList<String> title;
     ArrayList<String> description;
+    final ArrayList<String> arrayList=new ArrayList<>();
+    final ArrayList<String> arrayList1=new ArrayList<>();
 
 
     public ListViewAdaptersea(SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
@@ -96,8 +99,6 @@ ImageButton addas;
 
 
 
-            final ArrayList<String> arrayList=new ArrayList<>();
-            final ArrayList<String> arrayList1=new ArrayList<>();
 
                 holder.txtviewtitle.setText(title.get(position));
                 holder.txtviewdesc.setText(description.get(position));
@@ -106,20 +107,22 @@ holder.addas.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
 
 
-
+        Log.d("jsjsjs",title.get(position));
         arrayList.add(title.get(position));
         arrayList1.add(description.get(position));
 
-
+go();
 
 
 
     }
+
+
+
+
+
 });
 
-
-            ListViewAdapteraddfri adapterr=new ListViewAdapteraddfri(mcontext,arrayList,arrayList1);
-            SearchActivity.friendlist.setAdapter(adapterr);
 
 
 
@@ -138,7 +141,22 @@ holder.addas.setOnClickListener(new View.OnClickListener() {
         return convertView;
     }
 
+void go()
+{
 
+
+
+
+    ListViewAdapteraddfri adapterr=new ListViewAdapteraddfri((SearchActivity) mcontext,arrayList,arrayList1);
+    SearchActivity.friendlist.setAdapter(adapterr);
+
+
+
+
+
+
+
+}
 
 }
 

@@ -23,7 +23,7 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
     ArrayList<String> description;
 
 
-    public ListViewAdapteraddfri (Activity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
+    public ListViewAdapteraddfri (SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
         mcontext=context;
         title=arrayList;
         description=arrayList1;
