@@ -90,7 +90,7 @@ holder.percc=(TextView)convertView.findViewById(R.id.textView81);
                 holder.txtviewdesc.setText(description.get(position));
 
             DatabaseFriend db = new DatabaseFriend(mcontext);
-            final List<Friends> contacts = db.getAllContacts();
+            List<Friends> contacts = db.getAllContacts();
 
 
 
@@ -100,21 +100,16 @@ holder.percc=(TextView)convertView.findViewById(R.id.textView81);
 
 
 
+            for (Friends cn : contacts) {
 
+                if(cn.getName().equals(title.get(position)))
+                {   i[0]=1;holder.addas.setImageResource(R.drawable.ic_done_black_24dp);}
+            }
 
             holder.addas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-
-        for (Friends cn : contacts) {
-
-            if(cn.getName().equals(title.get(position)))
-            {   i[0]=1;holder.addas.setImageResource(R.drawable.ic_done_black_24dp);}
-        }
-
-
-
-        if(i[0]==0){
+if(i[0]==0){
 holder.addas.setImageResource(R.drawable.ic_done_black_24dp);
         holder.fr.setText("Friends");
         Log.d("jsjsjs",title.get(position));
@@ -132,6 +127,7 @@ holder.addas.setImageResource(R.drawable.ic_done_black_24dp);
     }
 
 
+i[0]=1;
 go();
     }
         else if(i[0]==1)
@@ -164,7 +160,7 @@ db.updateContact(cn);}
 
     }
 
-
+    i[0]=0;
     go();
 }
 

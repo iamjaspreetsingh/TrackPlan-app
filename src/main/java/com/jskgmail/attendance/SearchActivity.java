@@ -3,8 +3,6 @@ package com.jskgmail.attendance;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -25,6 +23,8 @@ static     ListViewAdapteraddfri fradapter;
     static ArrayList<String> arrayList29=new ArrayList<>();
     static ArrayList<String> arrayList229=new ArrayList<>();
 
+    ArrayList<String> arrayList2=new ArrayList<>();
+    ArrayList<String> arrayList22=new ArrayList<>();
 
     SearchView search;
     String[] names;
@@ -143,11 +143,17 @@ Log.d("checccccc",cn.getName());
         Log.v("sosos",text);
 
 
+        arrayList2=new ArrayList<>();
+        arrayList22=new ArrayList<>();
 
 
+        adapter=new ListViewAdaptersea(SearchActivity.this,arrayList2,arrayList22);
 
-        final ArrayList<String> arrayList2=new ArrayList<>();
-        final ArrayList<String> arrayList22=new ArrayList<>();
+
+        list.setAdapter(adapter);
+
+         arrayList2=new ArrayList<>();
+    arrayList22=new ArrayList<>();
 
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -175,15 +181,9 @@ Log.d("checccccc",cn.getName());
                     }
 
                 }
-                adapter=new ListViewAdaptersea(SearchActivity.this,arrayList2,arrayList22);
+                adapter=new ListViewAdaptersea(SearchActivity.this, arrayList2, arrayList22);
 
-                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d("sowhat",String.valueOf(arrayList2.get(position)));
 
-                    }
-                });
                 list.setAdapter(adapter);
 
 
@@ -210,74 +210,6 @@ Log.d("checccccc",cn.getName());
 
         return false;
     }
-
-
-
-
-
-
-
-   void goo(final String s)
-    {
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("user");
-
-
-
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-
-                 if( dataSnapshot1.getKey().equals(s)) {
-                     Log.d("soso", dataSnapshot1.getKey());
-                     Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
-                     Log.d("sosooperc", "" + dataSnapshot1.child("percent").getValue());
-
-                 }
-                }
-
-
-            } @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-
-  static void addfriend(String friendusername, String friendname)
-    {
-
-    }
-
 
 
 
