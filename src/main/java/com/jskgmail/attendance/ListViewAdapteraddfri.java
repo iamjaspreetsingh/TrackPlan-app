@@ -13,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by JASPREET SINGH on 06-08-2017.
@@ -105,7 +106,16 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
 
 
             holder.txtviewtitle.setText(title.get(position));
-            holder.txtviewdesc.setText(description.get(position));
+            String[] de=description.get(position).split("");
+            for(int i=0;i<de.length;i++)
+            {
+                if(i>15)
+                    de[i]="";
+                if(de[i]==" ")
+                    de[i]="?";
+            }
+            String fullnm= Arrays.toString(de).replaceAll("\\,","").replaceAll("\\[","").replaceAll("\\]","").replaceAll(":","").replaceAll("//?"," ").replaceAll(" ","");
+            holder.txtviewdesc.setText(fullnm);
 holder.txtper.setText(perce.get(position)+"%");
             Log.d("zzzzz",perce.get(position));
        float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(perce.get(position)));

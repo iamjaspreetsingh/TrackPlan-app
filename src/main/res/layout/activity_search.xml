@@ -52,7 +52,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="9dp"
             android:text="Logged in as :\nJaspreet Singh \n(jaspreet)"
-            android:textSize="16sp" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <TextView
             android:id="@+id/textView52"
@@ -75,7 +75,7 @@
             android:layout_alignTop="@+id/textView42"
             android:layout_marginTop="9dp"
             android:text="My Overall %  : "
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="17sp" />
 
 
@@ -102,13 +102,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="11dp"
                     android:paddingLeft="10dp"
                     android:text="My Friends :"
-                    android:textSize="17sp"
-                    android:layout_marginTop="11dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="16sp" />
 
                 <ListView
                     android:id="@+id/friendlist"
