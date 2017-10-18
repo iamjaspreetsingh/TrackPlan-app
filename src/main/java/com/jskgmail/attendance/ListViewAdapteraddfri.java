@@ -5,15 +5,16 @@ package com.jskgmail.attendance;
  */
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by JASPREET SINGH on 06-08-2017.
@@ -57,6 +58,7 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
         TextView txtviewdesc;
         TextView txtper;
         TextView inc;
+        ImageView img;
 
 
     }
@@ -76,7 +78,7 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
             holder.txtviewdesc=(TextView)convertView.findViewById(R.id.textView69);
             holder.txtper=(TextView)convertView.findViewById(R.id.textView81);
             holder.inc=(TextView)convertView.findViewById(R.id.textView73);
-
+holder.img=(ImageView)convertView.findViewById(R.id.imageView5);
     /*        holder.txtviewdesc.setVisibility(View.VISIBLE);
             holder.txtviewtitle.setVisibility(View.VISIBLE);
 
@@ -106,24 +108,37 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
 
 
             holder.txtviewtitle.setText(title.get(position));
-            String[] de=description.get(position).split("");
-            for(int i=0;i<de.length;i++)
+            String fname;
+            fname=description.get(position);
+            if(description.get(position).length()>19)
             {
-                if(i>15)
-                    de[i]="";
-                if(de[i]==" ")
-                    de[i]="?";
-            }
-            String fullnm= Arrays.toString(de).replaceAll("\\,","").replaceAll("\\[","").replaceAll("\\]","").replaceAll(":","").replaceAll("//?"," ").replaceAll(" ","");
-            holder.txtviewdesc.setText(fullnm);
+        String[] fnamess= fname.split(" ");
+                Log.d("pppp",fnamess[2]);
+                if(fnamess.length>2)
+                {fname=fnamess[1]+" "+fnamess[2]+" "+fnamess[3];}}
+            else
+                fname=description.get(position);
+
+            holder.txtviewdesc.setText(fname);
 holder.txtper.setText(perce.get(position)+"%");
             Log.d("zzzzz",perce.get(position));
        float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(perce.get(position)));
-holder.inc.setText(String.valueOf(in)+"%");
+
+            holder.inc.setText(String.valueOf(in)+"%");
 
 
-
-
+if(in<0)
+{
+    holder.img.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+    holder.inc.setTextColor(Color.RED);
+    in=-in;
+}
+else
+{
+    holder.img.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+    holder.inc.setTextColor(Color.rgb(0,128,0));
+}
+            holder.inc.setText(String.valueOf(in)+"%");
 
 
 

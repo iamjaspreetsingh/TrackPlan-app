@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -50,8 +52,9 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
         search= (SearchView) findViewById(R.id.searchView);
         search.setOnQueryTextListener(this);
 
-
-
+        final ImageButton imageButton=(ImageButton)findViewById(R.id.imageButton6);
+final ProgressBar progressBar=(ProgressBar)findViewById(R.id.progressBar3);
+progressBar.setIndeterminate(true);
          arrayList29=new ArrayList<>();
         arrayList229=new ArrayList<>();
         arrayList2299=new ArrayList<>();
@@ -110,8 +113,19 @@ Log.d("checccccc",cn.getName());
                 }
                fradapter=new ListViewAdapteraddfri(SearchActivity.this,arrayList29,arrayList229,arrayList2299);
 
-
+progressBar.setIndeterminate(false);
+                progressBar.setVisibility(View.GONE);
              friendlist.setAdapter(fradapter);
+                imageButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        
+
+
+
+                    }
+                });
 
 
             } @Override
