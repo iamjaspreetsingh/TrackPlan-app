@@ -92,8 +92,8 @@ holder.img=(ImageView)convertView.findViewById(R.id.imageView6);
 
 
 
-                holder.txtviewtitle.setText(title.get(position));
-                holder.txtviewdesc.setText(description.get(position));
+                holder.txtviewtitle.setText(": "+title.get(position));
+                holder.txtviewdesc.setText(description.get(position).replace(":",""));
 holder.percc.setText(per.get(position)+"%");
             float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(per.get(position)));
             holder.inc.setText(String.valueOf(in)+"%");
