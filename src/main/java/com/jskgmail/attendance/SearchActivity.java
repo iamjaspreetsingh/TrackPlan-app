@@ -3,6 +3,7 @@ package com.jskgmail.attendance;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -22,10 +23,10 @@ static ListView list,friendlist;
 static     ListViewAdapteraddfri fradapter;
     static ArrayList<String> arrayList29=new ArrayList<>();
     static ArrayList<String> arrayList229=new ArrayList<>();
-
+    static ArrayList<String> arrayList2299=new ArrayList<>();
     ArrayList<String> arrayList2=new ArrayList<>();
     ArrayList<String> arrayList22=new ArrayList<>();
-
+    ArrayList<String> arrayList202=new ArrayList<>();
     SearchView search;
     String[] names;
      int i;
@@ -53,17 +54,17 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
 
          arrayList29=new ArrayList<>();
         arrayList229=new ArrayList<>();
+        arrayList2299=new ArrayList<>();
 
 
-
-        fradapter=new ListViewAdapteraddfri(SearchActivity.this,arrayList29,arrayList229);
+        fradapter=new ListViewAdapteraddfri(SearchActivity.this,arrayList29,arrayList229,arrayList2299);
 
 
         friendlist.setAdapter(fradapter);
 
         arrayList29=new ArrayList<>();
         arrayList229=new ArrayList<>();
-
+        arrayList2299=new ArrayList<>();
 
 
 
@@ -93,6 +94,7 @@ Log.d("checccccc",cn.getName());
 
                                 { arrayList29.add(dataSnapshot1.getKey());
                                 arrayList229.add(" : " + dataSnapshot1.child("name").getValue());
+                                    arrayList2299.add(""+dataSnapshot1.child("percent").getValue());
                             }
                         }
 
@@ -106,7 +108,7 @@ Log.d("checccccc",cn.getName());
 
 
                 }
-               fradapter=new ListViewAdapteraddfri(SearchActivity.this,arrayList29,arrayList229);
+               fradapter=new ListViewAdapteraddfri(SearchActivity.this,arrayList29,arrayList229,arrayList2299);
 
 
              friendlist.setAdapter(fradapter);
@@ -141,20 +143,22 @@ Log.d("checccccc",cn.getName());
     public boolean onQueryTextChange(final String newText) {
         String text=newText;
         Log.v("sosos",text);
-
-
+list.setVisibility(View.VISIBLE);
+if(text.equals(""))
+    list.setVisibility(View.GONE);
         arrayList2=new ArrayList<>();
         arrayList22=new ArrayList<>();
+        arrayList202=new ArrayList<>();
 
 
-        adapter=new ListViewAdaptersea(SearchActivity.this,arrayList2,arrayList22);
+        adapter=new ListViewAdaptersea(SearchActivity.this,arrayList2,arrayList22,arrayList202);
 
 
         list.setAdapter(adapter);
 
          arrayList2=new ArrayList<>();
     arrayList22=new ArrayList<>();
-
+        arrayList202=new ArrayList<>();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("user");
@@ -177,11 +181,12 @@ Log.d("checccccc",cn.getName());
                         if(!(dataSnapshot1.getKey().equals(ConnectActivity.usernamee))) {
                             arrayList2.add( dataSnapshot1.getKey());
                             arrayList22.add(" : " + dataSnapshot1.child("name").getValue());
+                            arrayList202.add(""+dataSnapshot1.child("percent").getValue());
                         }
                     }
 
                 }
-                adapter=new ListViewAdaptersea(SearchActivity.this, arrayList2, arrayList22);
+                adapter=new ListViewAdaptersea(SearchActivity.this, arrayList2, arrayList22,arrayList202);
 
 
                 list.setAdapter(adapter);

@@ -24,16 +24,18 @@ public class ListViewAdaptersea extends BaseAdapter {
     Activity mcontext;
     ArrayList<String> title;
     ArrayList<String> description;
+    ArrayList<String> per;
     ArrayList<String> arrayList=SearchActivity.arrayList29;;
     ArrayList<String> arrayList1=SearchActivity.arrayList229;;
+    ArrayList<String> arrayList111=SearchActivity.arrayList2299;;
 
 
 
-
-    public ListViewAdaptersea(SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
+    public ListViewAdaptersea(SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1, ArrayList<String> arrayList119) {
         mcontext=context;
         title=arrayList;
         description=arrayList1;
+        per=arrayList119;
     }
 
 
@@ -62,6 +64,7 @@ public class ListViewAdaptersea extends BaseAdapter {
 ImageButton addas;
         TextView percc;
         TextView fr;
+        TextView inc;
 
     }
     @Override
@@ -81,13 +84,17 @@ ImageButton addas;
             holder.addas=(ImageButton)convertView.findViewById(R.id.imageButton5) ;
             holder.fr=(TextView)convertView.findViewById(R.id.textView54) ;
 holder.percc=(TextView)convertView.findViewById(R.id.textView81);
-
+holder.inc=(TextView)convertView.findViewById(R.id.textView53);
 
 
 
 
                 holder.txtviewtitle.setText(title.get(position));
                 holder.txtviewdesc.setText(description.get(position));
+holder.percc.setText(per.get(position)+"%");
+            float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(per.get(position)));
+            holder.inc.setText(String.valueOf(in)+"%");
+
 
             DatabaseFriend db = new DatabaseFriend(mcontext);
             List<Friends> contacts = db.getAllContacts();
@@ -115,6 +122,7 @@ holder.addas.setImageResource(R.drawable.ic_done_black_24dp);
         Log.d("jsjsjs",title.get(position));
         arrayList.add(title.get(position));
         arrayList1.add(description.get(position));
+    arrayList111.add(per.get(position));
     DatabaseFriend db = new DatabaseFriend(mcontext);
     db.addContact(new Friends(title.get(position)));
 
@@ -139,7 +147,9 @@ go();
         {
 
             arrayList.remove(i);
-        arrayList1.remove(i);}
+        arrayList1.remove(i);
+        arrayList111.remove(i);
+        }
 
 
         DatabaseFriend db = new DatabaseFriend(mcontext);
@@ -197,7 +207,7 @@ void go()
 
 
 
-    ListViewAdapteraddfri adapterr=new ListViewAdapteraddfri((SearchActivity) mcontext,arrayList,arrayList1);
+    ListViewAdapteraddfri adapterr=new ListViewAdapteraddfri((SearchActivity) mcontext,arrayList,arrayList1,arrayList111);
     SearchActivity.friendlist.setAdapter(adapterr);
 
 

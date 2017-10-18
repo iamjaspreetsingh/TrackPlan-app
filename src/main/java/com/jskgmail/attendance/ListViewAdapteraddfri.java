@@ -5,6 +5,7 @@ package com.jskgmail.attendance;
  */
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +22,13 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
     Activity mcontext;
     ArrayList<String> title;
     ArrayList<String> description;
+    ArrayList<String> perce;
 
-
-    public ListViewAdapteraddfri (SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
+    public ListViewAdapteraddfri (SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1,ArrayList<String> arrayList2) {
         mcontext=context;
         title=arrayList;
         description=arrayList1;
+        perce=arrayList2;
     }
 
 
@@ -52,6 +54,8 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
     public class ViewHolder{
         TextView txtviewtitle;
         TextView txtviewdesc;
+        TextView txtper;
+        TextView inc;
 
 
     }
@@ -69,6 +73,8 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
 
 
             holder.txtviewdesc=(TextView)convertView.findViewById(R.id.textView69);
+            holder.txtper=(TextView)convertView.findViewById(R.id.textView81);
+            holder.inc=(TextView)convertView.findViewById(R.id.textView73);
 
     /*        holder.txtviewdesc.setVisibility(View.VISIBLE);
             holder.txtviewtitle.setVisibility(View.VISIBLE);
@@ -100,8 +106,10 @@ public class ListViewAdapteraddfri extends BaseAdapter  {
 
             holder.txtviewtitle.setText(title.get(position));
             holder.txtviewdesc.setText(description.get(position));
-
-
+holder.txtper.setText(perce.get(position)+"%");
+            Log.d("zzzzz",perce.get(position));
+       float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(perce.get(position)));
+holder.inc.setText(String.valueOf(in)+"%");
 
 
 
