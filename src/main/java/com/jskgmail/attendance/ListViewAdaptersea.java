@@ -13,12 +13,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +24,9 @@ public class ListViewAdaptersea extends BaseAdapter {
     Activity mcontext;
     ArrayList<String> title;
     ArrayList<String> description;
-    final ArrayList<String> arrayList=new ArrayList<>();
-    final ArrayList<String> arrayList1=new ArrayList<>();
+    ArrayList<String> arrayList=SearchActivity.arrayList29;;
+    ArrayList<String> arrayList1=SearchActivity.arrayList229;;
+
 
 
     public ListViewAdaptersea(SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
@@ -97,13 +92,6 @@ holder.percc=(TextView)convertView.findViewById(R.id.textView81);
             List<Friends> contacts = db.getAllContacts();
 
 
-            for (Friends cn : contacts) {
-
-               if(cn.getName().equals(title.get(position)))
-                   gogo(title.get(position));
-            }
-
-
 
 
 
@@ -159,7 +147,7 @@ db.updateContact(cn);}
 
 
 
-
+go();
 
     }
 }
@@ -207,6 +195,7 @@ void go()
 
 
 }
+/*
 void gogo(final String username)
 {String per;
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -242,11 +231,12 @@ if(username.equals(dataSnapshot1.getKey()))
 
         }
     });
+    }
+
+*/
 
 
 
-
-}
 
 }
 

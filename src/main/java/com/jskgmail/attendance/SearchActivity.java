@@ -16,11 +16,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 static ListView list,friendlist;
     ListViewAdaptersea adapter;
 static     ListViewAdapteraddfri fradapter;
+    static  final ArrayList<String> arrayList29=new ArrayList<>();
+    static  final ArrayList<String> arrayList229=new ArrayList<>();
+
+
     SearchView search;
     String[] names;
      int i;
@@ -43,6 +48,72 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
 
         search= (SearchView) findViewById(R.id.searchView);
         search.setOnQueryTextListener(this);
+
+
+
+
+
+
+
+
+
+
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("user");
+
+
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                    DatabaseFriend db = new DatabaseFriend(getApplicationContext());
+                    List<Friends> contacts = db.getAllContacts();
+
+
+                    for (Friends cn : contacts) {
+
+                        if(cn.getName().equals(dataSnapshot1.getKey())) {
+                            arrayList29.add("" + dataSnapshot1.getKey());
+                            arrayList229.add(" : " + dataSnapshot1.child("name").getValue());
+
+                        }
+
+
+                    }
+
+
+
+
+
+
+
+                }
+               fradapter=new ListViewAdapteraddfri(SearchActivity.this,arrayList29,arrayList229);
+
+
+             friendlist.setAdapter(fradapter);
+
+
+            } @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
 
 
 

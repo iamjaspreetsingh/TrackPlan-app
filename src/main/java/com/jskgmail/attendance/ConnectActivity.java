@@ -2,6 +2,7 @@ package com.jskgmail.attendance;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ConnectActivity extends AppCompatActivity {
-  static   String mynaam="",usernamee="fd";
+  static   String mynaam="",usernamee="";
 
 
     @Override
@@ -29,6 +30,22 @@ public class ConnectActivity extends AppCompatActivity {
 
         final EditText name=(EditText)findViewById(R.id.editText3);
         final EditText username=(EditText)findViewById(R.id.editText4);
+
+        SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
+        String unm=sp1.getString("username","");
+        String nam=sp1.getString("name","");
+        if(!(unm.equals("")))
+        {
+            username.setText(unm);
+            name.setText(nam);
+        }
+
+
+
+
+
+
+
         Button button=(Button)findViewById(R.id.button7) ;
         final ProgressBar p=(ProgressBar)findViewById(R.id.progressBar2) ;
         p.setVisibility(View.INVISIBLE);
@@ -69,7 +86,103 @@ gosetalert();
                                 Log.d("noofchild", String.valueOf(dataSnapshot.getChildrenCount()));
                                 if(ch==dataSnapshot.getChildrenCount())
                                 {  p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
-                                go();}
+                                go();
+
+
+                                    SharedPreferences sp1=getSharedPreferences("login",MODE_PRIVATE);
+                                    final String unm=sp1.getString("username","");
+                                    String nam=sp1.getString("name","");
+                                    if(!(unm.equals(""))) {
+
+                                        if(!((unm.equals(usernamee))&&(nam.equals(mynaam))))
+                                        {
+
+
+
+                                            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                            final DatabaseReference myRef = database.getReference("user");
+
+
+
+                                            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    // This method is called once with the initial value and again
+                                                    // whenever data at this location is updated.
+                                                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                                                      if( dataSnapshot1.getKey().equals(unm)) {
+                                                          Log.d("soso", dataSnapshot1.getKey());
+                                                          Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
+                                                          Log.d("sosooperc", "" + dataSnapshot1.child("percent").getValue());
+                                                          dataSnapshot1.getRef().removeValue();
+                                                      }
+
+                                                    }
+
+
+                                                } @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+
+                                                }
+                                            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        }
+
+
+                                    }
+
+
+
+
+
+                                    SharedPreferences sp=getSharedPreferences("login",MODE_PRIVATE);
+                                    SharedPreferences.Editor ed=sp.edit();
+                                    ed.putString("username",usernamee);
+                                    ed.putString("name",mynaam);
+                                    ed.commit();
+
+
+
+
+
+
+
+
+
+                                }
 
                             }
 

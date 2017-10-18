@@ -3,6 +3,7 @@ package com.jskgmail.attendance;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -60,7 +61,14 @@ final Button notisetttime=(Button)findViewById(R.id.button10) ;
 
 
 
-
+        Button myacc=(Button)findViewById(R.id.button8);
+        myacc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(MainsettingActivity.this,ConnectActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 

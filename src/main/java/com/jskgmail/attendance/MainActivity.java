@@ -2056,8 +2056,25 @@ checkdataforper();
             perall=(float)Math.round(perall*100)/100;
             percentagesending=String.valueOf(perall);
 
+
+
+            SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
+            String unm=sp1.getString("username","");
+            String nam=sp1.getString("name","");
+            if(!(unm.equals("")))
+            {
+ConnectActivity.usernamee=unm;
+                ConnectActivity.mynaam=nam;
+                Intent i=new Intent(MainActivity.this,SearchActivity.class);
+                startActivity(i);
+
+            }
+
+
+            else
+            {
             Intent i=new Intent(MainActivity.this,ConnectActivity.class);
-            startActivity(i);
+            startActivity(i);}
 
 
 
