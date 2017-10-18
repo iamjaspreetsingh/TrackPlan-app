@@ -107,7 +107,7 @@ holder.img=(ImageView)convertView.findViewById(R.id.imageView5);
 
 
 
-            holder.txtviewtitle.setText(title.get(position));
+            holder.txtviewtitle.setText(":"+title.get(position));
             String fname;
             fname=description.get(position);
             if(description.get(position).length()>19)
@@ -115,9 +115,9 @@ holder.img=(ImageView)convertView.findViewById(R.id.imageView5);
         String[] fnamess= fname.split(" ");
                 Log.d("pppp",fnamess[2]);
                 if(fnamess.length>2)
-                {fname=fnamess[1]+" "+fnamess[2]+" "+fnamess[3];}}
+                {fname=" "+fnamess[2]+" "+fnamess[3];}}
             else
-                fname=description.get(position);
+                fname=description.get(position).replaceAll(":","");
 
             holder.txtviewdesc.setText(fname);
 holder.txtper.setText(perce.get(position)+"%");

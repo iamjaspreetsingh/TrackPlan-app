@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -49,7 +50,7 @@ static     ListViewAdapteraddfri fradapter;
         TextView t=(TextView)findViewById(R.id.textView55);
         t.setText("My overall % : "+percent+" %");
         TextView tt=(TextView)findViewById(R.id.textView42);
-tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.usernamee+")");
+tt.setText(" Logged in as \n "+ConnectActivity.mynaam+"\n ("+ConnectActivity.usernamee+")");
 
         search= (SearchView) findViewById(R.id.searchView);
         search.setOnQueryTextListener(this);

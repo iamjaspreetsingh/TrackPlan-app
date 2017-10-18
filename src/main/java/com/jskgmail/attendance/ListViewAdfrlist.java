@@ -7,12 +7,14 @@ package com.jskgmail.attendance;
 
         import android.app.Activity;
         import android.graphics.Color;
+        import android.os.Build;
         import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.BaseAdapter;
         import android.widget.ImageView;
+        import android.widget.RelativeLayout;
         import android.widget.TextView;
 
         import java.util.ArrayList;
@@ -26,7 +28,7 @@ public class ListViewAdfrlist extends BaseAdapter {
     ArrayList<String> title;
     ArrayList<String> description;
     ArrayList<String> perce;
-
+int numb=1;
     public  ListViewAdfrlist  (MainfriendlistActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1,ArrayList<String> arrayList2) {
         mcontext=context;
         title=arrayList;
@@ -60,7 +62,8 @@ public class ListViewAdfrlist extends BaseAdapter {
         TextView txtper;
         TextView inc;
         ImageView img;
-
+        TextView no;
+RelativeLayout r;
 
     }
     @Override
@@ -75,11 +78,12 @@ public class ListViewAdfrlist extends BaseAdapter {
             holder=new ViewHolder();
             holder.txtviewtitle=(TextView)convertView.findViewById(R.id.textView68);
 
-
+holder.r=(RelativeLayout)convertView.findViewById(R.id.rll) ;
             holder.txtviewdesc=(TextView)convertView.findViewById(R.id.textView69);
             holder.txtper=(TextView)convertView.findViewById(R.id.textView81);
             holder.inc=(TextView)convertView.findViewById(R.id.textView73);
             holder.img=(ImageView)convertView.findViewById(R.id.imageView5);
+            holder.no=(TextView)convertView.findViewById(R.id.textView49);
     /*        holder.txtviewdesc.setVisibility(View.VISIBLE);
             holder.txtviewtitle.setVisibility(View.VISIBLE);
 
@@ -101,14 +105,20 @@ public class ListViewAdfrlist extends BaseAdapter {
 
               */
 
+if(title.get(position).equals(ConnectActivity.usernamee))
+{
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        holder.r.setElevation(6);
+    }
+    holder.r.setBackgroundColor(Color.LTGRAY);
+}
 
 
 
+holder.no.setText(numb+".)");
+numb++;
 
-
-
-
-            holder.txtviewtitle.setText(title.get(position));
+            holder.txtviewtitle.setText(": "+title.get(position));
             String fname;
             fname=description.get(position);
             if(description.get(position).length()>19)
@@ -116,9 +126,9 @@ public class ListViewAdfrlist extends BaseAdapter {
                 String[] fnamess= fname.split(" ");
                 Log.d("pppp",fnamess[2]);
                 if(fnamess.length>2)
-                {fname=fnamess[1]+" "+fnamess[2]+" "+fnamess[3];}}
+                {fname=" "+fnamess[2]+" "+fnamess[3];}}
             else
-                fname=description.get(position);
+                fname=description.get(position).replaceAll(":","");
 
             holder.txtviewdesc.setText(fname);
             holder.txtper.setText(perce.get(position)+"%");
