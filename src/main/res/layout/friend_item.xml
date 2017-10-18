@@ -1,116 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:background="@android:color/white"
+    android:layout_width="wrap_content"
+    android:layout_height="96dp"
+    android:background="@color/cardview_shadow_end_color"
+    android:foregroundGravity="center_vertical|center_horizontal|center"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:paddingBottom="5dp"
+    android:paddingEnd="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingStart="10dp"
+    android:paddingTop="5dp">
 
-    <TextView
-        android:id="@+id/avatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-
-
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
-
-        android:paddingRight="1dp"
-        android:paddingTop="5dp"
-        android:text="100%"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title.Inverse" />
-
-    <TextView
-        android:id="@+id/friendName"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="70dp"
-        android:text="Friend name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="21sp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="70dp"
-        android:layout_toLeftOf="@+id/avatar"
-        android:layout_toStartOf="@+id/avatar" />
-
-    <TextView
-        android:id="@+id/statusMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/friendName"
-        android:layout_alignStart="@+id/friendName"
-        android:layout_below="@+id/avatar"
-        android:text="Attended :  "
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/avatar"
-        android:layout_centerInParent="false"
-        android:layout_toLeftOf="@+id/avatar"
-        android:layout_toStartOf="@+id/avatar"
-        android:text="100%"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="18sp"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/textView13"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:paddingLeft="4dp"
-        android:text="You are on the track !!"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="18sp"
-        android:layout_below="@+id/statusMsg"
-        android:layout_toStartOf="@+id/avatar"
-        android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/statusMsg"
-        android:layout_toEndOf="@+id/statusMsg"
-        android:text="5"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="18sp"
-        android:layout_toRightOf="@+id/statusMsg"
-        android:layout_above="@+id/textView13" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="58dp"
-        android:layout_height="58dp"
-        android:layout_above="@+id/textView13"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingLeft="1dp"
-        app:srcCompat="@drawable/common_full_open_on_phone" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="4dp"
-        app:srcCompat="@drawable/ic_cancel_black_24dp"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/textView13"
-        android:layout_toRightOf="@+id/textView13"
-        android:layout_toEndOf="@+id/textView13"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:padding="5dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="13dp"
+        app:contentPadding="0dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/colorForegroundInverse"
+            android:foregroundGravity="center_vertical|center_horizontal|center"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+
+
+                android:layout_marginEnd="7dp"
+                android:layout_marginRight="7dp"
+
+                android:paddingRight="1dp"
+                android:paddingTop="5dp"
+                android:text="100%"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title.Inverse" />
+
+            <TextView
+                android:id="@+id/friendName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="70dp"
+                android:layout_marginStart="70dp"
+                android:layout_toLeftOf="@+id/avatar"
+                android:layout_toStartOf="@+id/avatar"
+                android:text="Friend name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textSize="21sp" />
+
+            <TextView
+                android:id="@+id/statusMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/friendName"
+                android:layout_alignStart="@+id/friendName"
+                android:layout_below="@+id/avatar"
+                android:text="Attended :  "
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/avatar"
+                android:layout_centerInParent="false"
+                android:layout_toLeftOf="@+id/avatar"
+                android:layout_toStartOf="@+id/avatar"
+                android:text="100%"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/statusMsg"
+                android:layout_marginTop="8dp"
+                android:layout_toStartOf="@+id/avatar"
+                android:paddingLeft="4dp"
+                android:text="You are on the track !!"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView13"
+                android:layout_alignTop="@+id/statusMsg"
+                android:layout_toEndOf="@+id/statusMsg"
+                android:layout_toRightOf="@+id/statusMsg"
+                android:text="5"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_above="@+id/imageView3"
+                android:layout_toEndOf="@+id/textView12"
+                android:layout_toRightOf="@+id/textView12"
+                android:paddingLeft="1dp"
+                app:srcCompat="@drawable/common_full_open_on_phone" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView13"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="9dp"
+                android:layout_marginStart="9dp"
+                android:layout_toEndOf="@+id/textView13"
+                android:layout_toRightOf="@+id/textView13"
+                android:paddingRight="4dp"
+                app:srcCompat="@drawable/ic_cancel_black_24dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>

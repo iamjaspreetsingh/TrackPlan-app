@@ -255,7 +255,7 @@ Log.e("plzz", String.valueOf(check[0]));
         DatabaseReference myRef1 = database.getReference("user").child(usernamee);
 
 
-        myRef1.child("username").setValue(usernamee);
+
         myRef1.child("name").setValue(mynaam);
         myRef1.child("percent").setValue(MainActivity.percentagesending);
 
