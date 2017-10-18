@@ -36,7 +36,10 @@
             android:gravity="center"
             android:text="Add the subjects clicking on (+) button"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
         <CheckedTextView
@@ -59,12 +62,12 @@
             android:id="@+id/checkedTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/checkedTextView"
-            android:layout_alignBottom="@+id/checkedTextView"
-            android:layout_marginStart="14dp"
+            android:layout_above="@+id/listView6"
             android:layout_toEndOf="@+id/checkedTextView"
+            android:layout_toRightOf="@+id/checkedTextView"
             android:checkMark="@drawable/ic_arrow_upward_black_24dp"
             android:paddingBottom="0dp"
+            android:paddingLeft="4dp"
             android:paddingTop="0dp"
             android:text="Present "
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"

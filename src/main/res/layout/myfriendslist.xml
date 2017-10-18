@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rll"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView68"
-        android:layout_width="132dp"
+        android:layout_width="137dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:paddingBottom="4dp"
         android:paddingLeft="5dp"
         android:paddingTop="4dp"
@@ -22,28 +25,16 @@
         android:id="@+id/textView69"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView68"
         android:paddingBottom="4dp"
         android:paddingRight="5dp"
         android:paddingTop="4dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="16sp"
-        android:layout_toRightOf="@+id/textView68"
-        android:layout_alignRight="@+id/imageButton5"
-        android:layout_alignEnd="@+id/imageButton5" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="55dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/textView54"
-        android:layout_alignLeft="@+id/textView54"
-        android:layout_alignStart="@+id/textView54"
-        android:background="@color/caldroid_transparent"
-        android:elevation="3dp"
-        android:paddingRight="5dp"
-        app:srcCompat="@drawable/ic_person_add_black_24dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView50"
@@ -52,7 +43,7 @@
         android:layout_alignLeft="@+id/textView68"
         android:layout_alignStart="@+id/textView68"
         android:layout_below="@+id/textView68"
-        android:paddingBottom="2dp"
+        android:paddingBottom="5dp"
         android:paddingLeft="5dp"
         android:text="Overall % : "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -62,46 +53,52 @@
         android:id="@+id/textView81"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
+        android:layout_alignBottom="@+id/textView50"
+        android:layout_alignTop="@+id/textView50"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/textView50"
+        android:layout_toRightOf="@+id/textView50"
+        android:paddingBottom="5dp"
         android:text="77 %"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="16sp"
-        android:layout_below="@+id/textView68"
-        android:layout_toRightOf="@+id/textView50"
-        android:layout_toEndOf="@+id/textView50" />
+        android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView53"
+        android:id="@+id/textView73"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
-        android:text="(+25 %)"
+        android:layout_below="@+id/textView69"
+        android:layout_toRightOf="@+id/imageView5"
+        android:paddingBottom="5dp"
+        android:text=" 25 %"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/greendark"
-        android:textSize="16sp"
-        android:layout_below="@+id/textView69"
-        android:layout_toRightOf="@+id/imageView6"
-        android:layout_toEndOf="@+id/imageView6" />
-
-    <TextView
-        android:id="@+id/textView54"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add as Friend"
-        android:textAppearance="@style/TextAppearance.AppCompat.Notification.Time"
-        android:textSize="9sp"
-        android:layout_marginRight="7dp"
-        android:layout_marginEnd="7dp"
-        android:layout_alignBottom="@+id/textView53"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:textSize="16sp" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_keyboard_arrow_down_black_24dp"
         android:layout_below="@+id/textView69"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/textView53" />
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_toEndOf="@+id/textView68"
+        android:layout_toRightOf="@+id/textView68"
+        app:srcCompat="@drawable/ic_keyboard_arrow_up_black_24dp" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="13dp"
+        android:layout_toLeftOf="@+id/textView50"
+        android:paddingLeft="8dp"
+        android:text="1."
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="19sp" />
+
 </RelativeLayout>

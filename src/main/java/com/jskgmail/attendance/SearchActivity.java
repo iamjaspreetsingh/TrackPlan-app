@@ -1,5 +1,6 @@
 package com.jskgmail.attendance;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,6 +23,7 @@ import java.util.List;
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 static ListView list,friendlist;
     ListViewAdaptersea adapter;
+
 static     ListViewAdapteraddfri fradapter;
     static ArrayList<String> arrayList29=new ArrayList<>();
     static ArrayList<String> arrayList229=new ArrayList<>();
@@ -116,16 +118,7 @@ Log.d("checccccc",cn.getName());
 progressBar.setIndeterminate(false);
                 progressBar.setVisibility(View.GONE);
              friendlist.setAdapter(fradapter);
-                imageButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
 
-                        
-
-
-
-                    }
-                });
 
 
             } @Override
@@ -139,7 +132,15 @@ progressBar.setIndeterminate(false);
 
 
 
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent i=new Intent(SearchActivity.this,MainfriendlistActivity.class);
+                startActivity(i);
+
+            }
+        });
 
 
 

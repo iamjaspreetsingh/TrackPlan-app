@@ -5,12 +5,14 @@ package com.jskgmail.attendance;
  */
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -65,6 +67,7 @@ ImageButton addas;
         TextView percc;
         TextView fr;
         TextView inc;
+        ImageView img;
 
     }
     @Override
@@ -85,7 +88,7 @@ ImageButton addas;
             holder.fr=(TextView)convertView.findViewById(R.id.textView54) ;
 holder.percc=(TextView)convertView.findViewById(R.id.textView81);
 holder.inc=(TextView)convertView.findViewById(R.id.textView53);
-
+holder.img=(ImageView)convertView.findViewById(R.id.imageView6);
 
 
 
@@ -94,6 +97,20 @@ holder.inc=(TextView)convertView.findViewById(R.id.textView53);
 holder.percc.setText(per.get(position)+"%");
             float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(per.get(position)));
             holder.inc.setText(String.valueOf(in)+"%");
+
+            if(in<0)
+            {
+                holder.img.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+                holder.inc.setTextColor(Color.RED);
+                in=-in;
+            }
+            else
+            {
+                holder.img.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+                holder.inc.setTextColor(Color.rgb(0,128,0));
+            }
+            holder.inc.setText(String.valueOf(in)+"%");
+
 
 
             DatabaseFriend db = new DatabaseFriend(mcontext);

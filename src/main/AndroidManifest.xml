@@ -77,7 +77,8 @@
                 android:value="com.jskgmail.attendance.MainActivity" />
         </activity>
         <activity android:name=".ConnectActivity" />
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".MainfriendlistActivity"></activity>
     </application>
 
 </manifest>
