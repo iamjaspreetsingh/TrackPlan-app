@@ -29,6 +29,7 @@ public class ListViewAdaptersea extends BaseAdapter {
 
 
 
+
     public ListViewAdaptersea(SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
         mcontext=context;
         title=arrayList;
@@ -89,10 +90,7 @@ holder.percc=(TextView)convertView.findViewById(R.id.textView81);
                 holder.txtviewdesc.setText(description.get(position));
 
             DatabaseFriend db = new DatabaseFriend(mcontext);
-            List<Friends> contacts = db.getAllContacts();
-
-
-
+            final List<Friends> contacts = db.getAllContacts();
 
 
 
@@ -100,16 +98,23 @@ holder.percc=(TextView)convertView.findViewById(R.id.textView81);
 
             final int[] i = {0};
 
-            for (Friends cn : contacts) {
 
-                if(cn.getName().equals(title.get(position)))
-                {   i[0]=1;holder.addas.setImageResource(R.drawable.ic_done_black_24dp);}
-            }
+
+
 
             holder.addas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-if(i[0] %2==0){
+
+        for (Friends cn : contacts) {
+
+            if(cn.getName().equals(title.get(position)))
+            {   i[0]=1;holder.addas.setImageResource(R.drawable.ic_done_black_24dp);}
+        }
+
+
+
+        if(i[0]==0){
 holder.addas.setImageResource(R.drawable.ic_done_black_24dp);
         holder.fr.setText("Friends");
         Log.d("jsjsjs",title.get(position));
@@ -119,17 +124,25 @@ holder.addas.setImageResource(R.drawable.ic_done_black_24dp);
     db.addContact(new Friends(title.get(position)));
 
 
+    DatabaseFriend db1 = new DatabaseFriend(mcontext);
+    List<Friends> contacts = db1.getAllContacts();
+
+    for (Friends cn : contacts) {
+        Log.d("cccccc",cn.getName());
+    }
 
 
-
-    go();}
-        else
+go();
+    }
+        else if(i[0]==1)
 {holder.addas.setImageResource(R.drawable.ic_person_add_black_24dp);
     holder.fr.setText("Add Friend");
     Log.d("jsjsjs",title.get(position));
     for(int i=0;i<arrayList.size();i++) {
         if(arrayList.get(i).equals(title.get(position)))
-        {arrayList.remove(i);
+        {
+
+            arrayList.remove(i);
         arrayList1.remove(i);}
 
 
@@ -147,12 +160,14 @@ db.updateContact(cn);}
 
 
 
-go();
+
 
     }
+
+
+    go();
 }
 
-i[0]++;
 
     }
 

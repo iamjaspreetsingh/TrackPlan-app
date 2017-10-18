@@ -22,8 +22,8 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 static ListView list,friendlist;
     ListViewAdaptersea adapter;
 static     ListViewAdapteraddfri fradapter;
-    static  final ArrayList<String> arrayList29=new ArrayList<>();
-    static  final ArrayList<String> arrayList229=new ArrayList<>();
+    static ArrayList<String> arrayList29=new ArrayList<>();
+    static ArrayList<String> arrayList229=new ArrayList<>();
 
 
     SearchView search;
@@ -51,10 +51,18 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
 
 
 
+         arrayList29=new ArrayList<>();
+        arrayList229=new ArrayList<>();
 
 
 
+        fradapter=new ListViewAdapteraddfri(SearchActivity.this,arrayList29,arrayList229);
 
+
+        friendlist.setAdapter(fradapter);
+
+        arrayList29=new ArrayList<>();
+        arrayList229=new ArrayList<>();
 
 
 
@@ -75,13 +83,17 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
                     DatabaseFriend db = new DatabaseFriend(getApplicationContext());
                     List<Friends> contacts = db.getAllContacts();
 
-
+                    for (Friends cn : contacts) {
+Log.d("checccccc",cn.getName());
+                    }
                     for (Friends cn : contacts) {
 
                         if(cn.getName().equals(dataSnapshot1.getKey())) {
-                            arrayList29.add("" + dataSnapshot1.getKey());
-                            arrayList229.add(" : " + dataSnapshot1.child("name").getValue());
 
+
+                                { arrayList29.add(dataSnapshot1.getKey());
+                                arrayList229.add(" : " + dataSnapshot1.child("name").getValue());
+                            }
                         }
 
 
@@ -157,7 +169,7 @@ tt.setText("Logged in as \n"+ConnectActivity.mynaam+"\n("+ConnectActivity.userna
                         Log.d("soso",  dataSnapshot1.getKey());
                         Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
                         if(!(dataSnapshot1.getKey().equals(ConnectActivity.usernamee))) {
-                            arrayList2.add("" + dataSnapshot1.getKey());
+                            arrayList2.add( dataSnapshot1.getKey());
                             arrayList22.add(" : " + dataSnapshot1.child("name").getValue());
                         }
                     }
