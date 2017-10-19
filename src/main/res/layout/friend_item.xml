@@ -20,7 +20,7 @@
         android:background="@android:color/transparent"
         android:foregroundGravity="center_vertical|center_horizontal"
         app:cardBackgroundColor="@color/cardview_light_background"
-        app:cardCornerRadius="2dp"
+        app:cardCornerRadius="4dp"
         app:cardElevation="2dp"
         app:cardUseCompatPadding="true">
 
@@ -52,15 +52,15 @@
                 android:id="@+id/friendName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Friend name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textSize="21sp"
                 android:layout_alignBaseline="@+id/avatar"
                 android:layout_alignBottom="@+id/avatar"
-                android:layout_toRightOf="@+id/imageView2"
-                android:layout_toEndOf="@+id/imageView2"
                 android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:layout_toRightOf="@+id/imageView2"
+                android:text="Friend name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textSize="21sp" />
 
             <TextView
                 android:id="@+id/statusMsg"
