@@ -212,7 +212,7 @@
             android:background="@android:color/background_light"
             android:elevation="1dp"
             android:gravity="left"
-            android:paddingBottom="9dp"
+            android:paddingBottom="14dp"
             android:paddingLeft="8dp"
             android:paddingTop="9dp"
             android:text="Set Notification Time"

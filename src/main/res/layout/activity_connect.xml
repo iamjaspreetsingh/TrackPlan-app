@@ -61,7 +61,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView44"
             android:paddingLeft="3dp"
-            android:text="Your unique username that helps your friends to identify you"
+            android:text="Your unique username that helps your friends to identify you\nYou can change it later in Settings"
             android:textSize="13sp" />
 
         <EditText

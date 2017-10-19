@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,8 +29,11 @@ public class ConnectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
 
+
         final EditText name=(EditText)findViewById(R.id.editText3);
         final EditText username=(EditText)findViewById(R.id.editText4);
+
+
 
         SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
         String unm=sp1.getString("username","");
@@ -74,19 +78,24 @@ final String TAG="what";
                         for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                         {
 
-                            if(dataSnapshot1.getKey().equals(usernamee))
-                            {Log.d("plzzz", ""+dataSnapshot1.getKey());
-                                check[0] =1;
-p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
-gosetalert();
-
-                                break;
-                            }
-                            else {ch++;
+                            if(!(dataSnapshot1.getKey().equals(usernamee)))
+                            {ch++;
                                 Log.d("noofchild", String.valueOf(dataSnapshot.getChildrenCount()));
                                 if(ch==dataSnapshot.getChildrenCount())
                                 {  p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
-                                go();
+
+
+
+
+
+
+                                    if(MainsettingActivity.don.equals("1"))
+                                    {
+                                        Toast.makeText(getApplicationContext(),"Logged in as "+mynaam+" ("+usernamee+")",Toast.LENGTH_LONG).show();
+                                        finish();
+                                        MainsettingActivity.don="2";
+                                    }
+                                    else{go();}
 
 
                                     SharedPreferences sp1=getSharedPreferences("login",MODE_PRIVATE);
@@ -183,6 +192,26 @@ gosetalert();
 
 
                                 }
+
+                            }else
+                            {
+
+
+                                {Log.d("plzzz", ""+dataSnapshot1.getKey());
+                                    check[0] =1;
+                                    p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
+                                    gosetalert();
+
+                                    break;
+                                }
+
+
+
+
+
+
+
+
 
                             }
 

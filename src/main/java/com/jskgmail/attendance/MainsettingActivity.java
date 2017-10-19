@@ -31,6 +31,7 @@ public class MainsettingActivity extends AppCompatActivity {
     private ArrayList<String> stringArrayList, stringArrayList1, stringArrayList2, stringArrayList3, stringArrayList4;
     private ListView listView;
     static String password ;
+    static String don="2";
     String semno;
     String semselected;
 static  int hour=0,min=0;
@@ -67,6 +68,7 @@ final Button notisetttime=(Button)findViewById(R.id.button10) ;
             public void onClick(View v) {
                 Intent i=new Intent(MainsettingActivity.this,ConnectActivity.class);
                 startActivity(i);
+              don="1";
             }
         });
 

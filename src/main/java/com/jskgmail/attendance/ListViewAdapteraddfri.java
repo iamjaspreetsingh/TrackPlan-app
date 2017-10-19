@@ -105,9 +105,9 @@ holder.img=(ImageView)convertView.findViewById(R.id.imageView5);
 
 
 
+String a=": "+title.get(position);
 
-
-            holder.txtviewtitle.setText(": "+title.get(position));
+            holder.txtviewtitle.setText(a);
             String fname;
             fname=description.get(position);
             if(description.get(position).length()>19)
