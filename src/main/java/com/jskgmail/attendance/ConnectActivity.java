@@ -349,15 +349,8 @@ finish();
 
 
 
-
-
-
-
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.layouterror, null);
-
-
-
 
 
 

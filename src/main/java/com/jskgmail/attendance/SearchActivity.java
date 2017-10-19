@@ -1,11 +1,15 @@
 package com.jskgmail.attendance;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -132,7 +136,19 @@ progressBar.setIndeterminate(false);
                 progressBar.setVisibility(View.GONE);
              friendlist.setAdapter(fradapter);
 
+friendlist.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
+
+go(position);
+
+
+
+
+        return true;
+    }
+});
 
             } @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -287,6 +303,66 @@ if(text.equals(""))
 
 
 
+void go(final int position)
+{
 
+    LayoutInflater inflater = getLayoutInflater();
+    View alertLayout = inflater.inflate(R.layout.layoutdeletefriend, null);
+
+
+    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+    // this is set the view from XML inside AlertDialog
+    alert.setView(alertLayout);
+    // disallow cancel of AlertDialog on click of back button and outside touch
+    alert.setTitle("Confirm delete");
+    alert.setIcon(R.drawable.ic_add_alert_black_24dp);
+    alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            dialog.dismiss();
+        }
+    });
+
+
+    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+
+
+
+            DatabaseFriend db = new DatabaseFriend(getApplicationContext());
+            List<Friends> contacts = db.getAllContacts();
+
+
+            for (Friends cn : contacts) {
+                if(cn.getName().equals(arrayList29.get(position)))
+                {
+                    db.deleteContact(cn);
+                    db.updateContact(cn);
+                    break;
+                }
+
+
+            }
+
+            arrayList29.remove(position);
+            arrayList229.remove(position);
+            arrayList2299.remove(position);
+
+            fradapter=new ListViewAdapteraddfri(SearchActivity.this,arrayList29,arrayList229,arrayList2299);
+            friendlist.setAdapter(fradapter);
+
+        }
+    });
+
+
+    AlertDialog dialog = alert.create();
+    dialog.show();
+
+}
 
 }
