@@ -19,7 +19,7 @@
         android:paddingLeft="5dp"
         android:paddingTop="2dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="19sp" />
+        android:textSize="17sp" />
 
     <Button
         android:id="@+id/button11"

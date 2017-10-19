@@ -8,6 +8,9 @@
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="83dp"
         android:layout_marginTop="33dp"
         android:layout_weight="1"
         android:paddingBottom="4dp"
@@ -16,10 +19,7 @@
         android:paddingTop="7dp"
         android:text="Please first set the current semester / class in which you are studying "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="17sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="83dp" />
+        android:textSize="16sp" />
 
     <Spinner
         android:id="@+id/spinnerinitialsem"
