@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_today_black_24dp"
@@ -28,6 +29,10 @@
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_view_list_black_24dp"
             android:title="Rearrange" />
+        <item
+            android:id="@+id/shareattendance"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Share" />
 
     </group>
 
@@ -43,5 +48,6 @@
                 android:title="Help and Feedback" />
         </menu>
     </item>
+
 
 </menu>

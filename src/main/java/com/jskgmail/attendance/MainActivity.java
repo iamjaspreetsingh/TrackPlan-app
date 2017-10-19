@@ -2012,6 +2012,7 @@ alert.setTitle("Overall %");
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.activity_main_drawer1,menu);
 
         return true;
     }
@@ -2021,8 +2022,13 @@ alert.setTitle("Overall %");
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+int id=item.getItemId();
+        if(id==R.id.setting) {
 
-
+            Intent i=new Intent(MainActivity.this,MainsettingActivity.class);
+            startActivity(i);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -2083,7 +2089,47 @@ ConnectActivity.usernamee=unm;
 
         }
 
+else if(id==R.id.shareattendance)
+        {
+            percenall=0;
+            totalsub=0;
+            checkdataforper();
+            float perall=(percenall/(float)totalsub);
+            Log.i("prcentageisfgfgf",String.valueOf(perall));
+            perall=(float)Math.round(perall*100)/100;
+            percentagesending=String.valueOf(perall);
 
+
+            DatabaseHandler db1 = new DatabaseHandler(getApplicationContext());
+            List<Contact> contacts = db1.getAllContacts();
+String mes="Hey, my attendance for the current sem is :";
+            for (Contact cn : contacts) {
+                float per=((Integer.parseInt(cn.getPresent()))/(Integer.parseInt(cn.getPresent())+Integer.parseInt(cn.getAbssent())))*100;
+                per=(float)Math.round(per*100)/100;
+                mes=mes+"\n"+cn.getName()+" : "+String.valueOf(per)+"%";
+
+
+            }
+
+            String message=mes+"\n with an overall percentage of "+percentagesending+"%";
+            Intent share=new Intent(Intent.ACTION_SEND);
+            share.setType("text/plain");
+            share.putExtra(Intent.EXTRA_TEXT,message);
+            startActivity(Intent.createChooser(share,"Share your Attendance"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
 
 
 

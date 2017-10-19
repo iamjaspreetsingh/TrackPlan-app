@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/colorForegroundInverse"
             android:duplicateParentState="true"
-            android:foregroundGravity="center_vertical|center_horizontal|center">
+            android:foregroundGravity="center_vertical|center_horizontal|center"
+            android:padding="1dp">
 
             <TextView
                 android:id="@+id/avatar"
@@ -60,7 +61,7 @@
                 android:layout_toRightOf="@+id/imageView2"
                 android:text="Friend name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textSize="21sp" />
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/statusMsg"
@@ -70,7 +71,7 @@
                 android:layout_alignStart="@+id/friendName"
                 android:layout_below="@+id/avatar"
                 android:text="Attended :  "
-                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="18sp" />
 
             <TextView
@@ -110,7 +111,7 @@
                 android:layout_toEndOf="@+id/statusMsg"
                 android:layout_toRightOf="@+id/statusMsg"
                 android:text="5"
-                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="18sp" />
 
             <ImageView
