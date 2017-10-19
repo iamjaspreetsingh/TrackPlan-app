@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -28,6 +29,11 @@ public class ConnectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        actionBar.setDisplayShowHomeEnabled(true);
 
 
         final EditText name=(EditText)findViewById(R.id.editText3);
@@ -84,18 +90,27 @@ final String TAG="what";
                                 if(ch==dataSnapshot.getChildrenCount())
                                 {  p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
 
+                                    String noalert="1";
+Intent i=getIntent();
+     if(i.hasExtra("noalert"))
+     {
+        noalert =i.getStringExtra("noalert");
+     }
+
+                             else if(i.hasExtra("alert"))
+                                    {
+                                       noalert=i.getStringExtra("alert");
+                                    }
 
 
 
-
-
-                                    if(MainsettingActivity.don.equals("1"))
+                                    if(noalert.equals("1"))
                                     {
                                         Toast.makeText(getApplicationContext(),"Logged in as "+mynaam+" ("+usernamee+")",Toast.LENGTH_LONG).show();
                                         finish();
-                                        MainsettingActivity.don="2";
+
                                     }
-                                    else{go();}
+                                    else if(noalert.equals("0")){go();}
 
 
                                     SharedPreferences sp1=getSharedPreferences("login",MODE_PRIVATE);
@@ -136,33 +151,6 @@ final String TAG="what";
 
                                                 }
                                             });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -394,16 +382,6 @@ dialog.cancel();
         });
         AlertDialog dialog = alert.create();
         dialog.show();
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -2,6 +2,7 @@ package com.jskgmail.attendance;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -40,8 +41,20 @@ static     ListViewAdapteraddfri fradapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        names=new String[]{"ab","dbd","ffddf","gfgf"
-        };
+
+
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        actionBar.setDisplayShowHomeEnabled(true);
+
+
+
+
+
+
+
         list=(ListView)findViewById(R.id.listsearch);
          friendlist=(ListView)findViewById(R.id.friendlist);
 

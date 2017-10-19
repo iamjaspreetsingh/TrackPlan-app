@@ -46,8 +46,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    static  String semno="",percentagesending="0.0";
+    static String doacti="0";
 
-    static  String semno="",percentagesending="";
     private ListView listView;
     ListViewAdapter lviewAdapter;
     ArrayList<String> monthh = new ArrayList<String>();
@@ -2067,6 +2068,7 @@ ConnectActivity.usernamee=unm;
                 ConnectActivity.mynaam=nam;
                 Intent i=new Intent(MainActivity.this,SearchActivity.class);
                 startActivity(i);
+                i.putExtra("alert","0");
 
             }
 

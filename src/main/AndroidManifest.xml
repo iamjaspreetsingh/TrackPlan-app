@@ -75,9 +75,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jskgmail.attendance.MainActivity" />
         </activity>
-        <activity android:name=".ConnectActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".MainfriendlistActivity"></activity>
+        <activity android:name=".ConnectActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.jskgmail.attendance.MainActivity" />
+        </activity>
+        <activity android:name=".SearchActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jskgmail.attendance.MainActivity" />
+        </activity>
+        <activity android:name=".MainfriendlistActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jskgmail.attendance.SearchActivity" />
+        </activity>
     </application>
 
 </manifest>

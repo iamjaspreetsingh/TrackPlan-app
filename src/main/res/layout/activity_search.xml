@@ -19,8 +19,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/searchView"
             app:cardCornerRadius="4dp"
-            app:cardElevation="5dp"
-            app:contentPadding="1dp">
+            app:cardElevation="5dp">
 
             <ListView
                 android:id="@+id/listsearch"

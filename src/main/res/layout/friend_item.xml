@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="96dp"
+    android:layout_height="110dp"
     android:layout_alignParentEnd="true"
     android:layout_alignParentLeft="true"
     android:layout_alignParentRight="true"
@@ -10,33 +10,26 @@
     android:background="@color/cardview_shadow_end_color"
     android:foregroundGravity="center_vertical|center_horizontal|center"
     android:gravity="center"
-    android:orientation="vertical"
-    android:paddingEnd="10dp">
+    android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="false"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:background="@android:color/transparent"
-        android:duplicateParentState="true"
         android:foregroundGravity="center_vertical|center_horizontal"
-        android:padding="5dp"
         app:cardBackgroundColor="@color/cardview_light_background"
-        app:cardCornerRadius="1dp"
-        app:cardElevation="6dp">
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="?android:attr/colorForegroundInverse"
             android:duplicateParentState="true"
-            android:foregroundGravity="center_vertical|center_horizontal|center"
-            android:padding="5dp">
+            android:foregroundGravity="center_vertical|center_horizontal|center">
 
             <TextView
                 android:id="@+id/avatar"
@@ -59,16 +52,15 @@
                 android:id="@+id/friendName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="70dp"
-                android:layout_marginStart="70dp"
-                android:layout_toLeftOf="@+id/avatar"
-                android:layout_toStartOf="@+id/avatar"
                 android:text="Friend name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textSize="21sp" />
+                android:textSize="21sp"
+                android:layout_alignBaseline="@+id/avatar"
+                android:layout_alignBottom="@+id/avatar"
+                android:layout_toRightOf="@+id/imageView2"
+                android:layout_toEndOf="@+id/imageView2"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" />
 
             <TextView
                 android:id="@+id/statusMsg"
@@ -102,6 +94,7 @@
                 android:layout_below="@+id/statusMsg"
                 android:layout_marginTop="8dp"
                 android:layout_toStartOf="@+id/avatar"
+                android:paddingBottom="4dp"
                 android:paddingLeft="4dp"
                 android:text="You are on the track !!"
                 android:textAppearance="@style/TextAppearance.AppCompat"
@@ -127,6 +120,7 @@
                 android:layout_above="@+id/imageView3"
                 android:layout_toEndOf="@+id/textView12"
                 android:layout_toRightOf="@+id/textView12"
+                android:paddingBottom="5dp"
                 android:paddingLeft="1dp"
                 app:srcCompat="@drawable/common_full_open_on_phone" />
 
@@ -140,6 +134,7 @@
                 android:layout_marginStart="9dp"
                 android:layout_toEndOf="@+id/textView13"
                 android:layout_toRightOf="@+id/textView13"
+                android:paddingBottom="5dp"
                 android:paddingRight="4dp"
                 app:srcCompat="@drawable/ic_cancel_black_24dp" />
         </RelativeLayout>

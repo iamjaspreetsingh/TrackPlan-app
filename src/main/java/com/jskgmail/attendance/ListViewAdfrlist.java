@@ -108,10 +108,10 @@ holder.r=(RelativeLayout)convertView.findViewById(R.id.rll) ;
 if(title.get(position).equals(ConnectActivity.usernamee))
 {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        holder.r.setElevation(6);
-    }
-    holder.r.setBackgroundColor(Color.LTGRAY);
-}
+        holder.r.setElevation(6);}
+
+    holder.r.setBackgroundColor(Color.LTGRAY);}
+
 
 
 
