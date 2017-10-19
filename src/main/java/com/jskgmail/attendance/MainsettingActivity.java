@@ -153,7 +153,7 @@ if(myvalue2==0)
 
                 }
                 else {setenable("123455");  notisetttime.setEnabled(true);  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
-                    notisetttime.setTextSize(21);}
+                    notisetttime.setTextSize(18);}
                 }
             }
         });
@@ -169,7 +169,7 @@ if(myvalue2==0)
             public void onClick(View v) {
                 if(auth.isChecked()==true)
                 { setenableauth("123999"); passw.setEnabled(true);  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  passw.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
-                    passw.setTextSize(21);}
+                    passw.setTextSize(18);}
                     SharedPreferences pref=getSharedPreferences("password",0);
                     final String passwo=pref.getString("password","");
                     if(passwo.equals(""))
@@ -595,7 +595,7 @@ String ppp=passch.getText().toString();
 
         // disallow cancel of AlertDialog on click of back button and outside touch
 
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -604,7 +604,7 @@ String ppp=passch.getText().toString();
         });
 
 
-        alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -632,7 +632,7 @@ String ppp=passch.getText().toString();
         alert.setView(alertLayout);
         // disallow cancel of AlertDialog on click of back button and outside touch
 
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -641,7 +641,7 @@ String ppp=passch.getText().toString();
         });
 
 
-        alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {

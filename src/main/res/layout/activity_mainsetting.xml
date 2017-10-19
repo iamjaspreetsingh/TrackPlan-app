@@ -133,11 +133,11 @@
             android:id="@+id/currsemspinner"
             android:layout_width="15dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView33"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/textView33"
-            android:layout_toEndOf="@+id/textView33"
+            android:layout_toEndOf="@+id/textView35"
+            android:layout_toRightOf="@+id/textView35"
             android:dropDownWidth="160dp"
             android:paddingBottom="0dp"
             android:paddingEnd="5dp"
@@ -208,7 +208,7 @@
         <Button
             android:id="@+id/button10"
             android:layout_width="395dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
 
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -217,6 +217,7 @@
             android:background="@android:color/background_light"
             android:elevation="1dp"
             android:gravity="left|center_vertical|center_horizontal"
+            android:paddingBottom="20dp"
             android:paddingLeft="8dp"
             android:text="Set Notification Time"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -292,57 +293,57 @@
             android:id="@+id/textView61"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="9dp"
             android:paddingLeft="8dp"
             android:text="ACCOUNT"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="9dp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textView62"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button8"
             android:layout_marginTop="21dp"
             android:paddingLeft="8dp"
             android:text="MY ATTENDANCE"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            android:layout_below="@+id/button8"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textView63"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/view"
             android:layout_marginTop="27dp"
             android:paddingLeft="8dp"
             android:text="AUTHENTICATION"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            android:layout_below="@+id/view"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textView64"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/password"
             android:layout_marginTop="27dp"
             android:paddingLeft="8dp"
             android:text="NOTIFICATIONS"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            android:layout_below="@+id/password"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

@@ -30,7 +30,7 @@
             android:background="?android:attr/colorForegroundInverse"
             android:duplicateParentState="true"
             android:foregroundGravity="center_vertical|center_horizontal|center"
-            android:padding="1dp">
+            android:padding="2dp">
 
             <TextView
                 android:id="@+id/avatar"

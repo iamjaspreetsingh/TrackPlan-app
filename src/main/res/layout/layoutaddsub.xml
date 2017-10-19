@@ -19,10 +19,10 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:layout_weight="0.26"
             android:text="Subject"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textSize="16sp" />
+            android:textSize="15sp" />
 
         <EditText
             android:id="@+id/et_username"
@@ -61,15 +61,13 @@
         android:paddingTop="5dp"
         android:text="Criteria"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="16sp" />
+        android:textSize="15sp" />
 
     <SeekBar
         android:id="@+id/seekBar"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3"
         android:layout_weight="0.66"
 
         android:background="@color/caldroid_white"
@@ -78,7 +76,11 @@
         android:progress="75"
         android:progressBackgroundTint="@color/colorAccent"
         android:thumb="@drawable/ic_location_on_black_24dp"
-        android:layout_toRightOf="@+id/textView3" />
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp" />
 
 
 </RelativeLayout>
