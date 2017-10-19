@@ -100,6 +100,10 @@ int ij=0;
                holder.percc.setText(per.get(position) + "%");
                Log.d("pezzrccc", per.get(position));
                float in = (Float.valueOf(MainActivity.percentagesending)) - (Float.valueOf(per.get(position)));
+               in=(float)Math.round(in*100)/100;
+
+
+
                holder.inc.setText(String.valueOf(in) + "%");
 
                if (in < 0) {

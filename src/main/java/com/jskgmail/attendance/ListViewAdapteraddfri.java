@@ -125,6 +125,7 @@ holder.txtper.setText(perce.get(position)+"%");
             if(perce.get(position).equals(""))
                 perce.set(position,"0.0");
        float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(perce.get(position)));
+            in=(float)Math.round(in*100)/100;
 
             holder.inc.setText(String.valueOf(in)+"%");
 

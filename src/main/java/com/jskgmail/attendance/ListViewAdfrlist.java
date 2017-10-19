@@ -135,6 +135,9 @@ numb++;
             Log.d("zzzzz",perce.get(position));
             float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(perce.get(position)));
 
+            in=(float)Math.round(in*100)/100;
+
+
             holder.inc.setText(String.valueOf(in)+"%");
 
 

@@ -17,24 +17,46 @@
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="62dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_below="@+id/textView60"
+            android:layout_alignLeft="@+id/textView60"
+            android:layout_alignStart="@+id/textView60" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/savee"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_gravity="bottom|right"
+            android:layout_marginBottom="13dp"
+            android:layout_marginEnd="13dp"
             android:clickable="true"
             android:contextClickable="false"
             android:foregroundGravity="bottom|right"
             app:backgroundTint="@android:color/holo_orange_light"
             app:fabSize="normal"
-            app:srcCompat="@drawable/ic_save_black_24dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="13dp"
-            android:layout_marginBottom="13dp" />
+            app:srcCompat="@drawable/ic_save_black_24dp" />
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="11dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:text="Rearrange your List by dragging the subjects:"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="16sp"
+            android:layout_alignRight="@+id/savee"
+            android:layout_alignEnd="@+id/savee" />
 
     </RelativeLayout>
 

@@ -15,5 +15,5 @@
         android:paddingTop="15dp"
         android:text=" This Username exists already"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="16sp" />
+        android:textSize="17sp" />
 </LinearLayout>

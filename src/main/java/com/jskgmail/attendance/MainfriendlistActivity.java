@@ -119,26 +119,30 @@ arrayList2.add(ConnectActivity.usernamee);
 
                 for (int i=0;i<arrayList2.size();i++)
                 {
-                    for(int j=i;j<arrayList2.size();j++)
-                        if(Float.valueOf(arrayList202.get(i))<Float.valueOf(arrayList202.get(j)))
-                        {
-                            String temp=arrayList202.get(i);
+                    for(int j=i;j<arrayList2.size();j++) {
+                        if (arrayList202.get(i).equals(""))
+                            arrayList202.set(i, "0.0");
+                        if (arrayList202.get(j).equals(""))
+                            arrayList202.set(j, "0.0");
 
-                            arrayList202.set(i,arrayList202.get(j));
-                            arrayList202.set(j,temp);
+                        if (Float.valueOf(arrayList202.get(i)) < Float.valueOf(arrayList202.get(j))) {
+                            String temp = arrayList202.get(i);
 
-                            String temp1=arrayList22.get(i);
+                            arrayList202.set(i, arrayList202.get(j));
+                            arrayList202.set(j, temp);
 
-                            arrayList22.set(i,arrayList22.get(j));
-                            arrayList22.set(j,temp1);
+                            String temp1 = arrayList22.get(i);
 
-                            String temp2=arrayList2.get(i);
+                            arrayList22.set(i, arrayList22.get(j));
+                            arrayList22.set(j, temp1);
 
-                            arrayList2.set(i,arrayList2.get(j));
-                            arrayList2.set(j,temp2);
+                            String temp2 = arrayList2.get(i);
+
+                            arrayList2.set(i, arrayList2.get(j));
+                            arrayList2.set(j, temp2);
                         }
 
-
+                    }
 
                 }
 
