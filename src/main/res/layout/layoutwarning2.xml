@@ -9,12 +9,11 @@
         android:id="@+id/peralllll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
 
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="9dp"
-        android:padding="8dp"
+        android:padding="12dp"
         android:text="Do you want to permanently delete all subjects attendance you have created ?"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="16sp" />

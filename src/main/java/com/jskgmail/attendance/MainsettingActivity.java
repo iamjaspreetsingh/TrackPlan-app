@@ -149,7 +149,7 @@ if(myvalue2==0)
                 { setdisable("123455");
                     notisetttime.setEnabled(false); if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
-                    notisetttime.setTextSize(21);}
+                    notisetttime.setTextSize(18);}
 
                 }
                 else {setenable("123455");  notisetttime.setEnabled(true);  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
@@ -182,7 +182,7 @@ if(myvalue2==0)
                     setdisableauth("123999");
                     passw.setEnabled(false); if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     passw.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
-                    passw.setTextSize(21);}
+                    passw.setTextSize(18);}
                 }
             }
         });
@@ -599,7 +599,6 @@ String ppp=passch.getText().toString();
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -636,7 +635,7 @@ String ppp=passch.getText().toString();
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
+
             }
         });
 

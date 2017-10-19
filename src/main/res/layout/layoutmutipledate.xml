@@ -86,7 +86,7 @@
         android:layout_alignTop="@+id/textView22"
         android:layout_marginStart="18dp"
         android:text="Present"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="18sp" />
 
     <TextView
@@ -98,7 +98,7 @@
         android:layout_marginTop="17dp"
         android:paddingRight="62dp"
         android:text="Absent"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="18sp" />
 
     <RadioButton
@@ -112,8 +112,8 @@
         android:layoutDirection="rtl"
         android:paddingRight="60dp"
         android:text="Holiday"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="17sp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/headd"

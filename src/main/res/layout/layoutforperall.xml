@@ -9,25 +9,28 @@
     <TextView
         android:id="@+id/peralllll"
         style="@style/Animation.AppCompat.Dialog"
-        android:layout_width="319dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
 
-        android:layout_marginStart="17dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="13dp"
-        android:paddingLeft="5dp"
+        android:background="@color/caldroid_holo_blue_light"
+        android:paddingLeft="8dp"
         android:paddingTop="2dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="17sp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/peralllll"
-        android:background="@android:color/background_light"
+        android:background="@color/caldroid_holo_blue_light"
         android:text="OK"
-        android:layout_alignParentStart="true" />
+        android:textColor="@android:color/white" />
 </RelativeLayout>

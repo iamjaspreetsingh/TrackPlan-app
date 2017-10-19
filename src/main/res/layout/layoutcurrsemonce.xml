@@ -19,7 +19,7 @@
         android:paddingTop="7dp"
         android:text="Please first set the current semester / class in which you are studying "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="16sp" />
+        android:textSize="15sp" />
 
     <Spinner
         android:id="@+id/spinnerinitialsem"
@@ -30,9 +30,6 @@
         android:layout_alignTop="@+id/textView34"
         android:layout_marginTop="7dp"
         android:dropDownWidth="75dp"
-        android:paddingLeft="2dp"
-        android:paddingRight="0dp"
-        android:paddingTop="8dp"
         android:spinnerMode="dropdown"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         android:visibility="visible" />

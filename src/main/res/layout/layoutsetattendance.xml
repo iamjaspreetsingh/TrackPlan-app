@@ -51,7 +51,7 @@
         android:layout_above="@+id/linearLayout4"
         android:layout_marginStart="25dp"
         android:layout_toEndOf="@+id/textView17"
-        android:text="Thu" />
+        android:text=" Thu" />
 
     <TextView
         android:id="@+id/textView19"
@@ -60,7 +60,7 @@
         android:layout_below="@+id/friendName"
         android:layout_marginStart="23dp"
         android:layout_toEndOf="@+id/textView18"
-        android:text="  Fri" />
+        android:text=" Fri" />
 
     <TextView
         android:id="@+id/textView20"
@@ -86,8 +86,8 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView15"
             android:layout_toStartOf="@+id/textView16"
-            tools:gravity="center"
-            android:layout_weight="0.13" />
+            android:layout_weight="0.13"
+            tools:gravity="center" />
 
         <CheckBox
             android:id="@+id/checkBox2"
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/checkBox3"
             android:layout_alignBottom="@+id/checkBox3"
-            android:layout_marginStart="11dp"
+            android:layout_marginStart="12dp"
             android:layout_toEndOf="@+id/textView17"
             android:layout_weight="0.19" />
 
