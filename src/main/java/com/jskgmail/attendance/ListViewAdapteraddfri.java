@@ -122,6 +122,8 @@ String a=": "+title.get(position);
             holder.txtviewdesc.setText(fname);
 holder.txtper.setText(perce.get(position)+"%");
             Log.d("zzzzz",perce.get(position));
+            if(perce.get(position).equals(""))
+                perce.set(position,"0.0");
        float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(perce.get(position)));
 
             holder.inc.setText(String.valueOf(in)+"%");

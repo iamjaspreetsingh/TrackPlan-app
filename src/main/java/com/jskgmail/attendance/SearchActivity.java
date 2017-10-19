@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -156,9 +155,10 @@ progressBar.setIndeterminate(false);
     }
     int kk=0;
     @Override
-    public boolean onQueryTextChange(final String newText) {
+    public boolean onQueryTextChange(String newText) {
         String text=newText;
         Log.v("sosos",text);
+        newText=newText.toLowerCase();
 list.setVisibility(View.VISIBLE);
 if(text.equals(""))
     list.setVisibility(View.GONE);
@@ -180,25 +180,65 @@ if(text.equals(""))
         final DatabaseReference myRef = database.getReference("user");
 
 
-
+        final String finalNewText = newText;
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+
+
+
+
+
+
+
+                arrayList2=new ArrayList<>();
+                arrayList22=new ArrayList<>();
+                arrayList202=new ArrayList<>();
+
+
+                adapter=new ListViewAdaptersea(SearchActivity.this,arrayList2,arrayList22,arrayList202);
+
+
+                list.setAdapter(adapter);
+
+                arrayList2=new ArrayList<>();
+                arrayList22=new ArrayList<>();
+                arrayList202=new ArrayList<>();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
-                    if ((( dataSnapshot1.getKey()).toLowerCase().contains(newText)) || ((String.valueOf(dataSnapshot1.child("name").getValue()).toLowerCase().contains(newText))))
+                    if ((( dataSnapshot1.getKey()).toLowerCase().contains(finalNewText)) || ((String.valueOf(dataSnapshot1.child("name").getValue()).toLowerCase().contains(finalNewText))))
                     {
 
                         Log.d("soso",  dataSnapshot1.getKey());
                         Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
                         if(!(dataSnapshot1.getKey().equals(ConnectActivity.usernamee))) {
-                            arrayList2.add( dataSnapshot1.getKey());
+                            if(!(arrayList2.contains(dataSnapshot1.getKey())))
+                            {arrayList2.add( dataSnapshot1.getKey());
                             arrayList22.add(" : " + dataSnapshot1.child("name").getValue());
                             arrayList202.add(""+dataSnapshot1.child("percent").getValue());
-                        }
+                        }}
                     }
 
                 }

@@ -46,7 +46,7 @@ public class MainfriendlistActivity extends AppCompatActivity {
 
         spinner.setAdapter(dataAdapter1);
 
-       spinner.setSelection(0);
+       spinner.setSelection(1);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -114,7 +114,7 @@ arrayList2.add(ConnectActivity.usernamee);
                 for (int i=0;i<arrayList2.size();i++)
                 {
                     for(int j=i;j<arrayList2.size();j++)
-                        if(Float.valueOf(arrayList202.get(i))>Float.valueOf(arrayList202.get(j)))
+                        if(Float.valueOf(arrayList202.get(i))<Float.valueOf(arrayList202.get(j)))
                         {
                             String temp=arrayList202.get(i);
 

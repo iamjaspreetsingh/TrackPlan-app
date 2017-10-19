@@ -24,9 +24,9 @@ import java.util.List;
 
 public class ListViewAdaptersea extends BaseAdapter {
     Activity mcontext;
-    ArrayList<String> title;
-    ArrayList<String> description;
-    ArrayList<String> per;
+    ArrayList<String> title=new ArrayList<>();
+    ArrayList<String> description=new ArrayList<>();
+    ArrayList<String> per=new ArrayList<>();
     ArrayList<String> arrayList=SearchActivity.arrayList29;;
     ArrayList<String> arrayList1=SearchActivity.arrayList229;;
     ArrayList<String> arrayList111=SearchActivity.arrayList2299;;
@@ -89,30 +89,30 @@ ImageButton addas;
 holder.percc=(TextView)convertView.findViewById(R.id.textView81);
 holder.inc=(TextView)convertView.findViewById(R.id.textView53);
 holder.img=(ImageView)convertView.findViewById(R.id.imageView6);
+int ij=0;
 
 
+           if(ij==0) {
+               holder.txtviewtitle.setText(": " + title.get(position));
+               holder.txtviewdesc.setText(description.get(position).replace(":", ""));
+               if (per.get(position).equals(""))
+                   per.set(position, "0.0");
+               holder.percc.setText(per.get(position) + "%");
+               Log.d("pezzrccc", per.get(position));
+               float in = (Float.valueOf(MainActivity.percentagesending)) - (Float.valueOf(per.get(position)));
+               holder.inc.setText(String.valueOf(in) + "%");
 
-                holder.txtviewtitle.setText(": "+title.get(position));
-                holder.txtviewdesc.setText(description.get(position).replace(":",""));
-holder.percc.setText(per.get(position)+"%");
-            Log.d("pezzrccc",per.get(position));
-            float in=(Float.valueOf(MainActivity.percentagesending))-(Float.valueOf(per.get(position)));
-            holder.inc.setText(String.valueOf(in)+"%");
+               if (in < 0) {
+                   holder.img.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+                   holder.inc.setTextColor(Color.RED);
+                   in = -in;
+               } else {
+                   holder.img.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+                   holder.inc.setTextColor(Color.rgb(0, 128, 0));
+               }
+               holder.inc.setText(String.valueOf(in) + "%");
 
-            if(in<0)
-            {
-                holder.img.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
-                holder.inc.setTextColor(Color.RED);
-                in=-in;
-            }
-            else
-            {
-                holder.img.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
-                holder.inc.setTextColor(Color.rgb(0,128,0));
-            }
-            holder.inc.setText(String.valueOf(in)+"%");
-
-
+           }
 
             DatabaseFriend db = new DatabaseFriend(mcontext);
             List<Friends> contacts = db.getAllContacts();
@@ -142,6 +142,7 @@ holder.addas.setImageResource(R.drawable.ic_done_black_24dp);
         arrayList1.add(description.get(position));
     arrayList111.add(per.get(position));
     DatabaseFriend db = new DatabaseFriend(mcontext);
+
     db.addContact(new Friends(title.get(position)));
 
 
