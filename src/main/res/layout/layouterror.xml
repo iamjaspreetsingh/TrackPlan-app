@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1.17"
-        android:paddingLeft="10dp"
-        android:paddingTop="15dp"
+        android:padding="12dp"
         android:text=" This Username exists already"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="17sp" />
+
 </LinearLayout>

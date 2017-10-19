@@ -95,13 +95,15 @@ Intent i=getIntent();
      if(i.hasExtra("noalert"))
      {
         noalert =i.getStringExtra("noalert");
+
+         Log.d("whwhwh","scsscsscsccs");
      }
 
-                             else if(i.hasExtra("alert"))
-                                    {
+                        else      if(i.hasExtra("alert"))
+                                    { Log.d("whwhwh","scooooos");
                                        noalert=i.getStringExtra("alert");
+                                        i.putExtra("alert","1");
                                     }
-
 
 
                                     if(noalert.equals("1"))
@@ -110,7 +112,7 @@ Intent i=getIntent();
                                         finish();
 
                                     }
-                                    else if(noalert.equals("0")){go();}
+else if(noalert.equals("0")){go();}
 
 
                                     SharedPreferences sp1=getSharedPreferences("login",MODE_PRIVATE);
@@ -363,7 +365,6 @@ finish();
         alert.setIcon(R.drawable.ic_error_outline_black_24dp);
 
 
-
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
 
@@ -373,9 +374,10 @@ finish();
 dialog.cancel();
             }
         });
+
+
         AlertDialog dialog = alert.create();
         dialog.show();
-
 
 
 

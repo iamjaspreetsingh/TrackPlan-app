@@ -2,8 +2,10 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_end_color"
+    android:orientation="vertical">
 
 
     <TextView
@@ -16,11 +18,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="13dp"
-        android:background="@color/caldroid_holo_blue_light"
+        android:background="@color/cardview_shadow_end_color"
         android:paddingLeft="8dp"
         android:paddingTop="2dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@android:color/white"
         android:textSize="18sp" />
 
     <Button
@@ -30,7 +31,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/peralllll"
-        android:background="@color/caldroid_holo_blue_light"
+        android:background="?attr/colorControlHighlight"
+        android:elevation="4dp"
         android:text="OK"
-        android:textColor="@android:color/white" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
 </RelativeLayout>

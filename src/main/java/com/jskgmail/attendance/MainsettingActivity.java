@@ -67,8 +67,9 @@ final Button notisetttime=(Button)findViewById(R.id.button10) ;
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(MainsettingActivity.this,ConnectActivity.class);
-                startActivity(i);
+
              i.putExtra("noalert","1");
+                startActivity(i);
             }
         });
 

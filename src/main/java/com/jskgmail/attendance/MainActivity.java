@@ -1990,6 +1990,7 @@ void checkdataforrearrange()
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 alert.setTitle("Overall %");
+
         alert.setIcon(R.drawable.ic_help_outline_black_24dp);
         // this is set the view from XML inside AlertDialog
         alert.setView(alertLayout);
@@ -2073,8 +2074,9 @@ checkdataforper();
 ConnectActivity.usernamee=unm;
                 ConnectActivity.mynaam=nam;
                 Intent i=new Intent(MainActivity.this,SearchActivity.class);
+
+
                 startActivity(i);
-                i.putExtra("alert","0");
 
             }
 
@@ -2082,6 +2084,7 @@ ConnectActivity.usernamee=unm;
             else
             {
             Intent i=new Intent(MainActivity.this,ConnectActivity.class);
+                i.putExtra("alert","0");
             startActivity(i);}
 
 
