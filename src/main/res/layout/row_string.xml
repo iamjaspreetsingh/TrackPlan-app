@@ -14,7 +14,7 @@
         android:layout_weight="1"
         android:padding="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <ImageView
         android:id="@+id/handle"

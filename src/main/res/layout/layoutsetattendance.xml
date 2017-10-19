@@ -13,9 +13,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:padding="2dp"
         android:text="Friend name"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="21sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView15"
@@ -32,16 +33,16 @@
         android:layout_below="@+id/friendName"
         android:layout_marginStart="12dp"
         android:layout_toEndOf="@+id/textView15"
-        android:text=" Tue" />
+        android:text="Tue" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="  Wed"
-        android:layout_marginStart="22dp"
         android:layout_below="@+id/friendName"
-        android:layout_toEndOf="@+id/textView16" />
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/textView16"
+        android:text="   Wed" />
 
     <TextView
         android:id="@+id/textView18"
@@ -50,7 +51,7 @@
         android:layout_above="@+id/linearLayout4"
         android:layout_marginStart="25dp"
         android:layout_toEndOf="@+id/textView17"
-        android:text="  Thu" />
+        android:text="Thu" />
 
     <TextView
         android:id="@+id/textView19"
@@ -59,16 +60,16 @@
         android:layout_below="@+id/friendName"
         android:layout_marginStart="23dp"
         android:layout_toEndOf="@+id/textView18"
-        android:text="   Fri" />
+        android:text="  Fri" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:text=" Sat"
         android:layout_below="@+id/friendName"
-        android:layout_toEndOf="@+id/textView19" />
+        android:layout_marginStart="33dp"
+        android:layout_toEndOf="@+id/textView19"
+        android:text="Sat" />
 
     <LinearLayout
         android:layout_width="match_parent"

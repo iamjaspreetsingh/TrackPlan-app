@@ -35,7 +35,7 @@
             android:clickable="true"
             android:contextClickable="false"
             android:foregroundGravity="bottom|right"
-            app:backgroundTint="@android:color/holo_orange_light"
+            app:backgroundTint="?attr/colorPrimary"
             app:fabSize="normal"
             app:srcCompat="@drawable/ic_save_black_24dp" />
 

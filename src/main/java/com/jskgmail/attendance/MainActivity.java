@@ -2104,11 +2104,12 @@ else if(id==R.id.shareattendance)
             List<Contact> contacts = db1.getAllContacts();
 String mes="Hey, my attendance for the current sem is :";
             for (Contact cn : contacts) {
-                float per=((Integer.parseInt(cn.getPresent()))/(Integer.parseInt(cn.getPresent())+Integer.parseInt(cn.getAbssent())))*100;
-                per=(float)Math.round(per*100)/100;
-                mes=mes+"\n"+cn.getName()+" : "+String.valueOf(per)+"%";
+                if(!((Integer.parseInt(cn.getPresent())+Integer.parseInt(cn.getAbssent()))==0)) {
+                    float per = ((Integer.parseInt(cn.getPresent())) / (Integer.parseInt(cn.getPresent()) + Integer.parseInt(cn.getAbssent()))) * 100;
+                    per = (float) Math.round(per * 100) / 100;
+                    mes = mes + "\n" + cn.getName() + " : " + String.valueOf(per) + "%";
 
-
+                }
             }
 
             String message=mes+"\n with an overall percentage of "+percentagesending+"%";
