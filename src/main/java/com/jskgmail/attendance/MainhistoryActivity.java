@@ -172,6 +172,7 @@ for(int ii=0;ii<datesac.length-1;ii++) {
                 stringArrayList.add(0, "Today ( " + String.valueOf(ddd) + "/" + String.valueOf(m) + "/" + String.valueOf(y) + " )");
             else
                 stringArrayList.add(0, String.valueOf(ddd) + "/" + String.valueOf(m) + "/" + String.valueOf(y));
+
             if (String.valueOf(dd[1]).contains(","))
                 stringArrayList1.add(0, "Present in the classes of " + String.valueOf(dd[1]));
             else

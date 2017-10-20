@@ -9,7 +9,7 @@ public class Contact {
 
     //private variables
     int _id;
-    String _name;
+    String _name="";
     String _phone_number;
     String _present,_absent;
     String _ttable="";

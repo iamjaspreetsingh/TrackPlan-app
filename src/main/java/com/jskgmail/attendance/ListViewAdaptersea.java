@@ -37,6 +37,7 @@ public class ListViewAdaptersea extends BaseAdapter {
         mcontext=context;
         title=arrayList;
         description=arrayList1;
+
         per=arrayList119;
     }
 
@@ -92,13 +93,17 @@ holder.img=(ImageView)convertView.findViewById(R.id.imageView6);
 int ij=0;
 
 
-           if(ij==0) {
+          {
                holder.txtviewtitle.setText(": " + title.get(position));
                holder.txtviewdesc.setText(description.get(position).replace(":", ""));
                if (per.get(position).equals(""))
                    per.set(position, "0.0");
                holder.percc.setText(per.get(position) + "%");
                Log.d("pezzrccc", per.get(position));
+
+
+               Log.d("pezzrcccddddd", per.get(position));
+               if((MainActivity.percentagesending).equals("")) MainActivity.percentagesending=("0.0");
                float in = (Float.valueOf(MainActivity.percentagesending)) - (Float.valueOf(per.get(position)));
                in=(float)Math.round(in*100)/100;
 

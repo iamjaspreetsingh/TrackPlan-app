@@ -64,189 +64,154 @@ public class ConnectActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 final int[] check = {2};
-final String TAG="what";
-                mynaam=name.getText().toString();
-                usernamee=username.getText().toString();
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                final DatabaseReference myRef = database.getReference("user");
-                DatabaseReference myRef1 = database.getReference("user").child(usernamee);
-                p.setVisibility(View.VISIBLE);
-                p.setIndeterminate(true);
-                myRef.addValueEventListener(new ValueEventListener() {
+                final String TAG = "what";
+                if (!((name.getText().toString().equals("")) || (username.getText().toString().equals("")))) {
+                    mynaam = name.getText().toString();
+                    usernamee = username.getText().toString();
+
+                    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    final DatabaseReference myRef = database.getReference("user");
+                    DatabaseReference myRef1 = database.getReference("user").child(usernamee);
+                    p.setVisibility(View.VISIBLE);
+                    p.setIndeterminate(true);
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
 
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // This method is called once with the initial value and again
+                            // whenever data at this location is updated.
+                            int ch = 0;
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // This method is called once with the initial value and again
-                        // whenever data at this location is updated.
-                        int ch=0;
-                        for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
-                        {
+                                if (!(dataSnapshot1.getKey().equals(usernamee))) {
+                                    ch++;
+                                    Log.d("noofchild", String.valueOf(dataSnapshot.getChildrenCount()));
+                                    if (ch == dataSnapshot.getChildrenCount()) {
+                                        p.setIndeterminate(false);
+                                        p.setVisibility(View.INVISIBLE);
 
-                            if(!(dataSnapshot1.getKey().equals(usernamee)))
-                            {ch++;
-                                Log.d("noofchild", String.valueOf(dataSnapshot.getChildrenCount()));
-                                if(ch==dataSnapshot.getChildrenCount())
-                                {  p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
+                                        String noalert = "1";
+                                        Intent i = getIntent();
+                                        if (i.hasExtra("noalert")) {
+                                            noalert = i.getStringExtra("noalert");
 
-                                    String noalert="1";
-Intent i=getIntent();
-     if(i.hasExtra("noalert"))
-     {
-        noalert =i.getStringExtra("noalert");
-
-         Log.d("whwhwh","scsscsscsccs");
-     }
-
-                        else      if(i.hasExtra("alert"))
-                                    { Log.d("whwhwh","scooooos");
-                                       noalert=i.getStringExtra("alert");
-                                        i.putExtra("alert","1");
-                                    }
+                                            Log.d("whwhwh", "scsscsscsccs");
+                                        } else if (i.hasExtra("alert")) {
+                                            Log.d("whwhwh", "scooooos");
+                                            noalert = i.getStringExtra("alert");
+                                            i.putExtra("alert", "1");
+                                        }
 
 
-                                    if(noalert.equals("1"))
-                                    {
-                                        Toast.makeText(getApplicationContext(),"Logged in as "+mynaam+" ("+usernamee+")",Toast.LENGTH_LONG).show();
-                                        finish();
+                                        if (noalert.equals("1")) {
+                                            Toast.makeText(getApplicationContext(), "Logged in as " + mynaam + " (" + usernamee + ")", Toast.LENGTH_LONG).show();
+                                            justgo();
+                                            finish();
 
-                                    }
-else if(noalert.equals("0")){go();}
-
-
-                                    SharedPreferences sp1=getSharedPreferences("login",MODE_PRIVATE);
-                                    final String unm=sp1.getString("username","");
-                                    String nam=sp1.getString("name","");
-                                    if(!(unm.equals(""))) {
-
-                                        if(!((unm.equals(usernamee))&&(nam.equals(mynaam))))
-                                        {
+                                        } else if (noalert.equals("0")) {
+                                            go();
+                                        }
 
 
+                                        SharedPreferences sp1 = getSharedPreferences("login", MODE_PRIVATE);
+                                        final String unm = sp1.getString("username", "");
+                                        String nam = sp1.getString("name", "");
+                                        if (!(unm.equals(""))) {
 
-                                            final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                            final DatabaseReference myRef = database.getReference("user");
+                                            if (!((unm.equals(usernamee)) && (nam.equals(mynaam)))) {
 
 
+                                                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                                final DatabaseReference myRef = database.getReference("user");
 
-                                            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
-                                                @Override
-                                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                                    // This method is called once with the initial value and again
-                                                    // whenever data at this location is updated.
-                                                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
-                                                      if( dataSnapshot1.getKey().equals(unm)) {
-                                                          Log.d("soso", dataSnapshot1.getKey());
-                                                          Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
-                                                          Log.d("sosooperc", "" + dataSnapshot1.child("percent").getValue());
-                                                          dataSnapshot1.getRef().removeValue();
-                                                      }
+                                                    @Override
+                                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                                        // This method is called once with the initial value and again
+                                                        // whenever data at this location is updated.
+                                                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                                                            if (dataSnapshot1.getKey().equals(unm)) {
+                                                                Log.d("soso", dataSnapshot1.getKey());
+                                                                Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
+                                                                Log.d("sosooperc", "" + dataSnapshot1.child("percent").getValue());
+                                                                dataSnapshot1.getRef().removeValue();
+                                                            }
+
+                                                        }
+
 
                                                     }
 
+                                                    @Override
+                                                    public void onCancelled(DatabaseError databaseError) {
 
-                                                } @Override
-                                                public void onCancelled(DatabaseError databaseError) {
-
-                                                }
-                                            });
-
+                                                    }
+                                                });
 
 
+                                            }
 
 
                                         }
 
 
+                                        SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
+                                        SharedPreferences.Editor ed = sp.edit();
+                                        ed.putString("username", usernamee);
+                                        ed.putString("name", mynaam);
+                                        ed.commit();
+
+
+                                    }
+
+                                } else {
+
+
+                                    {
+                                        Log.d("plzzz", "" + dataSnapshot1.getKey());
+                                        check[0] = 1;
+                                        p.setIndeterminate(false);
+                                        p.setVisibility(View.INVISIBLE);
+                                        gosetalert();
+
+                                        break;
                                     }
 
 
-
-
-
-                                    SharedPreferences sp=getSharedPreferences("login",MODE_PRIVATE);
-                                    SharedPreferences.Editor ed=sp.edit();
-                                    ed.putString("username",usernamee);
-                                    ed.putString("name",mynaam);
-                                    ed.commit();
-
-
-
-
-
-
-
-
-
                                 }
-
-                            }else
-                            {
-
-
-                                {Log.d("plzzz", ""+dataSnapshot1.getKey());
-                                    check[0] =1;
-                                    p.setIndeterminate(false); p.setVisibility(View.INVISIBLE);
-                                    gosetalert();
-
-                                    break;
-                                }
-
-
-
-
-
-
-
-
 
                             }
 
                         }
 
-                    }
+
+                        @Override
+                        public void onCancelled(DatabaseError error) {
+                            // Failed to read value
+                            Log.w(TAG, "Failed to read value.", error.toException());
+                        }
+                    });
 
 
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        // Failed to read value
-                        Log.w(TAG, "Failed to read value.", error.toException());
-                    }
-                });
+                    Log.e("plzz", String.valueOf(check[0]));
 
 
-
-Log.e("plzz", String.valueOf(check[0]));
-
-
-
-
-
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Invalid name",Toast.LENGTH_LONG).show();
+                }
 
 
-
-
-
+            }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-                    }
         });
 
 
@@ -263,7 +228,26 @@ Log.e("plzz", String.valueOf(check[0]));
 
 
 
+void justgo()
+{
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final DatabaseReference myRef = database.getReference("user");
+    DatabaseReference myRef1 = database.getReference("user").child(usernamee);
 
+
+
+    myRef1.child("name").setValue(mynaam);
+    myRef1.child("percent").setValue(MainActivity.percentagesending);
+
+
+
+
+
+
+    Log.d("djfdjfdfjdfn",usernamee);
+
+    finish();
+}
 
 
     void go() {

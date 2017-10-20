@@ -37,6 +37,8 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -220,6 +222,42 @@ delsub2=delsub1;
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
+        percenall=0;
+        totalsub=0;
+        checkdataforper();
+        float perall=(percenall/(float)totalsub);
+        Log.i("prcentageisfgfgf",String.valueOf(perall));
+        perall=(float)Math.round(perall*100)/100;
+        percentagesending=String.valueOf(perall);
+
+
+        SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
+        String unm=sp1.getString("username","");
+        String nam=sp1.getString("name","");
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("user");
+        DatabaseReference myRef1 = database.getReference("user").child(nam);
+
+        myRef1.child("percent").setValue(MainActivity.percentagesending);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     @Override
     protected void onResume()
@@ -333,6 +371,41 @@ renamelastt= stringArrayList1.get(position);
 
             }
         });
+
+
+
+
+
+
+
+
+
+        percenall=0;
+        totalsub=0;
+        checkdataforper();
+        float perall=(percenall/(float)totalsub);
+        Log.i("prcentageisfgfgf",String.valueOf(perall));
+        perall=(float)Math.round(perall*100)/100;
+        percentagesending=String.valueOf(perall);
+
+
+        SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
+        String unm=sp1.getString("username","");
+        String nam=sp1.getString("name","");
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("user");
+        DatabaseReference myRef1 = database.getReference("user").child(nam);
+
+        myRef1.child("percent").setValue(MainActivity.percentagesending);
+
+
+
+
+
+
+
+
 
 
 
@@ -2064,10 +2137,19 @@ checkdataforper();
             percentagesending=String.valueOf(perall);
 
 
-
             SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
             String unm=sp1.getString("username","");
             String nam=sp1.getString("name","");
+
+
+
+
+
+
+
+
+
+
             if(!(unm.equals("")))
             {
 ConnectActivity.usernamee=unm;

@@ -133,17 +133,17 @@
             android:id="@+id/currsemspinner"
             android:layout_width="15dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/textView33"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:layout_toRightOf="@+id/textView35"
             android:dropDownWidth="160dp"
             android:paddingBottom="0dp"
             android:paddingEnd="5dp"
-            android:paddingRight="10dp"
-            android:paddingTop="8dp"
-            android:layout_alignTop="@+id/textView33"
-            android:layout_toRightOf="@+id/textView35"
-            android:layout_marginLeft="26dp"
-            android:layout_marginStart="26dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:paddingRight="4dp"
+            android:paddingTop="8dp" />
 
         <TextView
             android:id="@+id/textView33"
