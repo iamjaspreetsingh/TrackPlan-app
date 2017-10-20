@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     static  String semno="",percentagesending="0.0";
     static String doacti="0";
-
+String renamelastt;
     private ListView listView;
     ListViewAdapter lviewAdapter;
     ArrayList<String> monthh = new ArrayList<String>();
@@ -189,7 +189,7 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 delsub1 = stringArrayList1.get(position);
 delsub2=delsub1;
-
+                renamelastt= stringArrayList1.get(position);
                 int pos = position;
                 gotooptions(pos);
                 Log.i("ds", String.valueOf(pos));
@@ -309,7 +309,7 @@ delsub2=delsub1;
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 delsub1 = stringArrayList1.get(position);
                 delsub2=delsub1;
-
+renamelastt= stringArrayList1.get(position);
                 int pos = position;
                 gotooptions(pos);
                 Log.i("ds", String.valueOf(pos));
@@ -391,6 +391,7 @@ rename.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         dialog.dismiss();
+
        String renamename= resub();
 
 Log.i(renamename,"fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
@@ -620,9 +621,7 @@ String resub()
     View alertLayout = inflater.inflate(R.layout.layoutaddsub, null);
 
     final EditText etUsername = (EditText) alertLayout.findViewById(R.id.et_username);
-
-
-
+    etUsername.setText(renamelastt);
     AlertDialog.Builder alert = new AlertDialog.Builder(this);
     alert.setTitle("Modify Subject");
     alert.setIcon(R.drawable.ic_edit_black_24dp);
@@ -825,10 +824,10 @@ if(!(insemnoo1.equals("0.0"))) {
                 delsub1 = stringArrayList1.get(position);
                 delsub2=delsub1;
 
+                renamelastt=stringArrayList1.get(position);
                 int pos = position;
                 gotooptions(pos);
                 Log.i("ds", String.valueOf(pos));
-
 
                 return true;
             }
