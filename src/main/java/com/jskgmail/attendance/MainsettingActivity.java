@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -21,8 +22,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +68,15 @@ final Button notisetttime=(Button)findViewById(R.id.button10) ;
 
         gotosetcurrsem();
 
+SharedPreferences preferences=PreferenceManager.getDefaultSharedPreferences(this);
+        String time=preferences.getString("puttime","Default Notification time is 17:00");
+TextView showtime=(TextView)findViewById(R.id.textView65);
+
+        showtime.setText(time);
+
+
+
+
 
 
         Button myacc=(Button)findViewById(R.id.button8);
@@ -69,6 +86,7 @@ final Button notisetttime=(Button)findViewById(R.id.button10) ;
                 Intent i=new Intent(MainsettingActivity.this,ConnectActivity.class);
 
              i.putExtra("noalert","1");
+                i.putExtra("noalertjiji","0");
                 startActivity(i);
             }
         });
@@ -113,17 +131,7 @@ if(myvalue2==0)
     Log.d("svavavva","avvaavva");
 
 
-
-
-
-
-
-
-
-
-
-
-
+        showtime = (TextView) findViewById(R.id.textView65);
 
 
 
@@ -143,18 +151,32 @@ if(myvalue2==0)
         {  notisetttime.setEnabled(false); if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
         notisetttime.setTextSize(21);}}
+        final TextView finalShowtime = showtime;
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(notif.isChecked()==false)
                 { setdisable("123455");
-                    notisetttime.setEnabled(false); if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    notisetttime.setEnabled(false);
+                    finalShowtime.setEnabled(false);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
-                    notisetttime.setTextSize(18);}
+                    notisetttime.setTextSize(18);
+                    finalShowtime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
+                    finalShowtime.setTextSize(18);
+
+
+                    }
 
                 }
-                else {setenable("123455");  notisetttime.setEnabled(true);  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
-                    notisetttime.setTextSize(18);}
+                else {setenable("123455");  notisetttime.setEnabled(true);
+                    finalShowtime.setEnabled(true);if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
+                    notisetttime.setTextSize(18);
+
+                    finalShowtime.setTextAppearance(R.style.TextAppearance_AppCompat_Body1);
+                    finalShowtime.setTextSize(18);
+
+                }
                 }
             }
         });
@@ -205,9 +227,37 @@ if(myvalue2==0)
                 go22();
             }
         });
+        Button deleteacc=(Button)findViewById(R.id.deleteaccount);
+        deleteacc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deletacc();
+            }
+        });
+
         passw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 SharedPreferences pref=getSharedPreferences("password",0);
@@ -337,7 +387,7 @@ gosetpass();
 
         currsem.setAdapter(dataAdapter1);
 
-currsem.setSelection(Integer.parseInt(insem12255)-1);
+        currsem.setSelection(Integer.parseInt(insem12255)-1);
         currsem.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -563,6 +613,18 @@ String ppp=passch.getText().toString();
                     hour = timep.getHour();
                     min = timep.getMinute();
                     Log.i(String.valueOf(hour), "fgggggggggggggggggggggggggg");
+                    TextView showtime=(TextView)findViewById(R.id.textView65);
+                    SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putString("puttime","Notification time set is "+hour+":"+min);
+                    editor.apply();
+
+
+                    showtime.setText("Notification time set is "+hour+":"+min);
+
+
+
+
                 }
                 }
             });
@@ -578,8 +640,147 @@ String ppp=passch.getText().toString();
 
 
 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    void deletacc()
+    {
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.layoutdeleteacc, null);
+
+
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(" Delete Account ");
+        alert.setIcon(R.drawable.ic_help_outline_black_24dp);
+        // this is set the view from XML inside AlertDialog
+        alert.setView(alertLayout);
+
+        // disallow cancel of AlertDialog on click of back button and outside touch
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                final DatabaseReference myRef = database.getReference("user");
+                DatabaseReference myRef1 = database.getReference("user").child(ConnectActivity.usernamee);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                SharedPreferences sp1 = getSharedPreferences("login", MODE_PRIVATE);
+                final String unm = sp1.getString("username", "");
+                String nam = sp1.getString("name", "");
+                if (!(unm.equals(""))) {
+
+
+
+                        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                // This method is called once with the initial value and again
+                                // whenever data at this location is updated.
+                                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                                    if (dataSnapshot1.getKey().equals(unm)) {
+                                        Log.d("soso", dataSnapshot1.getKey());
+                                        Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
+                                        Log.d("sosooperc", "" + dataSnapshot1.child("percent").getValue());
+                                        dataSnapshot1.getRef().removeValue();
+                                    }
+
+                                }
+
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
+                    SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
+                    SharedPreferences.Editor ed = sp.edit();
+                    ed.putString("username", "");
+                    ed.putString("name", "");
+                    ed.commit();
+
+                    }
+                    else Toast.makeText(getApplicationContext(),"You already don't have an account",Toast.LENGTH_LONG).show();
+
+
+
+
+
+
+            }
+        });
+        AlertDialog dialog = alert.create();
+        dialog.show();
+
+
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     void goo()
     {

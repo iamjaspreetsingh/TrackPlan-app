@@ -235,13 +235,13 @@ delsub2=delsub1;
         SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
         String unm=sp1.getString("username","");
         String nam=sp1.getString("name","");
+if((!unm.equals(""))) {
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final DatabaseReference myRef = database.getReference("user");
+    DatabaseReference myRef1 = database.getReference("user").child(unm);
 
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("user");
-        DatabaseReference myRef1 = database.getReference("user").child(nam);
-
-        myRef1.child("percent").setValue(MainActivity.percentagesending);
-
+    myRef1.child("percent").setValue(MainActivity.percentagesending);
+}
 
 
 
@@ -392,15 +392,15 @@ renamelastt= stringArrayList1.get(position);
         SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
         String unm=sp1.getString("username","");
         String nam=sp1.getString("name","");
+        if((!unm.equals(""))) {
+            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference myRef = database.getReference("user");
+            DatabaseReference myRef1 = database.getReference("user").child(unm);
 
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("user");
-        DatabaseReference myRef1 = database.getReference("user").child(nam);
-
-        myRef1.child("percent").setValue(MainActivity.percentagesending);
+            myRef1.child("percent").setValue(MainActivity.percentagesending);
 
 
-
+        }
 
 
 
@@ -415,6 +415,7 @@ renamelastt= stringArrayList1.get(position);
         Calendar calendar = Calendar.getInstance();
         int curHr = calendar.get(Calendar.HOUR_OF_DAY);
         int curMin = calendar.get(Calendar.MINUTE);
+
         Log.i(String.valueOf(curHr),String.valueOf(curMin));
 if(!((curHr>=MainsettingActivity.hour)&&(curMin>MainsettingActivity.min-1))) {
     calendar.set(Calendar.HOUR_OF_DAY, MainsettingActivity.hour);
@@ -2056,14 +2057,11 @@ void checkdataforrearrange()
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.layoutforperall, null);
         TextView pe=(TextView)alertLayout.findViewById(R.id.peralllll);
-
-
-
-
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-alert.setTitle("Overall %");
 
-        alert.setIcon(R.drawable.ic_help_outline_black_24dp);
+
+
+
         // this is set the view from XML inside AlertDialog
         alert.setView(alertLayout);
         // disallow cancel of AlertDialog on click of back button and outside touch

@@ -3,9 +3,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/cardview_shadow_end_color"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectangle"
+    android:orientation="vertical"
+    android:paddingTop="5dp">
 
 
     <TextView
@@ -13,15 +14,17 @@
         style="@style/Animation.AppCompat.Dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
 
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="13dp"
+        android:layout_below="@+id/textView66"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
         android:background="@color/cardview_shadow_end_color"
         android:paddingLeft="8dp"
         android:paddingTop="2dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/caldroid_black"
         android:textSize="18sp" />
 
     <Button
@@ -29,12 +32,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/peralllll"
-        android:background="?attr/colorControlHighlight"
+        android:background="@drawable/rectangle"
         android:elevation="4dp"
         android:text="OK"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/caldroid_black"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
+        android:layout_toEndOf="@+id/imageView8"
+        android:layout_toRightOf="@+id/imageView8"
+        android:text="Overall %"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/caldroid_black"
+        android:textSize="21sp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/peralllll"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/textView66"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        app:srcCompat="@drawable/ic_help_outline_blue_24dp" />
+
 </RelativeLayout>

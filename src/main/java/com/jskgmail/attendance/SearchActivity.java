@@ -109,14 +109,20 @@ progressBar.setIndeterminate(true);
                     for (Friends cn : contacts) {
 Log.d("checccccc",cn.getName());
                     }
+                    int chthisuser=0;
+
+
+
                     for (Friends cn : contacts) {
 
                         if(cn.getName().equals(dataSnapshot1.getKey())) {
 
+if((""+dataSnapshot1.child("disc").getValue()).equals("1"))
 
                                 { arrayList29.add(dataSnapshot1.getKey());
                                 arrayList229.add(" : " + dataSnapshot1.child("name").getValue());
                                     arrayList2299.add(""+dataSnapshot1.child("percent").getValue());
+
                             }
                         }
 
@@ -256,19 +262,25 @@ if(text.equals(""))
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    DatabaseFriend db=new DatabaseFriend(getApplicationContext());
+List<Friends> contacts=db.getAllContacts();
+
+
 
                     if ((( dataSnapshot1.getKey()).toLowerCase().contains(finalNewText)) || ((String.valueOf(dataSnapshot1.child("name").getValue()).toLowerCase().contains(finalNewText))))
                     {
+                        if(((""+dataSnapshot1.child("disc").getValue()).equals("1")))
 
+                        {
                         Log.d("soso",  dataSnapshot1.getKey());
                         Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
                         if(!(dataSnapshot1.getKey().equals(ConnectActivity.usernamee))) {
                             if(!(arrayList2.contains(dataSnapshot1.getKey())))
                             {arrayList2.add( dataSnapshot1.getKey());
                             arrayList22.add(" : " + dataSnapshot1.child("name").getValue());
-                            arrayList202.add(""+dataSnapshot1.child("percent").getValue());
+                         arrayList202.add(""+dataSnapshot1.child("percent").getValue());
                         }}
-                    }
+                    }}
 
                 }
                 adapter=new ListViewAdaptersea(SearchActivity.this, arrayList2, arrayList22,arrayList202);
