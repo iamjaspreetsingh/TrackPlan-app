@@ -93,17 +93,19 @@
             android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView28"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="12dp"
             android:background="@android:color/background_light"
             android:elevation="1dp"
             android:gravity="left|center_vertical|center_horizontal"
             android:paddingLeft="8dp"
             android:text="Set Password"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:layout_below="@+id/textView28"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/textView28"
@@ -241,15 +243,15 @@
             android:background="@android:color/darker_gray" />
 
         <View
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_above="@+id/textView64"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="3dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/darker_gray"
-            android:paddingTop="3dp" />
+            android:layout_below="@+id/password"
+            android:layout_marginTop="9dp"
+            android:background="@android:color/darker_gray" />
 
         <View
             android:layout_width="match_parent"

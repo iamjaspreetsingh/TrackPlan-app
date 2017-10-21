@@ -150,7 +150,14 @@ if(myvalue2==0)
         if(myvalue==1)
         {  notisetttime.setEnabled(false); if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         notisetttime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
-        notisetttime.setTextSize(21);}}
+        notisetttime.setTextSize(18);}
+            showtime.setEnabled(false);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+                showtime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
+               showtime.setTextSize(18);}
+
+        ;}
         final TextView finalShowtime = showtime;
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
