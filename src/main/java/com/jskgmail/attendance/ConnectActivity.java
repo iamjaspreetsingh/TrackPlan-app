@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ConnectActivity extends AppCompatActivity {
-  static   String mynaam="",usernamee="";
+  static   String mynaam="",usernamee="",prusername="";
 
 
     @Override
@@ -85,6 +85,7 @@ public class ConnectActivity extends AppCompatActivity {
         {
             username.setText(unm);
             name.setText(nam);
+            prusername=unm;
         }
 
 
@@ -221,9 +222,12 @@ public class ConnectActivity extends AppCompatActivity {
     if (i.hasExtra("noalertjiji"))
         noalertaa = i.getStringExtra("noalertjiji");
 
-    if((noalertaa.equals("0")))
 
-    {
+
+
+
+    if((noalertaa.equals("0"))&&(prusername.equals(dataSnapshot1.getKey())))
+        {
         Log.d("discoverrr","rrr");
         Toast.makeText(getApplicationContext(), "Logged in as " + mynaam + " (" + usernamee + ")", Toast.LENGTH_LONG).show();
         justgo();
