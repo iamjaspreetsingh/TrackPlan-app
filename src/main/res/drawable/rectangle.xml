@@ -7,6 +7,6 @@
     <solid android:color="@android:color/white" />
 
     <stroke
-        android:width="3dip"
+        android:width="2dip"
         android:color="#1589FF"/>
 </shape>

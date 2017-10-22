@@ -2173,6 +2173,33 @@ ConnectActivity.usernamee=unm;
 
 else if(id==R.id.shareattendance)
         {
+
+
+            DatabaseHandler db1 = new DatabaseHandler(this);
+            List<Contact> contacts = db1.getAllContacts();
+
+String mes="Hey, my attendance for the current sem is :";
+            for (Contact cn : contacts) {
+                if ((cn.getPo().equals(MainActivity.semno))){
+                    Log.d("percccqqq", cn.getPresent());
+                    Log.d("percccqqq", cn.getAbssent());
+                    int ab = Integer.parseInt(cn.getAbssent());
+                    int pr = Integer.parseInt(cn.getPresent());
+                    float per;
+                    if ((ab == 0) && (pr == 0))
+                        per = 0;
+                    else
+                        per = (float) (pr * 100 / (pr + ab));
+                         Log.d("percccqqq", ""+(per));
+                    per = (float) Math.round(per * 100) / 100;
+                    Log.d("percccqqqzz", String.valueOf(per));
+                    mes = mes + "\n" + cn.getName() + " : " + String.valueOf(per) + "%";
+                }
+
+            }
+
+
+
             percenall=0;
             totalsub=0;
             checkdataforper();
@@ -2182,19 +2209,7 @@ else if(id==R.id.shareattendance)
             percentagesending=String.valueOf(perall);
 
 
-            DatabaseHandler db1 = new DatabaseHandler(getApplicationContext());
-            List<Contact> contacts = db1.getAllContacts();
-String mes="Hey, my attendance for the current sem is :";
-            for (Contact cn : contacts) {
-                if(!((Integer.parseInt(cn.getPresent())+Integer.parseInt(cn.getAbssent()))==0)) {
-                    float per = ((Integer.parseInt(cn.getPresent())) / (Integer.parseInt(cn.getPresent()) + Integer.parseInt(cn.getAbssent()))) * 100;
-                    per = (float) Math.round(per * 100) / 100;
-                    mes = mes + "\n" + cn.getName() + " : " + String.valueOf(per) + "%";
-
-                }
-            }
-
-            String message=mes+"\n with an overall percentage of "+percentagesending+"%";
+            String message=mes+"\nwith an overall percentage of "+percentagesending+"%";
             Intent share=new Intent(Intent.ACTION_SEND);
             share.setType("text/plain");
             share.putExtra(Intent.EXTRA_TEXT,message);

@@ -32,7 +32,7 @@
         <item
             android:id="@+id/shareattendance"
             android:icon="@drawable/ic_menu_share"
-            android:title="Share" />
+            android:title="Share Attendance" />
 
     </group>
 
