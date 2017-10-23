@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.text.SimpleDateFormat;
@@ -46,13 +48,33 @@ int asd=0;
 if(!(cn.getPresent().equals("0")))
             asd++;
         }}
+
+
+
+       ImageView sad=(ImageView)findViewById(R.id.sad);
+
+
         if(asd==0)
         {
-            stringArrayList1.add("          ---- Nothing to show ----");
-            stringArrayList.add("");
+            sad.setVisibility(View.VISIBLE);
         }
-else
-        go1();
+        else {sad.setVisibility(View.GONE);
+
+        go1();}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     private void go1() {

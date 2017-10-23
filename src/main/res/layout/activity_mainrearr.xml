@@ -57,7 +57,20 @@
             android:textSize="16sp"
             android:layout_alignRight="@+id/savee"
             android:layout_alignEnd="@+id/savee" />
-
+        <ImageView
+            android:id="@+id/sad"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/textView59"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="121dp"
+            android:foregroundGravity="center_vertical|center_horizontal"
+            android:visibility="visible"
+            app:srcCompat="@drawable/face"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
 
 </android.support.v4.widget.DrawerLayout>

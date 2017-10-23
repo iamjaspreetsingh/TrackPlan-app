@@ -4,6 +4,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 
 public class Main99Activity extends AppCompatActivity {
     private ListView listView;
+    ImageView sad;
     ListViewAdapterAttendance lviewAdapter;
 
 
@@ -35,12 +38,16 @@ public class Main99Activity extends AppCompatActivity {
 
 
         listView=(ListView) findViewById(R.id.listView65);
-
+      sad=(ImageView)findViewById(R.id.sad);
 
         checkdata();
         lviewAdapter=new ListViewAdapterAttendance(this,stringArrayList);
         listView.setAdapter(lviewAdapter);
-
+if(lviewAdapter.isEmpty())
+{
+    sad.setVisibility(View.VISIBLE);
+}
+else sad.setVisibility(View.GONE);
     }
 
 

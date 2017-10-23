@@ -31,7 +31,7 @@ public class MainrearrActivity extends AppCompatActivity {
     private int mPosition = -1;
   static int pos=0,changed=0;
 static String naaaa="";
-    int i=0;
+    int i=0,asd=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,52 @@ static String naaaa="";
         actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
         actionBar.setDisplayShowHomeEnabled(true);
         setContentView(R.layout.activity_mainrearr);setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-rearranging();
+
+
+        asd=0;
+
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<Contact> contacts = db.getAllContacts();
+        for (Contact cn : contacts)
+            asd++;
+
+
+
+
+        ImageView sad=(ImageView)findViewById(R.id.sad);
+
+
+        if(asd==0)
+        {
+            sad.setVisibility(View.VISIBLE);
+        }
+        else {sad.setVisibility(View.GONE);
+
+        }
+
+
+
+
+
+
+
+        rearranging();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         check();
 
         go();
@@ -248,6 +293,7 @@ String[]rearii = new String[rear.length];
 
 
             mListView.setAdapter(mAdapter);
+
 
 
         mListView.setOnTouchListener(new View.OnTouchListener() {
