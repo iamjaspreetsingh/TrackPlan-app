@@ -97,8 +97,9 @@
             android:layout_below="@+id/switch3"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="58dp"
             android:background="@color/colorPrimary"
+            android:elevation="1dp"
             android:text="Save"
             android:textColor="@color/caldroid_white" />
 
@@ -132,6 +133,20 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/switch3"
+            android:layout_marginTop="7dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Your visibility to other users"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <ProgressBar
             android:id="@+id/progressBar2"

@@ -7,8 +7,8 @@ android {
         applicationId "com.jskgmail.attendance"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 33
-        versionName "2.2.14"
+        versionCode 34
+        versionName "2.2.15"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

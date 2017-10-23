@@ -755,6 +755,7 @@ String ppp=passch.getText().toString();
                     ed.putString("username", "");
                     ed.putString("name", "");
                     ed.commit();
+                    Toast.makeText(getApplicationContext(),"Your account was successfully deleted",Toast.LENGTH_LONG).show();
 
                     }
                     else Toast.makeText(getApplicationContext(),"You already don't have an account",Toast.LENGTH_LONG).show();
