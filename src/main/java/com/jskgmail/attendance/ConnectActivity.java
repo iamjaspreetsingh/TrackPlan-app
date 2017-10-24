@@ -150,7 +150,7 @@ public class ConnectActivity extends AppCompatActivity {
 
 
                                    if (noalert.equals("1")) {
-                                        Toast.makeText(getApplicationContext(), "Logged in as " + mynaam + " (" + usernamee + ")", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "You are Logged in as " + mynaam + " (" + usernamee + ")", Toast.LENGTH_LONG).show();
                                         justgo();
                                         finish();
 
@@ -272,7 +272,7 @@ else{
             }
             else
             {
-                Toast.makeText(getApplicationContext(),"Invalid name",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"It is an Invalid Name",Toast.LENGTH_LONG).show();
             }
 
 
@@ -337,7 +337,6 @@ void justgo()
 
 
 
-    Log.d("djfdjfdfjdfn",usernamee);
 
     finish();
 }
@@ -366,7 +365,7 @@ void justgo()
 
 
 
-        Log.d("djfdjfdfjdfn",usernamee);
+        Log.d("username",usernamee);
 
 finish();
         Intent i=new Intent(ConnectActivity.this,SearchActivity.class);
