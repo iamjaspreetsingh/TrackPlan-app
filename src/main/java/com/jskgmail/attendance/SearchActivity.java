@@ -272,7 +272,7 @@ List<Friends> contacts=db.getAllContacts();
                         if(((""+dataSnapshot1.child("disc").getValue()).equals("1")))
 
                         {
-                        Log.d("soso",  dataSnapshot1.getKey());
+                        Log.d("sosoooo",  dataSnapshot1.getKey());
                         Log.d("sosooo", "" + dataSnapshot1.child("name").getValue());
                         if(!(dataSnapshot1.getKey().equals(ConnectActivity.usernamee))) {
                             if(!(arrayList2.contains(dataSnapshot1.getKey())))

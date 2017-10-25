@@ -59,11 +59,11 @@ public class ConnectActivity extends AppCompatActivity {
 
                 if(discover.isChecked())
                 { setenable("1100");
-                    Log.d("discover","enable");
+                    Log.d("discovery","enable");
 
                 }
                 else {setdisable("1100");
-                    Log.d("discover","denable");
+                    Log.d("discovery","denable");
                 }
 
             }
@@ -150,7 +150,7 @@ public class ConnectActivity extends AppCompatActivity {
 
 
                                    if (noalert.equals("1")) {
-                                        Toast.makeText(getApplicationContext(), "You are Logged in as " + mynaam + " (" + usernamee + ")", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "Logged in as " + mynaam + " (" + usernamee + ")", Toast.LENGTH_LONG).show();
                                         justgo();
                                         finish();
 
