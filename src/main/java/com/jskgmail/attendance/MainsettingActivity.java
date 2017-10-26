@@ -101,11 +101,6 @@ TextView showtime=(TextView)findViewById(R.id.textView65);
 
 
 
-
-
-
-
-
         SharedPreferences sp2=getSharedPreferences("yourprefsofp",Activity.MODE_PRIVATE);
         int myvalue2=sp2.getInt("99999",1);
         if(myvalue2==0)
@@ -135,10 +130,6 @@ if(myvalue2==0)
 
 
 
-
-
-
-
         SharedPreferences sp=getSharedPreferences("yourpref",Activity.MODE_PRIVATE);
         int myvalue=sp.getInt("123455",0);
         SharedPreferences sp1=getSharedPreferences("yourprefs",Activity.MODE_PRIVATE);
@@ -157,7 +148,7 @@ if(myvalue2==0)
                 showtime.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
                showtime.setTextSize(18);}
 
-        ;}
+        }
         final TextView finalShowtime = showtime;
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -659,16 +650,6 @@ String ppp=passch.getText().toString();
 
 
 
-
-
-
-
-
-
-
-
-
-
     void deletacc()
     {
         LayoutInflater inflater = getLayoutInflater();
@@ -773,15 +754,6 @@ String ppp=passch.getText().toString();
 
 
     }
-
-
-
-
-
-
-
-
-
 
 
 

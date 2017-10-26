@@ -84,26 +84,7 @@ holder.r=(RelativeLayout)convertView.findViewById(R.id.rll) ;
             holder.inc=(TextView)convertView.findViewById(R.id.textView73);
             holder.img=(ImageView)convertView.findViewById(R.id.imageView5);
             holder.no=(TextView)convertView.findViewById(R.id.textView49);
-    /*        holder.txtviewdesc.setVisibility(View.VISIBLE);
-            holder.txtviewtitle.setVisibility(View.VISIBLE);
 
-
-            if(!(textt.equals("")))
-            { if((title.get(position).toLowerCase().contains(textt))||(description.get(position).toLowerCase().contains(textt))) {
-                holder.txtviewdesc.setVisibility(View.VISIBLE);
-                holder.txtviewtitle.setVisibility(View.VISIBLE);
-
-                holder.txtviewtitle.setText(title.get(position));
-                holder.txtviewdesc.setText(description.get(position));
-            }
-            else {
-                holder.txtviewdesc.setVisibility(View.GONE);
-            holder.txtviewtitle.setVisibility(View.GONE);
-            }
-            }
-            else {
-
-              */
 
 if(title.get(position).equals(ConnectActivity.usernamee))
 {
