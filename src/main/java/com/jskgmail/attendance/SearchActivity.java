@@ -94,7 +94,6 @@ progressBar.setIndeterminate(true);
         final DatabaseReference myRef = database.getReference("user");
 
 
-
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -128,10 +127,6 @@ if((""+dataSnapshot1.child("disc").getValue()).equals("1"))
 
 
                     }
-
-
-
-
 
 
 
