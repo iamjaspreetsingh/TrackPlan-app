@@ -11,6 +11,7 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -30,6 +31,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -146,15 +148,47 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         checkdata();
+        final int[] c = {0};
         lviewAdapter = new ListViewAdapter(this, stringArrayList1, stringArrayList, stringArrayList2, stringArrayList3, stringArrayList4);
-
+        final ImageView arrow=(ImageView)findViewById(R.id.arr);
           if (lviewAdapter.isEmpty()==true) {
-              Log.i("viviviviviv","dsdsds");
+              Log.i("viviviviviv", "dsdsds");
               listView.setAdapter(lviewAdapter);
 
               t.setVisibility(View.VISIBLE);
-          }
-          else  listView.setAdapter(lviewAdapter);
+
+              new CountDownTimer(40000, 1000) {
+
+                  @Override
+                  public void onTick(long millisUntilFinished) {
+                      if(c[0]!=111)
+                      {
+if(c[0]%2==0)arrow.setVisibility(View.VISIBLE);
+                      else if(c[0]%2==1) arrow.setVisibility(View.INVISIBLE);
+                      c[0]++;}
+                      else arrow.setVisibility(View.INVISIBLE);
+                      FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                      fab.setOnClickListener(new View.OnClickListener() {
+                          @Override
+                          public void onClick(View view) {
+
+c[0]=111;
+                              addsub();
+                              t.setVisibility(View.INVISIBLE);
+
+                              listView.setAdapter(lviewAdapter);
+
+
+                     }});
+                  }
+
+                  @Override
+                  public void onFinish() {
+
+                  }
+
+              }.start();
+          }else  listView.setAdapter(lviewAdapter);
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -203,7 +237,8 @@ delsub2=delsub1;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                final ImageView arrow=(ImageView)findViewById(R.id.arr);
+                arrow.setVisibility(View.GONE);
                 addsub();
                 t.setVisibility(View.INVISIBLE);
 
