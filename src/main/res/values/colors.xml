@@ -6,4 +6,6 @@
     <color name="colorPrimary11">#fff752</color>
     <color name="greendark">#008000</color>
     <color name="grey">#f8f8f8</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

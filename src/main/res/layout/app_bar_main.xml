@@ -32,7 +32,7 @@
         android:id="@+id/fab"
         android:layout_width="67dp"
         android:layout_height="59dp"
-        android:layout_gravity="top|left"
+
         android:clickable="true"
         app:backgroundTint="?attr/colorPrimary"
         app:fabSize="mini"

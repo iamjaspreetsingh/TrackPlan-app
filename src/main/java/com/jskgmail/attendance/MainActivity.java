@@ -11,7 +11,6 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -77,6 +76,8 @@ private AdView madview;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        //Dialog mDialog = new Dialog(mContext, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         MobileAds.initialize(this,"ca-app-pub-9293221301322595/9833525905");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -88,8 +89,19 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Log.e("ddd",ConnectActivity.mynaam);
 
         final TextView t=(TextView)findViewById(R.id.empty);
+        final Button b1=(Button)findViewById(R.id.button9);
+        final Button b2=(Button)findViewById(R.id.button12);
+        final Button b3=(Button)findViewById(R.id.button13);
+        final ImageView im1=(ImageView)findViewById(R.id.imageView7);
+        final ImageView im2=(ImageView)findViewById(R.id.imageView10);
+        final ImageView im3=(ImageView)findViewById(R.id.imageView11);
         t.setVisibility(View.INVISIBLE);
-
+        b1.setVisibility(View.INVISIBLE);
+        b2.setVisibility(View.INVISIBLE);
+        b3.setVisibility(View.INVISIBLE);
+        im1.setVisibility(View.INVISIBLE);
+        im2.setVisibility(View.INVISIBLE);
+        im3.setVisibility(View.INVISIBLE);
      madview=(AdView)findViewById(R.id.adView);
      AdRequest adrequest=new AdRequest.Builder().build();
      madview.loadAd(adrequest);
@@ -150,13 +162,18 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         checkdata();
         final int[] c = {0};
         lviewAdapter = new ListViewAdapter(this, stringArrayList1, stringArrayList, stringArrayList2, stringArrayList3, stringArrayList4);
-        final ImageView arrow=(ImageView)findViewById(R.id.arr);
+
           if (lviewAdapter.isEmpty()==true) {
               Log.i("viviviviviv", "dsdsds");
               listView.setAdapter(lviewAdapter);
-
-              t.setVisibility(View.VISIBLE);
-
+              b1.setVisibility(View.VISIBLE);
+              b2.setVisibility(View.VISIBLE);
+              b3.setVisibility(View.VISIBLE);
+              im1.setVisibility(View.VISIBLE);
+              im2.setVisibility(View.VISIBLE);
+              im3.setVisibility(View.VISIBLE);
+              t.setVisibility(View.VISIBLE);}
+/*
               new CountDownTimer(40000, 1000) {
 
                   @Override
@@ -187,8 +204,10 @@ c[0]=111;
 
                   }
 
-              }.start();
-          }else  listView.setAdapter(lviewAdapter);
+              }.start();*/
+          else  listView.setAdapter(lviewAdapter);
+
+
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -237,11 +256,15 @@ delsub2=delsub1;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final ImageView arrow=(ImageView)findViewById(R.id.arr);
-                arrow.setVisibility(View.GONE);
+
                 addsub();
                 t.setVisibility(View.INVISIBLE);
-
+                b1.setVisibility(View.INVISIBLE);
+                b2.setVisibility(View.INVISIBLE);
+                b3.setVisibility(View.INVISIBLE);
+                im1.setVisibility(View.INVISIBLE);
+                im2.setVisibility(View.INVISIBLE);
+                im3.setVisibility(View.INVISIBLE);
                 listView.setAdapter(lviewAdapter);
 
             }
@@ -300,7 +323,19 @@ if((!unm.equals(""))) {
         super.onResume();
         final TextView t=(TextView)findViewById(R.id.empty);
         t.setVisibility(View.INVISIBLE);
+        final Button b1=(Button)findViewById(R.id.button9);
+        final Button b2=(Button)findViewById(R.id.button12);
+        final Button b3=(Button)findViewById(R.id.button13);
+        final ImageView im1=(ImageView)findViewById(R.id.imageView7);
+        final ImageView im2=(ImageView)findViewById(R.id.imageView10);
+        final ImageView im3=(ImageView)findViewById(R.id.imageView11);
 
+        b1.setVisibility(View.INVISIBLE);
+        b2.setVisibility(View.INVISIBLE);
+        b3.setVisibility(View.INVISIBLE);
+        im1.setVisibility(View.INVISIBLE);
+        im2.setVisibility(View.INVISIBLE);
+        im3.setVisibility(View.INVISIBLE);
         SharedPreferences sp=getSharedPreferences("yourpref", Activity.MODE_PRIVATE);
         int myvalue=sp.getInt("123455",0);
         SimpleDateFormat sdf1 =new SimpleDateFormat("ddMMyyyy");
@@ -341,6 +376,12 @@ if((!unm.equals(""))) {
             listView.setAdapter(lviewAdapter);
 
             t.setVisibility(View.VISIBLE);
+            b1.setVisibility(View.VISIBLE);
+            b2.setVisibility(View.VISIBLE);
+            b3.setVisibility(View.VISIBLE);
+            im1.setVisibility(View.VISIBLE);
+            im2.setVisibility(View.VISIBLE);
+            im3.setVisibility(View.VISIBLE);
         }
         else  listView.setAdapter(lviewAdapter);
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -400,7 +441,12 @@ renamelastt= stringArrayList1.get(position);
 
 
                     t.setVisibility(View.INVISIBLE);
-
+                b1.setVisibility(View.INVISIBLE);
+                b2.setVisibility(View.INVISIBLE);
+                b3.setVisibility(View.INVISIBLE);
+                im1.setVisibility(View.INVISIBLE);
+                im2.setVisibility(View.INVISIBLE);
+                im3.setVisibility(View.INVISIBLE);
                  listView.setAdapter(lviewAdapter);
                 listView.setAdapter(lviewAdapter);
 

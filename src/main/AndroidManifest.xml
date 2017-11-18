@@ -48,7 +48,8 @@
 
         <activity
             android:name=".Main99Activity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+           >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jskgmail.attendance.MainActivity" />
@@ -76,9 +77,9 @@
                 android:value="com.jskgmail.attendance.MainActivity" />
         </activity>
         <activity android:name=".ConnectActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.jskgmail.attendance.MainActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jskgmail.attendance.MainActivity" />
         </activity>
         <activity android:name=".SearchActivity">
             <meta-data
