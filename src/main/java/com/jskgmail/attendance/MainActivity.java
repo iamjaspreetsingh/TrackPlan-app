@@ -90,17 +90,11 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         final TextView t=(TextView)findViewById(R.id.empty);
         final Button b1=(Button)findViewById(R.id.button9);
-        final Button b2=(Button)findViewById(R.id.button12);
-        final Button b3=(Button)findViewById(R.id.button13);
-        final ImageView im1=(ImageView)findViewById(R.id.imageView7);
-        final ImageView im2=(ImageView)findViewById(R.id.imageView10);
+
         final ImageView im3=(ImageView)findViewById(R.id.imageView11);
         t.setVisibility(View.INVISIBLE);
         b1.setVisibility(View.INVISIBLE);
-        b2.setVisibility(View.INVISIBLE);
-        b3.setVisibility(View.INVISIBLE);
-        im1.setVisibility(View.INVISIBLE);
-        im2.setVisibility(View.INVISIBLE);
+
         im3.setVisibility(View.INVISIBLE);
      madview=(AdView)findViewById(R.id.adView);
      AdRequest adrequest=new AdRequest.Builder().build();
@@ -167,10 +161,7 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
               Log.i("viviviviviv", "dsdsds");
               listView.setAdapter(lviewAdapter);
               b1.setVisibility(View.VISIBLE);
-              b2.setVisibility(View.VISIBLE);
-              b3.setVisibility(View.VISIBLE);
-              im1.setVisibility(View.VISIBLE);
-              im2.setVisibility(View.VISIBLE);
+
               im3.setVisibility(View.VISIBLE);
               t.setVisibility(View.VISIBLE);}
 /*
@@ -260,10 +251,7 @@ delsub2=delsub1;
                 addsub();
                 t.setVisibility(View.INVISIBLE);
                 b1.setVisibility(View.INVISIBLE);
-                b2.setVisibility(View.INVISIBLE);
-                b3.setVisibility(View.INVISIBLE);
-                im1.setVisibility(View.INVISIBLE);
-                im2.setVisibility(View.INVISIBLE);
+
                 im3.setVisibility(View.INVISIBLE);
                 listView.setAdapter(lviewAdapter);
 
@@ -289,8 +277,7 @@ delsub2=delsub1;
         perall=(float)Math.round(perall*100)/100;
         percentagesending=String.valueOf(perall);
 
-
-        SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
+SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
         String unm=sp1.getString("username","");
         String nam=sp1.getString("name","");
 if((!unm.equals(""))) {
@@ -324,17 +311,11 @@ if((!unm.equals(""))) {
         final TextView t=(TextView)findViewById(R.id.empty);
         t.setVisibility(View.INVISIBLE);
         final Button b1=(Button)findViewById(R.id.button9);
-        final Button b2=(Button)findViewById(R.id.button12);
-        final Button b3=(Button)findViewById(R.id.button13);
-        final ImageView im1=(ImageView)findViewById(R.id.imageView7);
-        final ImageView im2=(ImageView)findViewById(R.id.imageView10);
+
         final ImageView im3=(ImageView)findViewById(R.id.imageView11);
 
         b1.setVisibility(View.INVISIBLE);
-        b2.setVisibility(View.INVISIBLE);
-        b3.setVisibility(View.INVISIBLE);
-        im1.setVisibility(View.INVISIBLE);
-        im2.setVisibility(View.INVISIBLE);
+
         im3.setVisibility(View.INVISIBLE);
         SharedPreferences sp=getSharedPreferences("yourpref", Activity.MODE_PRIVATE);
         int myvalue=sp.getInt("123455",0);
@@ -377,10 +358,7 @@ if((!unm.equals(""))) {
 
             t.setVisibility(View.VISIBLE);
             b1.setVisibility(View.VISIBLE);
-            b2.setVisibility(View.VISIBLE);
-            b3.setVisibility(View.VISIBLE);
-            im1.setVisibility(View.VISIBLE);
-            im2.setVisibility(View.VISIBLE);
+
             im3.setVisibility(View.VISIBLE);
         }
         else  listView.setAdapter(lviewAdapter);
@@ -442,10 +420,7 @@ renamelastt= stringArrayList1.get(position);
 
                     t.setVisibility(View.INVISIBLE);
                 b1.setVisibility(View.INVISIBLE);
-                b2.setVisibility(View.INVISIBLE);
-                b3.setVisibility(View.INVISIBLE);
-                im1.setVisibility(View.INVISIBLE);
-                im2.setVisibility(View.INVISIBLE);
+
                 im3.setVisibility(View.INVISIBLE);
                  listView.setAdapter(lviewAdapter);
                 listView.setAdapter(lviewAdapter);

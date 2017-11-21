@@ -28,7 +28,7 @@ public class ListViewAdfrlist extends BaseAdapter {
     ArrayList<String> title;
     ArrayList<String> description;
     ArrayList<String> perce;
-int numb=1;
+    int numb=1;
     public  ListViewAdfrlist  (MainfriendlistActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1,ArrayList<String> arrayList2) {
         mcontext=context;
         title=arrayList;
