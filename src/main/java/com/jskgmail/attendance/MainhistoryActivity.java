@@ -6,8 +6,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.jetradar.desertplaceholder.DesertPlaceholder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,24 +51,28 @@ if(!(cn.getPresent().equals("0")))
             asd++;
         }}
 
+        DesertPlaceholder desertPlaceholder = (DesertPlaceholder) findViewById(R.id.placeholder);
 
 
-       ImageView sad=(ImageView)findViewById(R.id.sad);
+        TextView t=(TextView)findViewById(R.id.textView58);
 
 
         if(asd==0)
-        {
-            sad.setVisibility(View.VISIBLE);
+        {t.setVisibility(View.INVISIBLE);
+           desertPlaceholder.setVisibility(View.VISIBLE);
         }
-        else {sad.setVisibility(View.GONE);
-
+        else {desertPlaceholder.setVisibility(View.GONE);
+            t.setVisibility(View.VISIBLE);
         go1();}
 
 
+        desertPlaceholder.setOnButtonClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // do stuff
 
-
-
-
+            }
+        });
 
 
 

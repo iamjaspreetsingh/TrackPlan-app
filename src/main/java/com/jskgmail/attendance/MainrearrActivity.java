@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.jetradar.desertplaceholder.DesertPlaceholder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,16 +55,23 @@ static String naaaa="";
             asd++;
 
 
+        DesertPlaceholder desertPlaceholder = (DesertPlaceholder) findViewById(R.id.placeholder);
+        desertPlaceholder.setOnButtonClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // do stuff
+            }
+        });
 
 
-        ImageView sad=(ImageView)findViewById(R.id.sad);
 
 
         if(asd==0)
         {
-            sad.setVisibility(View.VISIBLE);
+            desertPlaceholder.setVisibility(View.VISIBLE);
         }
-        else {sad.setVisibility(View.GONE);
+        else {desertPlaceholder.setVisibility(View.GONE);
 
         }
 

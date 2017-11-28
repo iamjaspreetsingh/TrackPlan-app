@@ -96,7 +96,6 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="constraint-layout-1.0.0-beta4" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="runner-0.5" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="espresso-idling-resource-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-core-11.0.4" level="project" />
@@ -121,9 +120,9 @@
     <orderEntry type="library" exported="" name="firebase-common-11.0.4" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-lite-11.0.4" level="project" />
     <orderEntry type="library" exported="" name="firebase-ads-11.0.4" level="project" />
+    <orderEntry type="library" exported="" name="constraint-layout-1.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-iid-11.0.4" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-integration-1.3" level="project" />
-    <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.0-beta4" level="project" />
     <orderEntry type="library" exported="" name="design-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-25.3.1" level="project" />
@@ -135,12 +134,15 @@
     <orderEntry type="library" exported="" name="play-services-base-11.0.4" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="espresso-core-2.2.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="rules-0.5" level="project" />
+    <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="firebase-messaging-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="hirondelle-date4j-1.5.1" level="project" />
+    <orderEntry type="library" exported="" name="taptargetview-1.10.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-11.0.4" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-impl-11.0.4" level="project" />
+    <orderEntry type="library" exported="" name="desertplaceholder-1.2.4" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="junit-4.12" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-25.3.1" level="project" />

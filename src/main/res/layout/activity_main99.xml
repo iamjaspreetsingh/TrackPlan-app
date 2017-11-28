@@ -8,6 +8,23 @@
     android:orientation="vertical"
     android:weightSum="1">
 
+    <com.jetradar.desertplaceholder.DesertPlaceholder
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:dp_buttonText="Add the subjects"
+        app:dp_message="Nothing To Show\nFirst add the subjects" />
+
+
+
+
+
+
+
+
+
+
+
     <TextView
         android:id="@+id/textView59"
         android:layout_width="match_parent"
@@ -27,21 +44,6 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="2dp"
         android:layout_below="@+id/textView59"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:id="@+id/sad"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@+id/textView59"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="121dp"
-        android:foregroundGravity="center_vertical|center_horizontal"
-        android:visibility="visible"
-        app:srcCompat="@drawable/face"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

@@ -30,11 +30,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -89,16 +90,49 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Log.e("ddd",ConnectActivity.mynaam);
 
         final TextView t=(TextView)findViewById(R.id.empty);
-        final Button b1=(Button)findViewById(R.id.button9);
 
-        final ImageView im3=(ImageView)findViewById(R.id.imageView11);
         t.setVisibility(View.INVISIBLE);
-        b1.setVisibility(View.INVISIBLE);
 
-        im3.setVisibility(View.INVISIBLE);
      madview=(AdView)findViewById(R.id.adView);
      AdRequest adrequest=new AdRequest.Builder().build();
      madview.loadAd(adrequest);
+
+        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+        List<Contact> contacts = db.getAllContacts();
+        int chh=0;
+        for (Contact cn : contacts) {
+            chh++;}
+if (chh==0) {
+    TapTargetView.showFor(MainActivity.this,                 // `this` is an Activity
+            TapTarget.forView(findViewById(R.id.fab), "Add the subjects", "Start adding the subjects by clicking here")
+                    // All options below are optional
+                    .transparentTarget(true)              // Specify whether the target is transparent (displays the content underneath)
+                    // Specify a custom drawable to draw as the target
+                    .targetRadius(50),                  // Specify the target radius (in dp)
+            new TapTargetView.Listener() {          // The listener can listen for regular clicks, long clicks or cancels
+                @Override
+                public void onTargetClick(TapTargetView view) {
+                    super.onTargetClick(view);
+
+                    // This call is optional
+
+                }
+            });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         SimpleDateFormat sdf =new SimpleDateFormat("EEEE");
         Date d=new Date();
@@ -120,11 +154,11 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         else
             ddd="6";
 
-        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
-        List<Contact> contacts = db.getAllContacts();
+        DatabaseHandler db11 = new DatabaseHandler(getApplicationContext());
+        List<Contact> contacts11 = db11.getAllContacts();
 
         int ch=0;
-        for (Contact cn : contacts) {if ((cn.getPo().equals(MainActivity.semno))){
+        for (Contact cn : contacts11) {if ((cn.getPo().equals(MainActivity.semno))){
             if ((cn.get_dateprea().contains(day1))&&(!(cn.get_ttable().contains(String.valueOf(ddd))))){ch=1;}}}
 
                 if((myvalue==0)&&(ch==0))
@@ -160,9 +194,7 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
           if (lviewAdapter.isEmpty()==true) {
               Log.i("viviviviviv", "dsdsds");
               listView.setAdapter(lviewAdapter);
-              b1.setVisibility(View.VISIBLE);
 
-              im3.setVisibility(View.VISIBLE);
               t.setVisibility(View.VISIBLE);}
 /*
               new CountDownTimer(40000, 1000) {
@@ -250,9 +282,7 @@ delsub2=delsub1;
 
                 addsub();
                 t.setVisibility(View.INVISIBLE);
-                b1.setVisibility(View.INVISIBLE);
 
-                im3.setVisibility(View.INVISIBLE);
                 listView.setAdapter(lviewAdapter);
 
             }
@@ -310,13 +340,9 @@ if((!unm.equals(""))) {
         super.onResume();
         final TextView t=(TextView)findViewById(R.id.empty);
         t.setVisibility(View.INVISIBLE);
-        final Button b1=(Button)findViewById(R.id.button9);
 
-        final ImageView im3=(ImageView)findViewById(R.id.imageView11);
 
-        b1.setVisibility(View.INVISIBLE);
 
-        im3.setVisibility(View.INVISIBLE);
         SharedPreferences sp=getSharedPreferences("yourpref", Activity.MODE_PRIVATE);
         int myvalue=sp.getInt("123455",0);
         SimpleDateFormat sdf1 =new SimpleDateFormat("ddMMyyyy");
@@ -357,9 +383,7 @@ if((!unm.equals(""))) {
             listView.setAdapter(lviewAdapter);
 
             t.setVisibility(View.VISIBLE);
-            b1.setVisibility(View.VISIBLE);
 
-            im3.setVisibility(View.VISIBLE);
         }
         else  listView.setAdapter(lviewAdapter);
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -419,9 +443,7 @@ renamelastt= stringArrayList1.get(position);
 
 
                     t.setVisibility(View.INVISIBLE);
-                b1.setVisibility(View.INVISIBLE);
 
-                im3.setVisibility(View.INVISIBLE);
                  listView.setAdapter(lviewAdapter);
                 listView.setAdapter(lviewAdapter);
 
