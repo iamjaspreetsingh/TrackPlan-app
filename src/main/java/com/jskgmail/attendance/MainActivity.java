@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,6 +36,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
@@ -2204,47 +2208,50 @@ checkdataforper();
 
         } else if (id==R.id.connect)
         {
-            percenall=0;
-            totalsub=0;
-            checkdataforper();
-            float perall=(percenall/(float)totalsub);
-            Log.i("prcentageisfgfgf",String.valueOf(perall));
-            perall=(float)Math.round(perall*100)/100;
-            percentagesending=String.valueOf(perall);
-
-
-            SharedPreferences sp1=this.getSharedPreferences("login",MODE_PRIVATE);
-            String unm=sp1.getString("username","");
-            String nam=sp1.getString("name","");
 
 
 
-
-
-
-
-
-
-
-            if(!(unm.equals("")))
-            {
-ConnectActivity.usernamee=unm;
-                ConnectActivity.mynaam=nam;
-                Intent i=new Intent(MainActivity.this,SearchActivity.class);
-
-
-                startActivity(i);
-
+            boolean connected=false;
+            ConnectivityManager connectivityManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+            if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+                //we are connected to a network
+                connected = true;
             }
-
-
             else
-            {
-            Intent i=new Intent(MainActivity.this,ConnectActivity.class);
-                i.putExtra("alert","0");
-            startActivity(i);}
+                connected = false;
+
+if (connected==true) {
+    percenall = 0;
+    totalsub = 0;
+    checkdataforper();
+    float perall = (percenall / (float) totalsub);
+    Log.i("prcentageisfgfgf", String.valueOf(perall));
+    perall = (float) Math.round(perall * 100) / 100;
+    percentagesending = String.valueOf(perall);
 
 
+    SharedPreferences sp1 = this.getSharedPreferences("login", MODE_PRIVATE);
+    String unm = sp1.getString("username", "");
+    String nam = sp1.getString("name", "");
+
+
+    if (!(unm.equals(""))) {
+        ConnectActivity.usernamee = unm;
+        ConnectActivity.mynaam = nam;
+        Intent i = new Intent(MainActivity.this, SearchActivity.class);
+
+
+        startActivity(i);
+
+    } else {
+        Intent i = new Intent(MainActivity.this, ConnectActivity.class);
+        i.putExtra("alert", "0");
+        startActivity(i);
+    }
+
+}
+else Toast.makeText(getApplicationContext(),"Please check your internet connection",Toast.LENGTH_LONG).show();
 
 
         }
