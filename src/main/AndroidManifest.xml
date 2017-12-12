@@ -90,7 +90,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jskgmail.attendance.SearchActivity" />
         </activity>
-        <activity android:name=".WhoareyouActivity"></activity>
+        <activity android:name=".WhoareyouActivity" />
+        <activity
+            android:name=".MainteachersActivity"
+            android:label="TrackPlan"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

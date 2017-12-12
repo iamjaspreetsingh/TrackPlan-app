@@ -24,7 +24,6 @@
     </style>
 
 
-
     <style name="FullscreenTheme" parent="AppTheme">
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
         <item name="android:windowActionBarOverlay">true</item>
@@ -36,9 +35,13 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
-    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">   <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>   <item name="android:windowContentOverlay">@null</item>
+
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimEnabled">true</item>
-        <item name="colorPrimaryDark">@android:color/transparent</item></style>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+    </style>
 </resources>

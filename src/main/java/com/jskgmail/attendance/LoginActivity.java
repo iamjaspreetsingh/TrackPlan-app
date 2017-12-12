@@ -22,11 +22,23 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         SharedPreferences sp1=getSharedPreferences("yourprefs", Activity.MODE_PRIVATE);
         int myvalue1=sp1.getInt("123999",1);
-
+        SharedPreferences sp=getSharedPreferences("who", Activity.MODE_PRIVATE);
+        String who=sp.getString("iam","");
         if((myvalue1==1))
         {
+            if (who.equals("")) {
+                Intent i = new Intent(LoginActivity.this, WhoareyouActivity.class);
+                startActivity(i);
+            }
+            else if(who.equals("teacher")) {
+                Intent i = new Intent(LoginActivity.this, MainteachersActivity.class);
+                startActivity(i);
+            }
+            else
+
+            {
             Intent i=new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(i);
+            startActivity(i);}
             finish();
 
         }

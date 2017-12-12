@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/caldroid_white"
     android:foregroundGravity="center_vertical|center_horizontal|center"
     android:gravity="center_vertical|center_horizontal|center"
     tools:context="com.jskgmail.attendance.WhoareyouActivity">

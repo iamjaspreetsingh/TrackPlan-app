@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/grey"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:context="com.jskgmail.attendance.MainActivity"
+tools:showIn="@layout/app_bar_main">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.jskgmail.attendance.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginRight="6dp"
+    android:layout_marginEnd="6dp"
+    android:layout_marginBottom="46dp"
+    android:id="@+id/relativeLayout3">
 
-    <RelativeLayout
+    <ListView
+
+        android:id="@+id/listView6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/checkedTextView"
         android:background="@color/grey"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="46dp"
-        android:id="@+id/relativeLayout3">
-
-        <ListView
-
-            android:id="@+id/listView6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/checkedTextView"
-            android:background="@color/grey"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            android:outlineProvider="none"
-            android:paddingTop="5dp"
-            android:scrollbars="none"
-            android:transcriptMode="normal" />
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:outlineProvider="none"
+        android:paddingTop="5dp"
+        android:scrollbars="none"
+        android:transcriptMode="normal" />
 
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="11dp"
-            android:checkMark="@drawable/ic_arrow_upward_black_24dp"
-            android:checked="true"
-            android:paddingBottom="0dp"
-            android:paddingLeft="4dp"
-            android:paddingTop="0dp"
-            android:text="Name "
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="17sp" />
-
-        <CheckedTextView
-            android:id="@+id/checkedTextView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/listView6"
-            android:layout_toEndOf="@+id/checkedTextView"
-            android:layout_toRightOf="@+id/checkedTextView"
-            android:checkMark="@drawable/ic_arrow_upward_black_24dp"
-            android:paddingBottom="0dp"
-            android:paddingLeft="4dp"
-            android:paddingTop="0dp"
-            android:text="Present "
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="17sp" />
-
-        <CheckedTextView
-            android:id="@+id/checkedTextView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/checkedTextView2"
-            android:layout_alignBottom="@+id/checkedTextView2"
-            android:layout_marginEnd="11dp"
-            android:layout_toStartOf="@+id/checkedTextView4"
-            android:checkMark="@drawable/ic_arrow_upward_black_24dp"
-            android:paddingBottom="0dp"
-            android:paddingTop="0dp"
-            android:text="Absent "
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="17sp" />
-
-        <CheckedTextView
-            android:id="@+id/checkedTextView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/listView6"
-            android:layout_alignParentEnd="true"
-            android:checkMark="@drawable/ic_arrow_upward_black_24dp"
-            android:paddingBottom="0dp"
-            android:paddingRight="3dp"
-            android:paddingTop="0dp"
-            android:text="Percent "
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="17sp" />
-
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignBottom="@+id/relativeLayout3"
-        android:layout_alignParentLeft="true"
+    <CheckedTextView
+        android:id="@+id/checkedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:text="TRACKPLAN"
+        android:layout_marginTop="11dp"
+        android:checkMark="@drawable/ic_arrow_upward_black_24dp"
+        android:checked="true"
+        android:paddingBottom="0dp"
+        android:paddingLeft="4dp"
+        android:paddingTop="0dp"
+        android:text="Name "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/listView6"
+        android:layout_toEndOf="@+id/checkedTextView"
+        android:layout_toRightOf="@+id/checkedTextView"
+        android:checkMark="@drawable/ic_arrow_upward_black_24dp"
+        android:paddingBottom="0dp"
+        android:paddingLeft="4dp"
+        android:paddingTop="0dp"
+        android:text="Present "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="17sp" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkedTextView2"
+        android:layout_alignBottom="@+id/checkedTextView2"
+        android:layout_marginEnd="11dp"
+        android:layout_toStartOf="@+id/checkedTextView4"
+        android:checkMark="@drawable/ic_arrow_upward_black_24dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp"
+        android:text="Absent "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="17sp" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/listView6"
+        android:layout_alignParentEnd="true"
+        android:checkMark="@drawable/ic_arrow_upward_black_24dp"
+        android:paddingBottom="0dp"
+        android:paddingRight="3dp"
+        android:paddingTop="0dp"
+        android:text="Percent "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="17sp" />
+
+
+</RelativeLayout>
+
+<TextView
+    android:id="@+id/empty"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_alignBottom="@+id/relativeLayout3"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:gravity="center"
+    android:text="TRACKPLAN"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+    android:textColor="@color/colorPrimary"
+    android:textSize="20sp" />
 
 </RelativeLayout>
