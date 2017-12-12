@@ -1,5 +1,11 @@
-# Attendance-student
+# Trackplan
 <b> TrackPlan</b> app provides you with easy tracking your attendance in colleges and schools .It helps you to maintain perfect balance of your presents and absents .Just you need to do it is add your timetable. <br>
+#### TRACKPLAN APP ####
+
+<a href="https://play.google.com/store/apps/details?id=com.jskgmail.attendance">
+  <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" height="64" />
+</a>
+
 <br><hr>
   Salient Features include :<br>
 ★  Simple and easy to use attendance environment<br>
@@ -15,12 +21,16 @@
 ★  Addition of attendance for <b>new semester/ classes</b> and manage them<br>
 ★  May use <b>authentication</b> at startup of Trackplan<br>
 <br><hr>
+<img src="https://github.com/iamjaspreetsingh/Attendance-student/blob/master/Screenshots/Screenshot_2017-10-23-00-52-51-486_com.jskgmail.attendance.png" align="left" height="700" width="400" >
+<img src="https://github.com/iamjaspreetsingh/Attendance-student/blob/master/Screenshots/Screenshot_2017-10-23-00-53-00-130_com.jskgmail.attendance.png" height="700" width="400" >
+
    To start using app:<br>
 •  Click on <b>add (+)</b> button at  bottom right corner and add the subject name and criteria for it. Criteria is the minimum percentage you require as per your college / school rules  
 <br>•  By clicking on subject you may add attendance by clicking on the dates required.<br>
 •  Long click on subject to <b>modify , reset or delete </b>subject from attendance <br>
 •  This screen shows subject name , total no. of presents , percentage in that subject<br>
     The<b> increase / decrease icon</b> helps you to keep the track as per your criteria <br>
+   
 <hr>
     In second screen after clicking on subject:<br>
 •  Click on date to add present / absent<br>
@@ -45,4 +55,6 @@
 ✴ To enable / disable notifications on your mobile for giving attendance<br>
 ✴  To set the notification time to set your attendance daily as per your convenience  <br>
 
+<img src="https://github.com/iamjaspreetsingh/Attendance-student/blob/master/Screenshots/Screenshot_2017-10-23-00-53-17-404_com.jskgmail.attendance.png" align="left" height="700" width="400" >
+<img src="https://github.com/iamjaspreetsingh/Attendance-student/blob/master/Screenshots/Screenshot_2017-10-23-00-53-23-894_com.jskgmail.attendance.png" height="700" width="400" >
 Hence TrackPlan app is the solution to easily track student's attendance on daily basis
