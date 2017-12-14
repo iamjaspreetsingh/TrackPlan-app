@@ -94,7 +94,8 @@
         <activity
             android:name=".MainteachersActivity"
             android:label="TrackPlan"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainsettingteacherActivity"></activity>
     </application>
 
 </manifest>

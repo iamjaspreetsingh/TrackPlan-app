@@ -1,24 +1,30 @@
 package com.jskgmail.attendance;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -39,8 +45,11 @@ public class MainteachersActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+
+                addclass();
+
+
             }
         });
 
@@ -116,7 +125,7 @@ public class MainteachersActivity extends AppCompatActivity
         int id=item.getItemId();
         if(id==R.id.setting) {
 
-            Intent i=new Intent(MainteachersActivity.this,MainsettingActivity.class);
+            Intent i=new Intent(MainteachersActivity.this,MainsettingteacherActivity.class);
             startActivity(i);
             return true;
         }
@@ -147,4 +156,82 @@ public class MainteachersActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+
+
+    void addclass()
+    {
+        SharedPreferences pref=getSharedPreferences("who",0);
+        final String techername=pref.getString("teachername","N.A.");
+
+
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.layoutaddclass, null);
+        final EditText collg=(EditText)alertLayout.findViewById(R.id.editText5);
+        final EditText subname=(EditText)alertLayout.findViewById(R.id.editText6);
+
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        // this is set the view from XML inside AlertDialog
+        alert.setView(alertLayout);
+        // disallow cancel of AlertDialog on click of back button and outside touch
+        alert.setTitle("Add class ");
+        alert.setIcon(R.drawable.ic_add_circle_outline_black_24dp);
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+
+        alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
+
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Colleges");
+
+                myRef.setValue(collg);
+                myRef.child("name").setValue(techername);
+                myRef.child("subject").setValue(subname);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+        });
+        AlertDialog dialog = alert.create();
+        dialog.show();
+
+
+
+
+
+
+
+
+    }
+
+
+
 }
