@@ -31,10 +31,12 @@ import java.util.List;
 public class MainteachersActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private AdView madview;
+    FirebaseDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainteachers);
+         database = FirebaseDatabase.getInstance();
         MobileAds.initialize(this,"ca-app-pub-9293221301322595/9833525905");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -197,14 +199,13 @@ public class MainteachersActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which) {
 
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
+
                 DatabaseReference myRef = database.getReference("Colleges");
+                DatabaseReference myRef1 = database.getReference("Colleges").child(collg.getText().toString());
+                myRef1.child("Take").setValue("1");
 
-                myRef.setValue(collg);
-                myRef.child("name").setValue(techername);
-                myRef.child("subject").setValue(subname);
-
-
+                myRef1.child("Techname").setValue(techername);
+                myRef1.child("Subname").setValue(subname.getText().toString());
 
 
 

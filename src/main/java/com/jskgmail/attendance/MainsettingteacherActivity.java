@@ -16,6 +16,10 @@ public class MainsettingteacherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mainsettingteacher);
         final EditText teachername=(EditText)findViewById(R.id.editText7);
         Button don=(Button)findViewById(R.id.button13);
+        SharedPreferences pref=getSharedPreferences("who",0);
+        final String techername=pref.getString("teachername","N.A.");
+if (techername.equals("N.A."))
+    teachername.setText(techername);
         don.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
