@@ -550,7 +550,7 @@ rename.setOnClickListener(new View.OnClickListener() {
 
        String renamename= resub();
 
-Log.i(renamename,"fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+Log.i(renamename,"rename");
 
 
 

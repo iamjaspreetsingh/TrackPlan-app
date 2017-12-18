@@ -10,9 +10,6 @@ public class Friends {
 
 
 
-    /**
-     * Created by JASPREET SINGH on 03-08-2017.
-     */
 
 
         //private variables

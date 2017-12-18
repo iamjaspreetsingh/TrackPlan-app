@@ -5,14 +5,19 @@ package com.jskgmail.attendance;
  */
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.util.Log;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -24,13 +29,13 @@ public class ListViewAdteach extends BaseAdapter  {
     Activity mcontext;
     ArrayList<String> title;
     ArrayList<String> description;
-    ArrayList<String> perce;
 
-    public ListViewAdteach (SearchActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1,ArrayList<String> arrayList2) {
+int i=0;
+    public ListViewAdteach (MainteachersActivity context, ArrayList<String> arrayList, ArrayList<String> arrayList1) {
         mcontext=context;
         title=arrayList;
         description=arrayList1;
-        perce=arrayList2;
+
     }
 
 
@@ -56,15 +61,15 @@ public class ListViewAdteach extends BaseAdapter  {
     public class ViewHolder{
         TextView txtviewtitle;
         TextView txtviewdesc;
-        TextView txtper;
-        TextView inc;
+ProgressBar p;
         ImageView img;
-
+        ImageView start;
+        TextView st;TextView st1;
 
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        final ViewHolder holder;
 
 
         LayoutInflater inflater=mcontext.getLayoutInflater();
@@ -72,78 +77,52 @@ public class ListViewAdteach extends BaseAdapter  {
         {
             convertView=inflater.inflate(R.layout.adddclasst,null);
             holder=new ViewHolder();
-            holder.txtviewtitle=(TextView)convertView.findViewById(R.id.textView68);
-
-
-            holder.txtviewdesc=(TextView)convertView.findViewById(R.id.textView69);
-            holder.txtper=(TextView)convertView.findViewById(R.id.textView81);
-            holder.inc=(TextView)convertView.findViewById(R.id.textView73);
-            holder.img=(ImageView)convertView.findViewById(R.id.imageView5);
-    /*        holder.txtviewdesc.setVisibility(View.VISIBLE);
-            holder.txtviewtitle.setVisibility(View.VISIBLE);
-
-
-            if(!(textt.equals("")))
-            { if((title.get(position).toLowerCase().contains(textt))||(description.get(position).toLowerCase().contains(textt))) {
-                holder.txtviewdesc.setVisibility(View.VISIBLE);
-                holder.txtviewtitle.setVisibility(View.VISIBLE);
-
-                holder.txtviewtitle.setText(title.get(position));
-                holder.txtviewdesc.setText(description.get(position));
-            }
-            else {
-                holder.txtviewdesc.setVisibility(View.GONE);
-            holder.txtviewtitle.setVisibility(View.GONE);
-            }
-            }
-            else {
-
-              */
-
-
+            holder.txtviewtitle=(TextView)convertView.findViewById(R.id.textView69);
+holder.p=(ProgressBar)convertView.findViewById(R.id.progressBar4);
+holder.img=(ImageView)convertView.findViewById(R.id.imageView4);
+            holder.start=(ImageView)convertView.findViewById(R.id.imageButton7);
+            holder.txtviewdesc=(TextView)convertView.findViewById(R.id.textView81);
+holder.st=(TextView)convertView.findViewById(R.id.textView78);
+            holder.st1=(TextView)convertView.findViewById(R.id.textView79);
+holder.start.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (i%2==0)
+        { holder.start.setImageResource(R.drawable.atttaking);
+        takeatt("1",description.get(position)+title.get(position));
+            holder.st.setVisibility(View.VISIBLE);
+            holder.st1.setVisibility(View.VISIBLE);
+            holder.p.setVisibility(View.VISIBLE);
+        }
+        else  { holder.start.setImageResource(R.drawable.attendtea);
+            takeatt("0",description.get(position)+title.get(position));
+            holder.st.setVisibility(View.GONE);
+            holder.st1.setVisibility(View.GONE);
+            holder.p.setVisibility(View.GONE);
+        }
+    i++;
+    }
+});
 
 
 
-
-            String a=": "+title.get(position);
-
-            holder.txtviewtitle.setText(a);
+            holder.txtviewtitle.setText(title.get(position));
             String fname;
             fname=description.get(position);
-            if(description.get(position).length()>19)
-            {
-                String[] fnamess= fname.split(" ");
-                Log.d("pppp",fnamess[2]);
-                if(fnamess.length>2)
-                {fname=" "+fnamess[2]+" "+fnamess[3];}}
-            else
-                fname=description.get(position).replaceAll(":","");
+
 
             holder.txtviewdesc.setText(fname);
-            holder.txtper.setText(perce.get(position)+"%");
-            Log.d("zzzzz",perce.get(position));
-            if(perce.get(position).equals(""))
-                perce.set(position,"0.0");
-            float in=(Float.valueOf(MainActivity.percentagesending)-Float.valueOf(perce.get(position)));
-            in=(float)Math.round(in*100)/100;
+            ColorGenerator generator = ColorGenerator.MATERIAL;
+            int color1 = generator.getRandomColor();
 
-            holder.inc.setText(String.valueOf(in)+"%");
-
-
-            if(in<0)
-            {
-                holder.img.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
-                holder.inc.setTextColor(Color.RED);
-                in=-in;
+            String[] a = title.get(position).split("");
+            if ((a.length > 1)) {
+                TextDrawable drawable = TextDrawable.builder().beginConfig().withBorder(4).textColor(R.color.caldroid_black).useFont(Typeface.DEFAULT).bold().toUpperCase().endConfig().buildRound(a[1], color1);
+                holder.img.setImageDrawable(drawable);
             }
-            else
-            {
-                holder.img.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
-                holder.inc.setTextColor(Color.rgb(0,128,0));
-            }
-            holder.inc.setText(String.valueOf(in)+"%");
 
 
+notifyDataSetChanged();
 
 
         }
@@ -159,6 +138,22 @@ public class ListViewAdteach extends BaseAdapter  {
     }
 
 
+void takeatt(String i,String subclass)
+{
+    FirebaseDatabase database = MainteachersActivity.database;
+    DatabaseReference myRef = database.getReference("Colleges");
+    DatabaseReference myRef1 = database.getReference("Colleges").child(MainteachersActivity.colname).child(subclass);
 
+    myRef1.child("Take").setValue(i);
+
+
+
+
+
+
+
+
+
+}
 }
 

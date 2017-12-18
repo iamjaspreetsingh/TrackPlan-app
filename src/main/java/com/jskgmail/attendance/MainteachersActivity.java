@@ -12,11 +12,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
@@ -26,12 +28,17 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainteachersActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private AdView madview;
-    FirebaseDatabase database;
+   static FirebaseDatabase database;
+    ListViewAdteach lviewAdapter;
+    static String colname="";
+    private ArrayList<String> stringArrayList, stringArrayList1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +50,16 @@ public class MainteachersActivity extends AppCompatActivity
         madview=(AdView)findViewById(R.id.adView);
         AdRequest adrequest=new AdRequest.Builder().build();
         madview.loadAd(adrequest);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab1);
+        final ListView listView=(ListView)findViewById(R.id.lvt);
+        stringArrayList = new ArrayList<String>();
+        stringArrayList1 = new ArrayList<String>();
+
+check();
+
+
+
+
+          FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab1);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,10 +81,10 @@ public class MainteachersActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
-        List<Contact> contacts = db.getAllContacts();
+        Databaseteaclass db = new Databaseteaclass(getApplicationContext());
+        List<Teacherclass> contacts = db.getAllContacts();
         int chh=0;
-        for (Contact cn : contacts) {
+        for (Teacherclass cn : contacts) {
             chh++;}
         if (chh==0) {
             TapTargetView.showFor(MainteachersActivity.this,                 // `this` is an Activity
@@ -168,12 +184,14 @@ public class MainteachersActivity extends AppCompatActivity
     {
         SharedPreferences pref=getSharedPreferences("who",0);
         final String techername=pref.getString("teachername","N.A.");
-
+      colname=pref.getString("cllgname","N.A.");
+        SharedPreferences pref1=getSharedPreferences("teachpass",0);
+        final String pass=pref1.getString("password","N.A.");
 
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.layoutaddclass, null);
-        final EditText collg=(EditText)alertLayout.findViewById(R.id.editText5);
-        final EditText subname=(EditText)alertLayout.findViewById(R.id.editText6);
+         final EditText subname=(EditText)alertLayout.findViewById(R.id.editText6);
+        final EditText classname=(EditText)alertLayout.findViewById(R.id.editText9);
 
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -190,6 +208,7 @@ public class MainteachersActivity extends AppCompatActivity
 
             }
         });
+        final ListView listView=(ListView)findViewById(R.id.lvt);
 
 
         alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
@@ -201,11 +220,21 @@ public class MainteachersActivity extends AppCompatActivity
 
 
                 DatabaseReference myRef = database.getReference("Colleges");
-                DatabaseReference myRef1 = database.getReference("Colleges").child(collg.getText().toString());
-                myRef1.child("Take").setValue("1");
+                DatabaseReference myRef1 = database.getReference("Colleges").child(colname).child(subname.getText().toString()+classname.getText().toString());
+                myRef1.child("Take").setValue("0");
 
                 myRef1.child("Techname").setValue(techername);
                 myRef1.child("Subname").setValue(subname.getText().toString());
+                myRef1.child("classname").setValue(classname.getText().toString());
+                myRef1.child("Password").setValue(pass);
+                myRef1.child("Students").setValue("stu");
+                stringArrayList.add(subname.getText().toString());
+                stringArrayList1.add(classname.getText().toString());
+                lviewAdapter = new ListViewAdteach(MainteachersActivity.this, stringArrayList1, stringArrayList);
+                listView.setAdapter(lviewAdapter);
+
+                Databaseteaclass db = new Databaseteaclass(MainteachersActivity.this);
+                db.addContact(new Teacherclass(subname.getText().toString(), classname.getText().toString()));
 
 
 
@@ -233,6 +262,20 @@ public class MainteachersActivity extends AppCompatActivity
 
     }
 
+void check()
+{ListView listView=(ListView)findViewById(R.id.lvt);
+    Databaseteaclass db1 = new Databaseteaclass(getApplicationContext());
+    List<Teacherclass> contacts = db1.getAllContacts();
 
+    for (Teacherclass cn : contacts) {
+        Log.d("cccccc", cn.getName());
+        stringArrayList.add(cn.getName());
+        stringArrayList1.add(cn.getcName());
 
 }
+    lviewAdapter = new ListViewAdteach(MainteachersActivity.this, stringArrayList1, stringArrayList);
+    listView.setAdapter(lviewAdapter);
+
+
+
+}}
