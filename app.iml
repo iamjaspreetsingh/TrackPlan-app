@@ -108,6 +108,7 @@
     <orderEntry type="library" exported="" name="com.android.support:support-core-utils-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase:firebase-iid-11.0.4" level="project" />
     <orderEntry type="library" exported="" name="com.android.support.constraint:constraint-layout-1.0.2" level="project" />
+    <orderEntry type="library" exported="" name="com.github.dimorinny:floating-text-button-0.0.2" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:support-v4-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:support-media-compat-25.3.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.google.code.findbugs:jsr305:2.0.1@jar" level="project" />

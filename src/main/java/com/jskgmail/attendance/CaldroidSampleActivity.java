@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -19,6 +20,7 @@ import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.roomorama.caldroid.CaldroidFragment;
@@ -29,6 +31,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+
+import ru.dimorinny.floatingtextbutton.FloatingTextButton;
 
 @SuppressLint("SimpleDateFormat")
 public class CaldroidSampleActivity extends AppCompatActivity {
@@ -148,6 +152,14 @@ public class CaldroidSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main333);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         checkdata1();
+        FloatingTextButton callButton = (FloatingTextButton) findViewById(R.id.floatingTextButton);
+        final ScrollView s=(ScrollView)findViewById(R.id.s);
+        callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(s, "Attendance marked for today", Snackbar.LENGTH_SHORT).show();
+            }
+        });
 
         final SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
 
