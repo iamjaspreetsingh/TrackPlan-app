@@ -23,6 +23,8 @@ import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
@@ -157,6 +159,15 @@ public class CaldroidSampleActivity extends AppCompatActivity {
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                FirebaseDatabase database = MainteachersActivity.database;
+                DatabaseReference myRef = database.getReference("Colleges");
+                //TODO search list and save for the list
+                DatabaseReference myRef1 = database.getReference("Colleges").child(MainteachersActivity.colname).child("subclass").child("Students");
+
+                myRef1.child(ConnectActivity.mynaam).setValue(dmy);
+
+
                 Snackbar.make(s, "Attendance marked for today", Snackbar.LENGTH_SHORT).show();
             }
         });

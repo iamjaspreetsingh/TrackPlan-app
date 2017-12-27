@@ -1,5 +1,7 @@
 package com.jskgmail.attendance;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class MainteachersActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,6 +41,8 @@ public class MainteachersActivity extends AppCompatActivity
     ListViewAdteach lviewAdapter;
     static String colname="";
     private ArrayList<String> stringArrayList, stringArrayList1;
+    private BluetoothAdapter BA;
+    private Set<BluetoothDevice> pairedDevices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +60,13 @@ public class MainteachersActivity extends AppCompatActivity
         stringArrayList1 = new ArrayList<String>();
 
 check();
+        BA = BluetoothAdapter.getDefaultAdapter();
+        Intent turnOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        startActivityForResult(turnOn, 0);
 
+        pairedDevices = BA.getBondedDevices();
 
-
-
-          FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab1);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab1);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,7 +183,41 @@ check();
     }
 
 
+/* public void on(View v){
+      if (!BA.isEnabled()) {
+        Intent turnOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        startActivityForResult(turnOn, 0);
+        Toast.makeText(getApplicationContext(), "Turned on",Toast.LENGTH_LONG).show();
+    } else {
+        Toast.makeText(getApplicationContext(), "Already on", Toast.LENGTH_LONG).show();
+    }
+}
 
+    public void off(View v){
+        BA.disable();
+        Toast.makeText(getApplicationContext(), "Turned off" ,Toast.LENGTH_LONG).show();
+    }
+
+
+    public  void visible(View v){
+        Intent getVisible = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+        startActivityForResult(getVisible, 0);
+    }
+
+
+    public void list(View v){
+        pairedDevices = BA.getBondedDevices();
+
+        ArrayList list = new ArrayList();
+
+        for(BluetoothDevice bt : pairedDevices) list.add(bt.getName());
+        Toast.makeText(getApplicationContext(), "Showing Paired Devices",Toast.LENGTH_SHORT).show();
+
+        final ArrayAdapter adapter = new  ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
+
+        lv.setAdapter(adapter);
+    }
+    */
 
 
 
