@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -163,6 +164,9 @@ public class CaldroidSampleActivity extends AppCompatActivity {
                 FirebaseDatabase database = MainteachersActivity.database;
                 DatabaseReference myRef = database.getReference("Colleges");
                 //TODO search list and save for the list
+firstsubjectclass();
+
+
                 DatabaseReference myRef1 = database.getReference("Colleges").child(MainteachersActivity.colname).child("subclass").child("Students");
 
                 myRef1.child(ConnectActivity.mynaam).setValue(dmy);
@@ -331,6 +335,131 @@ Log.i("dadadadadadadad",dmyyy);
         caldroidFragment.setCaldroidListener(listener);
 
     }
+
+
+
+void firstsubjectclass()
+{
+    LayoutInflater inflater = getLayoutInflater();
+    View alertLayout = inflater.inflate(R.layout.layoutsearchclass, null);
+SearchView search;
+    search= (SearchView) alertLayout.findViewById(R.id.searchView);
+  //TODO search....
+    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+    // this is set the view from XML inside AlertDialog
+    alert.setView(alertLayout);
+    // disallow cancel of AlertDialog on click of back button and outside touch
+    alert.setTitle(" Search your class ");
+    alert.setIcon(R.drawable.ic_add_circle_outline_black_24dp);
+    alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+
+        }
+    });
+
+
+    alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+
+
+        }
+    });
+    AlertDialog dialog = alert.create();
+    dialog.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

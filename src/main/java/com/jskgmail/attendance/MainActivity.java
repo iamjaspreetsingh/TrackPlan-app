@@ -883,7 +883,7 @@ return "svsfdfds";
 progress=progress-progress%5;
                 critsh.setText(progress+"%");
                 crit = String.valueOf(progress);
-                Log.e("kyaaaaaaaaaaa",crit);
+                Log.e("thecriteria",crit);
                 recrit=crit;
                 critt = 100 - Integer.parseInt(crit);
 
