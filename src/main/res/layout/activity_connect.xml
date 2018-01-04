@@ -94,10 +94,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/switch3"
+            android:layout_below="@+id/textView67"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="58dp"
+            android:layout_marginTop="31dp"
             android:background="@color/colorPrimary"
             android:elevation="1dp"
             android:text="Save"
@@ -121,12 +121,11 @@
             android:id="@+id/switch3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="false"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignWithParentIfMissing="false"
-            android:layout_below="@+id/editText4"
-            android:layout_marginTop="19dp"
+            android:layout_below="@+id/progressBar2"
+            android:layout_marginTop="23dp"
             android:paddingLeft="10dp"
             android:paddingRight="13dp"
             android:text="DISCOVERABLE"
@@ -159,6 +158,23 @@
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:foregroundGravity="center_vertical|center_horizontal" />
+
+        <Button
+            android:id="@+id/cllgname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button7"
+            android:layout_alignBottom="@+id/button7"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginStart="9dp"
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:text="COLLEGE / SCHOOL NAME"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/caldroid_white"
+            android:textSize="16sp" />
 
     </RelativeLayout>
 

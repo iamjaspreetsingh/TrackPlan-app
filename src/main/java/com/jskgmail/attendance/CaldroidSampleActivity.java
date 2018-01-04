@@ -161,7 +161,7 @@ public class CaldroidSampleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                FirebaseDatabase database = MainteachersActivity.database;
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("Colleges");
                 //TODO search list and save for the list
 firstsubjectclass();
