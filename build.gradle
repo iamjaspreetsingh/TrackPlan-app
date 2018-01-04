@@ -28,6 +28,7 @@ dependencies {
     })
 
     compile 'com.github.dimorinny:floating-text-button:0.0.2'
+    compile 'com.skyfishjy.ripplebackground:library:1.0.1'
     compile 'com.github.jetradarmobile.desertplaceholder:desertplaceholder:1.2.4'
     compile 'com.getkeepsafe.taptargetview:taptargetview:1.10.0'
     compile 'com.android.support:appcompat-v7:25.3.1'

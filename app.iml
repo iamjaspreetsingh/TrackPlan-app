@@ -103,6 +103,7 @@
     <orderEntry type="library" exported="" name="com.android.support:support-core-ui-25.3.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.squareup:javawriter:2.1.1@jar" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:support-compat-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="com.skyfishjy.ripplebackground:library-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.amulyakhare:com.amulyakhare.textdrawable-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:support-core-utils-25.3.1" level="project" />
