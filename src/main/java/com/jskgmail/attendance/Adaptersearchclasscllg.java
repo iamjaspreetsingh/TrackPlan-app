@@ -1,5 +1,9 @@
 package com.jskgmail.attendance;
 
+/**
+ * Created by JASPREET SINGH on 06-01-2018.
+ */
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.util.Log;
@@ -10,19 +14,24 @@ import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by JASPREET SINGH on 05-01-2018.
  */
 
-class Adaptersearchclass extends BaseAdapter {
+class Adaptersearchclasscllg extends BaseAdapter {
     Activity mcontext;
     ArrayList<String> title;
 
 
     int numb=1;
-    public  Adaptersearchclass(Activity context, ArrayList<String> arrayList) {
+    public  Adaptersearchclasscllg(Activity context, ArrayList<String> arrayList) {
         mcontext=context;
         title=arrayList;
 
@@ -56,24 +65,35 @@ class Adaptersearchclass extends BaseAdapter {
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final Adaptersearchclass.ViewHolder holder;
+        final Adaptersearchclasscllg.ViewHolder holder;
 
 
         LayoutInflater inflater=mcontext.getLayoutInflater();
         if(convertView==null)
         {
             convertView=inflater.inflate(R.layout.simplelistitem,null);
-            holder=new Adaptersearchclass.ViewHolder();
+            holder=new Adaptersearchclasscllg.ViewHolder();
             holder.txtviewtitle=(TextView)convertView.findViewById(R.id.textView71);
             holder.r=(RelativeLayout)convertView.findViewById(R.id.r);
             holder.txtviewtitle.setText(title.get(position));
             holder.txtviewtitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ConnectActivity.mycllgname=title.get(position);
+
                     holder.r.setBackgroundColor(Color.LTGRAY);
                     Log.i("mycllgname",ConnectActivity.mycllgname);
+                    DatabaseHandler db = new DatabaseHandler(mcontext);
+                    List<Contact> contacts = db.getAllContacts();
 
+                    for (Contact cn : contacts) {if ((cn.getPo().equals(MainActivity.semno))){
+                        if (cn.getName().equals(MainActivity.subbb)) {
+                           cn.setName(title.get(position));
+                        }}}
+
+                    FirebaseDatabase database=FirebaseDatabase.getInstance();
+                    DatabaseReference myRef1 = database.getReference("Colleges").child(ConnectActivity.mycllgname).child(MainActivity.subbb).child(ConnectActivity.usernamee);
+
+                    myRef1.child(ConnectActivity.mynaam).setValue("5/1/18");
 
 
 
@@ -84,7 +104,7 @@ class Adaptersearchclass extends BaseAdapter {
 
         }
         else{
-            holder=(Adaptersearchclass.ViewHolder)convertView.getTag();
+            holder=(Adaptersearchclasscllg.ViewHolder)convertView.getTag();
         }
 
 

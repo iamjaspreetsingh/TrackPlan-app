@@ -1,5 +1,6 @@
 package com.jskgmail.attendance;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -493,6 +494,7 @@ renamelastt= stringArrayList1.get(position);
 
     }
 
+    @SuppressLint("WrongConstant")
     public void addNotification() {
         Calendar calendar = Calendar.getInstance();
         int curHr = calendar.get(Calendar.HOUR_OF_DAY);

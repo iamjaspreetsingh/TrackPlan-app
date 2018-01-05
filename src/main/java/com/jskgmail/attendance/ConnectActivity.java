@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -457,13 +456,6 @@ static  String mycllgname="";
                 return false;
             }});
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-
 
 
 
@@ -504,7 +496,19 @@ static  String mycllgname="";
     }
 
 
+@Override
+    protected void onResume()
+{
+super.onResume();
+    SharedPreferences.Editor editor= getSharedPreferences("college",MODE_PRIVATE).edit();
+    editor.putString("cllgname",mycllgname);
 
+    editor.apply();
+
+
+
+
+}
 
     }
 

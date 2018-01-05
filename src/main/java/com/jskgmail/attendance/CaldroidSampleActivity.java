@@ -19,17 +19,22 @@ import android.view.View;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -41,8 +46,9 @@ import ru.dimorinny.floatingtextbutton.FloatingTextButton;
 public class CaldroidSampleActivity extends AppCompatActivity {
     String pre,abs,crit,dmy="",dmyyy="";
     float per=0;
-
-
+    Adaptersearchclasscllg adapter;
+    ArrayList arrayList;
+    String colname;
     private boolean undo = false;
     private CaldroidFragment caldroidFragment;
     private CaldroidFragment dialogCaldroidFragment;
@@ -163,13 +169,16 @@ public class CaldroidSampleActivity extends AppCompatActivity {
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("Colleges");
+                SharedPreferences prefs = getSharedPreferences("college",MODE_PRIVATE);
+              colname = prefs.getString("cllgname", null);
                 //TODO search list and save for the list
 firstsubjectclass();
+Log.e("ttttttttt",colname);
+colname="Iit Delhi";
 
+                DatabaseReference myRef1 = database.getReference("Colleges").child(colname).child(MainActivity.subbb+"Cse-2").child(ConnectActivity.usernamee);
 
-                DatabaseReference myRef1 = database.getReference("Colleges").child(MainteachersActivity.colname).child("subclass").child("Students");
-
-                myRef1.child(ConnectActivity.mynaam).setValue(dmy);
+                myRef1.child(ConnectActivity.mynaam).setValue("todays date");
 
 
                 Snackbar.make(s, "Attendance marked for today", Snackbar.LENGTH_SHORT).show();
@@ -344,7 +353,9 @@ void firstsubjectclass()
     View alertLayout = inflater.inflate(R.layout.layoutsearchclass, null);
 SearchView search;
     search= (SearchView) alertLayout.findViewById(R.id.searchView);
-  //TODO search....
+    final ListView list = (ListView) alertLayout.findViewById(R.id.cllgsearch);
+//showww class and subjects
+    //TODO search....
     AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
     // this is set the view from XML inside AlertDialog
@@ -352,6 +363,78 @@ SearchView search;
     // disallow cancel of AlertDialog on click of back button and outside touch
     alert.setTitle(" Search your class ");
     alert.setIcon(R.drawable.ic_add_circle_outline_black_24dp);
+    search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return true;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            String text = newText;
+            Log.v("sosos", text);
+            newText = newText.toLowerCase();
+
+            arrayList = new ArrayList<>();
+
+            SharedPreferences prefs = getSharedPreferences("college",MODE_PRIVATE);
+            colname = prefs.getString("cllgname", null);
+            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference myRef = database.getReference("Colleges").child(colname);
+Log.e("cccccc",colname);
+
+            final String finalNewText = newText;
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                    arrayList = new ArrayList<>();
+
+
+
+
+
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                        if ((dataSnapshot1.getKey()).toLowerCase().contains(finalNewText)) {
+
+                            Log.d("sosoooo", dataSnapshot1.getKey());
+
+                            if (!(arrayList.contains(dataSnapshot1.getKey()))) {
+                                arrayList.add(dataSnapshot1.getKey());
+
+
+                            }
+                        }
+
+                    }
+                    adapter = new Adaptersearchclasscllg(CaldroidSampleActivity.this, arrayList);
+
+
+                    list.setAdapter(adapter);
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+            return false;
+        }});
+
+
+
+
+
+
     alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
         @Override
@@ -361,21 +444,28 @@ SearchView search;
     });
 
 
-    alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+    alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
+
 
         @Override
         public void onClick(DialogInterface dialog, int which) {
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
     });
     AlertDialog dialog = alert.create();
     dialog.show();
-
-
-
-
-
 
 
 
