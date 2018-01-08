@@ -18,7 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -82,18 +81,19 @@ class Adaptersearchclasscllg extends BaseAdapter {
 
                     holder.r.setBackgroundColor(Color.LTGRAY);
                     Log.i("mycllgname",ConnectActivity.mycllgname);
-                    DatabaseHandler db = new DatabaseHandler(mcontext);
+
+
+               /*     DatabaseHandler db = new DatabaseHandler(mcontext);
                     List<Contact> contacts = db.getAllContacts();
 
                     for (Contact cn : contacts) {if ((cn.getPo().equals(MainActivity.semno))){
                         if (cn.getName().equals(MainActivity.subbb)) {
+                            Log.e("cnnameee",cn.getName());
                            cn.setName(title.get(position));
                         }}}
+*/
+               CaldroidSampleActivity.addclass(title.get(position));
 
-                    FirebaseDatabase database=FirebaseDatabase.getInstance();
-                    DatabaseReference myRef1 = database.getReference("Colleges").child(ConnectActivity.mycllgname).child(MainActivity.subbb).child(ConnectActivity.usernamee);
-
-                    myRef1.child(ConnectActivity.mynaam).setValue("5/1/18");
 
 
 

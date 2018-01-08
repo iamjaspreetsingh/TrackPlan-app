@@ -203,7 +203,7 @@ if(text.equals(""))
         list.setAdapter(adapter);
 
          arrayList2=new ArrayList<>();
-    arrayList22=new ArrayList<>();
+         arrayList22=new ArrayList<>();
         arrayList202=new ArrayList<>();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();

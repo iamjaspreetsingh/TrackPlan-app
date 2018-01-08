@@ -499,11 +499,7 @@ static  String mycllgname="";
 @Override
     protected void onResume()
 {
-super.onResume();
-    SharedPreferences.Editor editor= getSharedPreferences("college",MODE_PRIVATE).edit();
-    editor.putString("cllgname",mycllgname);
-
-    editor.apply();
+    super.onResume();
 
 
 

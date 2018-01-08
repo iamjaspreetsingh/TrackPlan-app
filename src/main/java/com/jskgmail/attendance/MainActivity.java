@@ -343,6 +343,18 @@ if((!unm.equals(""))) {
     protected void onResume()
     {
         super.onResume();
+
+        SharedPreferences.Editor editor= getSharedPreferences("college",MODE_PRIVATE).edit();
+        editor.putString("cllgname",ConnectActivity.mycllgname);
+        Log.e("cooooo",ConnectActivity.mycllgname);
+        editor.apply();
+
+
+
+
+
+
+
         final TextView t=(TextView)findViewById(R.id.empty);
         t.setVisibility(View.INVISIBLE);
 

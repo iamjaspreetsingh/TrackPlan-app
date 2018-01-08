@@ -39,6 +39,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import ru.dimorinny.floatingtextbutton.FloatingTextButton;
 
@@ -52,7 +53,7 @@ public class CaldroidSampleActivity extends AppCompatActivity {
     private boolean undo = false;
     private CaldroidFragment caldroidFragment;
     private CaldroidFragment dialogCaldroidFragment;
-
+static String collegeclass="na";
     private void setCustomResourceForDatesA(Date date) {
 
 
@@ -162,7 +163,7 @@ public class CaldroidSampleActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         checkdata1();
         FloatingTextButton callButton = (FloatingTextButton) findViewById(R.id.floatingTextButton);
-        final ScrollView s=(ScrollView)findViewById(R.id.s);
+
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -172,16 +173,26 @@ public class CaldroidSampleActivity extends AppCompatActivity {
                 SharedPreferences prefs = getSharedPreferences("college",MODE_PRIVATE);
               colname = prefs.getString("cllgname", null);
                 //TODO search list and save for the list
-firstsubjectclass();
+                // TODO now implement it in sqllite college class ...
+                if (!collegeclass.equals("na"))
+                firstsubjectclass();
+                else
+                {
+                    final ScrollView s=(ScrollView)findViewById(R.id.s);
+
+
+                            DatabaseReference myRef1 = database.getReference("Colleges").child(ConnectActivity.mycllgname).child(collegeclass).child("Students");
+                            String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                            myRef1.child(ConnectActivity.mynaam).setValue(date);
+
+
+                            Snackbar.make(s, "Attendance marked for today", Snackbar.LENGTH_SHORT).show();
+                }
+
 Log.e("ttttttttt",colname);
-colname="Iit Delhi";
-
-                DatabaseReference myRef1 = database.getReference("Colleges").child(colname).child(MainActivity.subbb+"Cse-2").child(ConnectActivity.usernamee);
-
-                myRef1.child(ConnectActivity.mynaam).setValue("todays date");
 
 
-                Snackbar.make(s, "Attendance marked for today", Snackbar.LENGTH_SHORT).show();
+
             }
         });
 
@@ -288,24 +299,6 @@ Log.i("dadadadadadadad",dmyyy);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
 
             @Override
@@ -351,7 +344,7 @@ void firstsubjectclass()
 {
     LayoutInflater inflater = getLayoutInflater();
     View alertLayout = inflater.inflate(R.layout.layoutsearchclass, null);
-SearchView search;
+    SearchView search;
     search= (SearchView) alertLayout.findViewById(R.id.searchView);
     final ListView list = (ListView) alertLayout.findViewById(R.id.cllgsearch);
 //showww class and subjects
@@ -381,7 +374,7 @@ SearchView search;
             colname = prefs.getString("cllgname", null);
             final FirebaseDatabase database = FirebaseDatabase.getInstance();
             final DatabaseReference myRef = database.getReference("Colleges").child(colname);
-Log.e("cccccc",colname);
+            Log.e("cccccc",colname);
 
             final String finalNewText = newText;
             myRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -391,9 +384,6 @@ Log.e("cccccc",colname);
 
 
                     arrayList = new ArrayList<>();
-
-
-
 
 
                     // This method is called once with the initial value and again
@@ -443,12 +433,19 @@ Log.e("cccccc",colname);
         }
     });
 
-
+    final ScrollView s=(ScrollView)findViewById(R.id.s);
     alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
 
 
         @Override
         public void onClick(DialogInterface dialog, int which) {
+            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef1 = database.getReference("Colleges").child(ConnectActivity.mycllgname).child(collegeclass).child("Students");
+            String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+            myRef1.child(ConnectActivity.mynaam).setValue(date);
+
+
+           Snackbar.make(s, "Attendance marked for today", Snackbar.LENGTH_SHORT).show();
 
 
         }
@@ -470,47 +467,7 @@ Log.e("cccccc",colname);
 
 
 
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1989,7 +1946,10 @@ Log.i("dkndkandkdskjdakjdsnadsdsd",new1);
 
 
 
-
+static void addclass(String classclg)
+{
+   collegeclass=classclg;
+}
 
 
 

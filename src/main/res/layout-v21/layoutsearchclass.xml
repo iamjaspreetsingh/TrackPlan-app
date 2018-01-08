@@ -9,7 +9,7 @@
         android:layout_centerHorizontal="true"
         android:elevation="4dp"
         android:iconifiedByDefault="false"
-        android:queryHint="Search college name" />
+        android:queryHint="Search your class " />
 
     <ListView
         android:id="@+id/cllgsearch"
