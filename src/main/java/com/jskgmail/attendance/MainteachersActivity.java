@@ -117,7 +117,20 @@ check();
 
 
 
-check11();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent i=new Intent(MainteachersActivity.this,MaincameraaActivity.class);
+                startActivity(i);
+
+
+
+
+
+            }
+        });
 
 
 
@@ -323,24 +336,6 @@ void check()
 }
 
 
-
-    void check11() {
-        ListView listView = (ListView) findViewById(R.id.lvt);
-listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-Intent i=new Intent(MainteachersActivity.this,MaincameraaActivity.class);
-startActivity(i);
-
-
-
-
-
-    }
-});
-
-    }
 
 
 
