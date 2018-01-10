@@ -56,10 +56,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_alignBottom="@+id/textView36"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="8dp"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="25dp"
             android:gravity="center_horizontal"
             android:paddingLeft="58dp"
             android:text="Percentage :"
@@ -139,7 +139,6 @@
         <ru.dimorinny.floatingtextbutton.FloatingTextButton
             android:id="@+id/floatingTextButton"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:layout_below="@+id/calendar1"
             android:layout_centerHorizontal="true"

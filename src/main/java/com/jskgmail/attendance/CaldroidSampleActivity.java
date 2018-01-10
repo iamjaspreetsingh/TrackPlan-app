@@ -181,12 +181,12 @@ static String collegeclass="na";
                     final ScrollView s=(ScrollView)findViewById(R.id.s);
 
 
-                            DatabaseReference myRef1 = database.getReference("Colleges").child(ConnectActivity.mycllgname).child(collegeclass).child("Students");
-                            String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                            myRef1.child(ConnectActivity.mynaam).setValue(date);
+                    DatabaseReference myRef1 = database.getReference("Colleges").child(ConnectActivity.mycllgname).child(collegeclass).child("Students");
+                    String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                    myRef1.child(ConnectActivity.mynaam).setValue(date);
 
 
-                            Snackbar.make(s, "Attendance marked for today", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(s, "Attendance marked for today", Snackbar.LENGTH_SHORT).show();
                 }
 
 Log.e("ttttttttt",colname);

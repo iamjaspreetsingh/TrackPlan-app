@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -116,7 +117,7 @@ check();
 
 
 
-
+check11();
 
 
 
@@ -319,4 +320,29 @@ void check()
 
 
 
-}}
+}
+
+
+
+    void check11() {
+        ListView listView = (ListView) findViewById(R.id.lvt);
+listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+Intent i=new Intent(MainteachersActivity.this,MaincameraaActivity.class);
+startActivity(i);
+
+
+
+
+
+    }
+});
+
+    }
+
+
+
+
+}
