@@ -174,7 +174,7 @@ static String collegeclass="na";
               colname = prefs.getString("cllgname", null);
                 //TODO search list and save for the list
                 // TODO now implement it in sqllite college class ...
-                if (!collegeclass.equals("na"))
+                if (collegeclass.equals("na"))
                 firstsubjectclass();
                 else
                 {

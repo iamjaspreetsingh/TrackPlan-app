@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="match_parent"
     tools:context="com.jskgmail.attendance.MaincameraaActivity">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"
+        android:layout_weight="1"
+        android:text="Attendance marked for : 11/1/18 \n\n1. Jaspreet Singh"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView82"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/atttaking"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="158dp" />
-</LinearLayout>
+        android:layout_alignEnd="@+id/textView80"
+        android:layout_alignLeft="@+id/textView80"
+        android:layout_alignRight="@+id/textView80"
+        android:layout_alignStart="@+id/textView80"
+        android:layout_below="@+id/textView80"
+        android:layout_marginTop="76dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+</RelativeLayout>

@@ -123,7 +123,7 @@
                 android:layout_marginStart="9dp"
                 android:layout_toEndOf="@+id/textView78"
                 android:layout_toRightOf="@+id/textView78"
-                android:text="16"
+                android:text="0"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/greendark"
                 android:textSize="16sp"
