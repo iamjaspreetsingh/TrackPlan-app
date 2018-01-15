@@ -77,9 +77,7 @@ dispatchTakePictureIntent();
         mCurrentPhotoPath = image.getAbsolutePath();
 Log.e("paath",mCurrentPhotoPath);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            goapii();
-        }
+
         return image;
 
     }
@@ -100,7 +98,9 @@ Log.e("paath",mCurrentPhotoPath);
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    goapii();
+                }
             }
 
         }
@@ -361,7 +361,7 @@ facetoken=re[re.length-1].replace("}]}","").replace("\"","");
 
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 //TODO
-                    Log.e("filee", String.valueOf(image));
+
                     retrofit2.Call call = apiService.getall("8eXIfwPbVhLUXV4xt9eW2xRSxWt74Fki","9xyBX7iWUUWu4msZbaAm6_XTRN9OiT5b","537c2b49a9a160655b9a3c707555af4b",facetoken);
                     call.enqueue(new retrofit2.Callback() {
                         @Override
@@ -483,11 +483,8 @@ facetoken=re[re.length-1].replace("}]}","").replace("\"","");
         Log.e("filee", String.valueOf(image));
         retrofit2.Call call1 = apiService1.getall("8eXIfwPbVhLUXV4xt9eW2xRSxWt74Fki",
                 "9xyBX7iWUUWu4msZbaAm6_XTRN9OiT5b",
-                "https://firebasestorage.googleapis.com/v0/b/attendance-4e350.appspot.com/o/06112011292-001.jpg?alt=media&token=a087ec2b-891c-4182-8df7-1917685aeb11"
-);
-
-
-
+                photoFile
+        );
 
 
 
@@ -566,8 +563,8 @@ facetoken=re[re.length-1].replace("}]}","").replace("\"","");
         @POST("detect")
         retrofit2.Call<ResponseBody> getall(@Query("api_key") String code,
                                             @Query("api_secret") String monthact,
-                                           // @Query("image_file") File imagefile
-                                            @Query("image_url") String url
+                                            @Query("image_file") File imagefile
+                                         //   @Query("image_url") String url
                                             // https://firebasestorage.googleapis.com/v0/b/attendance-4e350.appspot.com/o/06112011292-001.jpg?alt=media&token=a087ec2b-891c-4182-8df7-1917685aeb11
 
         );
