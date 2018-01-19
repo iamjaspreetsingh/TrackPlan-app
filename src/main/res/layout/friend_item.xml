@@ -123,7 +123,7 @@
                 android:layout_toRightOf="@+id/textView12"
                 android:paddingBottom="5dp"
                 android:paddingLeft="1dp"
-                app:srcCompat="@drawable/common_full_open_on_phone" />
+                app:srcCompat="@drawable/atttaking" />
 
             <ImageView
                 android:id="@+id/imageView3"
