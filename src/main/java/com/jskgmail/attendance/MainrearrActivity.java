@@ -127,13 +127,15 @@ else {
         for(int ii=0;ii<nameposi.length;ii++)
         {
             String nameposssss=nameposi[ii];
+            if(nameposssss.contains("\\,"))
+            {
             String[] nameposgoset=nameposssss.split("\\,");
            Log.i("nameposgo00000",nameposgoset[0]);
 
             Log.i("nameposgo11111",nameposgoset[1]);
             mAdapter.add(nameposgoset[1]);
 
-        }
+        }}
 
 
 
@@ -207,63 +209,41 @@ public void go()
 
 
 
+            if(finalNapo.contains("\\.")) {
 
-            String[] rear= finalNapo.split("\\.");
-            String[] reariicop= finalNapo.split("\\.");
+                String[] rear = finalNapo.split("\\.");
+                String[] reariicop = finalNapo.split("\\.");
 
-String[]rearii = new String[rear.length];
-            for (int ii=0;ii<rear.length;ii++)
-            {
+                String[] rearii = new String[rear.length];
+                for (int ii = 0; ii < rear.length; ii++) {
 
-                for (int jj=0;jj<rear.length;jj++) {Log.i("yyyyyyyyyyywhywhyyyy",rear[jj]);
-                    Log.i("yyyyywhyhyyyy",mAdapter.getItem(ii));
-                    if((reariicop[jj]).contains(String.valueOf( mAdapter.getItem(ii))))
-                    {Log.i("yyyyyyyyyyyyyy","yyyyyyyyyy");
-                        rearii[ii]=String.valueOf(ii+",")+mAdapter.getItem(ii);
+                    for (int jj = 0; jj < rear.length; jj++) {
+                        Log.i("yyyyyyyyyyywhywhyyyy", rear[jj]);
+                        Log.i("yyyyywhyhyyyy", mAdapter.getItem(ii));
+                        if ((reariicop[jj]).contains(String.valueOf(mAdapter.getItem(ii)))) {
+                            Log.i("yyyyyyyyyyyyyy", "yyyyyyyyyy");
+                            rearii[ii] = String.valueOf(ii + ",") + mAdapter.getItem(ii);
+
+                        }
+
 
                     }
-
-
                 }
+
+
+                String napoo = "";
+                for (int iii = 0; iii < rear.length; iii++) {
+                    napoo = napoo + rearii[iii] + ".";
+                }
+
+
+                Log.i("napooooooooooooooooooo", napoo);
+                SharedPreferences.Editor editor1 = getSharedPreferences("rearrange", 0).edit();
+                editor1.putString("rearrange", napoo);
+                editor1.commit();
+
+
             }
-
-
-
-
-
-
-            String napoo="";
-            for (int iii=0;iii<rear.length;iii++)
-            {napoo=napoo+rearii[iii]+".";}
-
-
-            Log.i("napooooooooooooooooooo",napoo);
-            SharedPreferences.Editor editor1 = getSharedPreferences("rearrange", 0).edit();
-            editor1.putString("rearrange",napoo );
-            editor1.commit();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         }

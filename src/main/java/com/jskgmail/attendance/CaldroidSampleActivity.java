@@ -1555,14 +1555,16 @@ a.setCheckMarkDrawable(R.drawable.ic_radio_button_unchecked_black_24dp);
 
 
 
+
                          noteindfi=cn.getNote().split("\\.");
                             for(int joo=0;joo<noteindfi.length;joo++) {
-                                String[] daatee = noteindfi[joo].split("\\,");
+                                if(noteindfi[joo].contains(","))
+                                { String[] daatee = noteindfi[joo].split("\\,");
 
                                 Log.i(daatee[1], dmyyy);
                                 if (daatee[1].equals(dmyyy.replace(".", "")))
                                     cn.setNote(cn.getNote().replace(noteindfi[joo]+".", ""));
-                            }
+                            }}
 
 
 

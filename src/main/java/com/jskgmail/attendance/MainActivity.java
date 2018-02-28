@@ -1999,7 +1999,8 @@ void checkdataforrearrange()
     SharedPreferences pref1=getSharedPreferences("rearrange",0);
     final String insem122=pref1.getString("rearrange","0.0");
 
-
+    if(insem122.contains("\\."))
+    {
     String[] nameposi = insem122.split("\\.");
     for(int ii=0;ii<nameposi.length;ii++) {
         String nameposssss = nameposi[ii];
@@ -2007,7 +2008,6 @@ void checkdataforrearrange()
         Log.i("nameposgo00000", nameposgoset[0]);
 
         Log.i("nameposgo11111", nameposgoset[1]);
-
 
 
         DatabaseHandler db = new DatabaseHandler(this);
@@ -2018,26 +2018,23 @@ void checkdataforrearrange()
         for (Contact cn : contacts) {
 
 
-
-
-
+            if ((cn.getPo().equals(MainActivity.semno))) {
                 if ((cn.getPo().equals(MainActivity.semno))) {
-                    if ((cn.getPo().equals(MainActivity.semno))) {
-                        totalsub = cn.getID() + 1;
-                    }
+                    totalsub = cn.getID() + 1;
                 }
             }
+        }
 
-            for (Contact cn : contacts) {
-                if (cn.getName().equals(nameposgoset[1]))
+        for (Contact cn : contacts) {
+            if (cn.getName().equals(nameposgoset[1]))
 
-                {
+            {
 
                 if ((cn.getPo().equals(semno))) {
 
 
                     stringArrayList1.add(cn.getName());
-                    stringArrayList.add( cn.getPresent()+"      Total:  "+(Integer.parseInt(cn.getPresent())+(Integer.parseInt(cn.getAbssent()))));
+                    stringArrayList.add(cn.getPresent() + "      Total:  " + (Integer.parseInt(cn.getPresent()) + (Integer.parseInt(cn.getAbssent()))));
 
                     int ab = Integer.parseInt(cn.getAbssent());
                     int pr = Integer.parseInt(cn.getPresent());
@@ -2055,48 +2052,39 @@ void checkdataforrearrange()
                         incdec = 0;
                     else
                         incdec = -Integer.parseInt(cn.getPhoneNumber()) + percen;
-                    int crittt=Integer.parseInt(cn.getPhoneNumber());
-                    int tot=pr+ab;
-                    int pp=pr,tott=tot;
-                    int next=0,nextt=0;
-                    per =((float)pr/tot)*100;
-                    float percc=per;
-                    if((pr==0)&&(ab==0))
-                    {
-                       stringArrayList3.add("Add the Attendance");
-                    }
-
-                    else if(Integer.parseInt(cn.getPhoneNumber())>per) {
-                        while(percc<crittt)
-                        {
+                    int crittt = Integer.parseInt(cn.getPhoneNumber());
+                    int tot = pr + ab;
+                    int pp = pr, tott = tot;
+                    int next = 0, nextt = 0;
+                    per = ((float) pr / tot) * 100;
+                    float percc = per;
+                    if ((pr == 0) && (ab == 0)) {
+                        stringArrayList3.add("Add the Attendance");
+                    } else if (Integer.parseInt(cn.getPhoneNumber()) > per) {
+                        while (percc < crittt) {
                             pp++;
                             tott++;
-                            percc =((float)pp/tott)*100;
+                            percc = ((float) pp / tott) * 100;
                             next++;
                         }
-                        stringArrayList3.add("Need to attend next "+next+" classes !.");
-                    }
-                    else if(crittt<per)  {
+                        stringArrayList3.add("Need to attend next " + next + " classes !.");
+                    } else if (crittt < per) {
 
 
-
-                        while(percc>crittt)
-                        {
+                        while (percc > crittt) {
 
                             tott++;
-                            percc =((float)pp/tott)*100;
+                            percc = ((float) pp / tott) * 100;
                             nextt++;
                         }
 
                         nextt--;
-                        if(nextt==1)
-                           stringArrayList3.add("May leave next 1 class !!.");
-                        else    if(nextt!=0)
-                            stringArrayList3.add("May leave next "+nextt+" classes !!.");
-                        else   stringArrayList3.add("On the Track !!.");
-                    }
-                    else    stringArrayList3.add("On the Track !!.");
-
+                        if (nextt == 1)
+                            stringArrayList3.add("May leave next 1 class !!.");
+                        else if (nextt != 0)
+                            stringArrayList3.add("May leave next " + nextt + " classes !!.");
+                        else stringArrayList3.add("On the Track !!.");
+                    } else stringArrayList3.add("On the Track !!.");
 
 
                     if (incdec >= 0)
@@ -2111,7 +2099,7 @@ void checkdataforrearrange()
 
 
         }
-
+    }
 
     }
 
