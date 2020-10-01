@@ -9,10 +9,10 @@
 <br><hr>
   Salient Features include :<br>
 ★  Simple and easy to use attendance environment<br>
-★ <b> Criteria </b>followed for attendance(in %)<br>
+★ <b> Criteria </b>followed for attendance (in %)<br>
 ★  <b>Add timetable</b> and manage notifications accordingly<br>
 ★<b> Add multiple attendance  </b> (presents / absents) for a particular date<br>
-★  Easy to <b> modify , reset and delete</b> subjects for attendance <br>
+★  Easy to <b> modify, reset and delete</b> subjects for attendance <br>
 ★  Calculates your <b> percentage</b> and defines how is it going<br>
 ★  Has the facility of <b>adding note</b> for any particular date and highlight it <br>
 ★ <b> Notifications </b>as per your wish<br>
@@ -27,8 +27,8 @@
    To start using app:<br>
 •  Click on <b>add (+)</b> button at  bottom right corner and add the subject name and criteria for it. Criteria is the minimum percentage you require as per your college / school rules  
 <br>•  By clicking on subject you may add attendance by clicking on the dates required.<br>
-•  Long click on subject to <b>modify , reset or delete </b>subject from attendance <br>
-•  This screen shows subject name , total no. of presents , percentage in that subject<br>
+•  Long click on subject to <b>modify, reset or delete </b>subject from attendance <br>
+•  This screen shows subject name, total no. of presents, percentage in that subject<br>
     The<b> increase / decrease icon</b> helps you to keep the track as per your criteria <br>
    
 <hr>
@@ -38,11 +38,11 @@
 •  Can add the facility of multiple attendance i.e. more than 1 present/absent for a 
     particular date <br>
 <hr>
-   On the start screen , <b>swipe</b> from left to right to get extra menus that include:<br>
+   On the start screen, <b>swipe</b> from left to right to get extra menus that include:<br>
 •   <b>My Timetable</b> :   Manage your subject's timetable and the notifications accordingly<br>
 •   <b>Overall % </b>        :   Calculates overall % of student across all subjects <br>
 •   <b>History</b>            :   To see the record of dates on which you were present<br>
-•   <b>Sort </b>                :   To easily view student attendance according to the sorting that includes sorting by name , presents , absents , and percentage 
+•   <b>Sort </b>                :   To easily view student attendance according to the sorting that includes sorting by name, presents, absents and percentage 
 <br>•   <b>Rearrange</b>      :   To rearrange your subjects as per your wish (by dragging it to required position )<br>
 
 •   <b>Settings</b>         :    It includes features :<br>
